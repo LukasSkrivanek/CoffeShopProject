@@ -18,3 +18,12 @@ extension Binding where Value == Bool {
         }
     }
 }
+
+extension Binding {
+    static func twoWay<T>(_ keyPath: ReferenceWritableKeyPath<T, Value>, on object: T) -> Binding<Value> where T: Observable {
+        return Binding(
+            get: { object[keyPath: keyPath] },
+            set: { object[keyPath: keyPath] = $0 }
+        )
+    }
+}

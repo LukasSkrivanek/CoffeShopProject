@@ -44,7 +44,7 @@ struct DrinkRow: View {
             .frame(maxWidth: .infinity)
             
         }
-        .tint(.black)
+        .tint(.primary)
     }
 }
 

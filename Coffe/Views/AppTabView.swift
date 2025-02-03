@@ -11,7 +11,6 @@ struct AppTabView: View {
     @Environment(UserRepository.self) private var  userRepository
     @Environment(AccountViewModel.self) private var accountViewModel
     @State var isSignedIn: Bool = true
-    @State var authenticationViewModel = AuthenticationViewModel()
     var body: some View {
         TabView{
             HomeView()

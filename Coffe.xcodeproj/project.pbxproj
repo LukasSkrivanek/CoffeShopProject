@@ -12,7 +12,6 @@
 		FA1E15B52BA203820013E0CF /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FA1E15B42BA203820013E0CF /* FirebaseFirestoreSwift */; };
 		FA3317722B9DC5E900248936 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = FA3317712B9DC5E900248936 /* GoogleSignIn */; };
 		FA3317742B9DC5E900248936 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FA3317732B9DC5E900248936 /* GoogleSignInSwift */; };
-		FA3317762B9DC68400248936 /* GoogleSignInHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3317752B9DC68400248936 /* GoogleSignInHelper.swift */; };
 		FA3317782B9DC6DC00248936 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3317772B9DC6DC00248936 /* Utilities.swift */; };
 		FA33177A2B9DC8B200248936 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3317792B9DC8B200248936 /* AuthenticationViewModel.swift */; };
 		FA33177D2B9DF4E100248936 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA33177C2B9DF4E100248936 /* GoogleService-Info.plist */; };
@@ -22,7 +21,6 @@
 		FAA1D1BB2B8C80F600EE7364 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAA1D1BA2B8C80F600EE7364 /* Assets.xcassets */; };
 		FAA1D1BE2B8C80F600EE7364 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAA1D1BD2B8C80F600EE7364 /* Preview Assets.xcassets */; };
 		FAA1D1E32B8C819A00EE7364 /* BasketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1E22B8C819A00EE7364 /* BasketView.swift */; };
-		FAA1D1E52B8C81A700EE7364 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1E42B8C81A700EE7364 /* AccountView.swift */; };
 		FAA1D1E62B8C81C300EE7364 /* AppTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1E02B8C811500EE7364 /* AppTabView.swift */; };
 		FAA1D1EB2B8C825A00EE7364 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1EA2B8C825A00EE7364 /* Drink.swift */; };
 		FAA1D1ED2B8C831C00EE7364 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1EC2B8C831C00EE7364 /* DummyData.swift */; };
@@ -31,7 +29,6 @@
 		FAA1D1F32B8C8ABD00EE7364 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1F22B8C8ABD00EE7364 /* UserModel.swift */; };
 		FAA1D1F62B8C8B9800EE7364 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1F52B8C8B9800EE7364 /* HomeViewModel.swift */; };
 		FAA1D1F92B8C8C8C00EE7364 /* FirebaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1F82B8C8C8C00EE7364 /* FirebaseRepository.swift */; };
-		FAA1D2042B8CDD9900EE7364 /* DrinkDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D2032B8CDD9900EE7364 /* DrinkDetailView.swift */; };
 		FAA1D2062B8CE41B00EE7364 /* BasketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D2052B8CE41B00EE7364 /* BasketViewModel.swift */; };
 		FAA1D2082B8DEC2D00EE7364 /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D2072B8DEC2D00EE7364 /* AccountViewModel.swift */; };
 		FAA1D20D2B8E02D800EE7364 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = FAA1D20C2B8E02D800EE7364 /* KeychainAccess */; };
@@ -65,7 +62,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		FA3317752B9DC68400248936 /* GoogleSignInHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInHelper.swift; sourceTree = "<group>"; };
 		FA3317772B9DC6DC00248936 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		FA3317792B9DC8B200248936 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		FA33177C2B9DF4E100248936 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -80,7 +76,6 @@
 		FAA1D1CD2B8C80F600EE7364 /* CoffeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoffeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA1D1E02B8C811500EE7364 /* AppTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabView.swift; sourceTree = "<group>"; };
 		FAA1D1E22B8C819A00EE7364 /* BasketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketView.swift; sourceTree = "<group>"; };
-		FAA1D1E42B8C81A700EE7364 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		FAA1D1EA2B8C825A00EE7364 /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
 		FAA1D1EC2B8C831C00EE7364 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		FAA1D1EE2B8C8A4800EE7364 /* Basket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Basket.swift; sourceTree = "<group>"; };
@@ -88,7 +83,6 @@
 		FAA1D1F22B8C8ABD00EE7364 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		FAA1D1F52B8C8B9800EE7364 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		FAA1D1F82B8C8C8C00EE7364 /* FirebaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseRepository.swift; sourceTree = "<group>"; };
-		FAA1D2032B8CDD9900EE7364 /* DrinkDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkDetailView.swift; sourceTree = "<group>"; };
 		FAA1D2052B8CE41B00EE7364 /* BasketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewModel.swift; sourceTree = "<group>"; };
 		FAA1D2072B8DEC2D00EE7364 /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		FAA1D2102B8E036100EE7364 /* SecureStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureStorage.swift; sourceTree = "<group>"; };
@@ -104,6 +98,9 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		FAFF03EA2D4BA6FE00BCA8CE /* Alert */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Alert; sourceTree = "<group>"; };
 		FAFF03ED2D4BA73700BCA8CE /* Extensions */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Extensions; sourceTree = "<group>"; };
+		FAFF03F22D4E253600BCA8CE /* GoogleSignIn */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = GoogleSignIn; sourceTree = "<group>"; };
+		FAFF03F42D4E285200BCA8CE /* AccountView */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = AccountView; sourceTree = "<group>"; };
+		FAFF03F82D4E410900BCA8CE /* DrinkDetailView */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = DrinkDetailView; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,10 +185,9 @@
 			isa = PBXGroup;
 			children = (
 				FAA1D1E02B8C811500EE7364 /* AppTabView.swift */,
-				FAA1D1B82B8C80F400EE7364 /* HomeView.swift */,
-				FAA1D1E42B8C81A700EE7364 /* AccountView.swift */,
+				FAFF03F72D4E40F800BCA8CE /* HomeView */,
+				FAFF03F42D4E285200BCA8CE /* AccountView */,
 				FAA1D1E22B8C819A00EE7364 /* BasketView.swift */,
-				FAA1D2032B8CDD9900EE7364 /* DrinkDetailView.swift */,
 				FAA1D21B2B8F1DA400EE7364 /* Components */,
 			);
 			path = Views;
@@ -255,10 +251,19 @@
 		FADA61F42B9C9BDA00FDD9AF /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				FAFF03F22D4E253600BCA8CE /* GoogleSignIn */,
 				FADA61F52B9C9CA100FDD9AF /* AuthenticationManager.swift */,
-				FA3317752B9DC68400248936 /* GoogleSignInHelper.swift */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		FAFF03F72D4E40F800BCA8CE /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				FAFF03F82D4E410900BCA8CE /* DrinkDetailView */,
+				FAA1D1B82B8C80F400EE7364 /* HomeView.swift */,
+			);
+			path = HomeView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,6 +284,9 @@
 			fileSystemSynchronizedGroups = (
 				FAFF03EA2D4BA6FE00BCA8CE /* Alert */,
 				FAFF03ED2D4BA73700BCA8CE /* Extensions */,
+				FAFF03F22D4E253600BCA8CE /* GoogleSignIn */,
+				FAFF03F42D4E285200BCA8CE /* AccountView */,
+				FAFF03F82D4E410900BCA8CE /* DrinkDetailView */,
 			);
 			name = Coffe;
 			packageProductDependencies = (
@@ -414,7 +422,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAA1D2112B8E036100EE7364 /* SecureStorage.swift in Sources */,
-				FAA1D1E52B8C81A700EE7364 /* AccountView.swift in Sources */,
 				FAA1D2222B8F231000EE7364 /* FColletionReference.swift in Sources */,
 				FAA1D1F62B8C8B9800EE7364 /* HomeViewModel.swift in Sources */,
 				FAA1D1EF2B8C8A4800EE7364 /* Basket.swift in Sources */,
@@ -427,12 +434,10 @@
 				FAA1D1B72B8C80F400EE7364 /* CoffeApp.swift in Sources */,
 				FADA61FC2B9CCE4E00FDD9AF /* SignInModelView.swift in Sources */,
 				FA56F5E42D4B759B004B12E9 /* DependencyContainer.swift in Sources */,
-				FAA1D2042B8CDD9900EE7364 /* DrinkDetailView.swift in Sources */,
 				FA3317782B9DC6DC00248936 /* Utilities.swift in Sources */,
 				FA33177A2B9DC8B200248936 /* AuthenticationViewModel.swift in Sources */,
 				FADA61F62B9C9CA100FDD9AF /* AuthenticationManager.swift in Sources */,
 				FAA1D1F92B8C8C8C00EE7364 /* FirebaseRepository.swift in Sources */,
-				FA3317762B9DC68400248936 /* GoogleSignInHelper.swift in Sources */,
 				FAA1D1EB2B8C825A00EE7364 /* Drink.swift in Sources */,
 				FAA1D1F32B8C8ABD00EE7364 /* UserModel.swift in Sources */,
 				FAA1D21A2B8F1D9C00EE7364 /* RemoteImageView.swift in Sources */,
