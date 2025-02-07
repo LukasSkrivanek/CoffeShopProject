@@ -13,7 +13,9 @@ struct CoffeApp: App {
     
     var body: some Scene {
         WindowGroup {
-            AppTabView()
+            CoordinatorView()
+                .environment(Coordinator())
+                .environment(DependencyContainer.shared.resolve(LoginMethodSelectionViewModel.self))
                 .environment(DependencyContainer.shared.resolve(BasketViewModel.self))
                 .environment(DependencyContainer.shared.resolve(UserRepository.self))
                 .environment(DependencyContainer.shared.resolve(HomeViewModel.self))

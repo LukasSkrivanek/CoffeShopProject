@@ -7,6 +7,8 @@
 import SwiftUI
 
 struct AccountView: View {
+    @Environment(Coordinator.self) private var coordinator
+    
     @Environment(UserRepository.self) private var userRepository
     @Environment(AccountViewModel.self) private var accountViewModel
     @Environment(AuthenticationViewModel.self) private var authenticationViewModel
@@ -23,7 +25,7 @@ struct AccountView: View {
                         UserInfoView(user: user, logOutAction: logOut)
                     } else {
                         AuthButtonsView(
-                            onLogin: { accountViewModel.isLoginSheetPresented.toggle() },
+                            onLogin: { coordinator.presentSheet(.loginMethod)},
                             onRegister: { accountViewModel.isRegisterSheetPresented.toggle() }
                         )
                     }
@@ -38,14 +40,7 @@ struct AccountView: View {
                     accountViewModel.setup(user: user)
                 }
             }
-            .sheet(isPresented:.twoWay(\.isLoginSheetPresented, on: accountViewModel)) {
-                LoginMethodSelectionView { selectedMethod in
-                    accountViewModel.loginMethod = selectedMethod
-                    handleLoginMethod(selectedMethod)
-                }
-                .preferredColorScheme(colorScheme)
-                .presentationDetents([.fraction(0.3)])
-            }
+            
             .sheet(isPresented: .twoWay(\.isRegisterSheetPresented, on: accountViewModel)) {
                 RegistrationView(isPresented: .twoWay(\.isRegisterSheetPresented, on: accountViewModel), isSignedIn: $isSignedIn)
                     .presentationDetents([.fraction(0.6)])
@@ -75,7 +70,7 @@ struct AccountView: View {
             } catch {
                 print(error)
             }
-            accountViewModel.isLoginSheetPresented.toggle()
+           
         }
     }
 }

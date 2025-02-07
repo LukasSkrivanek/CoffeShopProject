@@ -8,22 +8,26 @@
 import SwiftUI
 
 struct AppTabView: View {
+    @Environment(Coordinator.self) private var coordinator
+    
     @Environment(UserRepository.self) private var  userRepository
     @Environment(AccountViewModel.self) private var accountViewModel
+    
+    
     @State var isSignedIn: Bool = true
     var body: some View {
         TabView{
-            HomeView()
+            coordinator.build(page: .home)
                 .tabItem{
                     Image(systemName: "house")
                     Text("Home")
                 }
-            BasketView()
+            coordinator.build(page: .basket)
                 .tabItem{
                     Image(systemName: "bag")
                     Text("Basket")
                 }
-            AccountView(isSignedIn: $isSignedIn)
+            coordinator.build(page: .account)
                 .tabItem{
                     Image(systemName: "bag")
                     Text("Setting")

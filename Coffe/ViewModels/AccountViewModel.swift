@@ -11,7 +11,6 @@ import Observation
 @Observable
 final class AccountViewModel {
     var isDarkMode: Bool = false
-    var isLoginSheetPresented: Bool = false
     var isRegisterSheetPresented: Bool = false
     var loginMethod: LoginMethod? = nil
     

@@ -41,25 +41,9 @@
 		FADA61F32B9C680400FDD9AF /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = FADA61F22B9C680400FDD9AF /* Kingfisher */; };
 		FADA61F62B9C9CA100FDD9AF /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADA61F52B9C9CA100FDD9AF /* AuthenticationManager.swift */; };
 		FADA61FC2B9CCE4E00FDD9AF /* SignInModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADA61FB2B9CCE4E00FDD9AF /* SignInModelView.swift */; };
+		FAE160202D56127C0094A3BD /* LoginMethodSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE1601F2D56127C0094A3BD /* LoginMethodSelectionViewModel.swift */; };
 		FAFF034A2D4B773200BCA8CE /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = FAFF03492D4B773200BCA8CE /* Swinject */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		FAA1D1C42B8C80F600EE7364 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FAA1D1AB2B8C80F400EE7364 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FAA1D1B22B8C80F400EE7364;
-			remoteInfo = Coffe;
-		};
-		FAA1D1CE2B8C80F600EE7364 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FAA1D1AB2B8C80F400EE7364 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FAA1D1B22B8C80F400EE7364;
-			remoteInfo = Coffe;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		FA3317772B9DC6DC00248936 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
@@ -72,8 +56,6 @@
 		FAA1D1B82B8C80F400EE7364 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		FAA1D1BA2B8C80F600EE7364 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAA1D1BD2B8C80F600EE7364 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		FAA1D1C32B8C80F600EE7364 /* CoffeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoffeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FAA1D1CD2B8C80F600EE7364 /* CoffeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoffeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA1D1E02B8C811500EE7364 /* AppTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabView.swift; sourceTree = "<group>"; };
 		FAA1D1E22B8C819A00EE7364 /* BasketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketView.swift; sourceTree = "<group>"; };
 		FAA1D1EA2B8C825A00EE7364 /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
@@ -93,9 +75,11 @@
 		FAA1D2262B8F55A100EE7364 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		FADA61F52B9C9CA100FDD9AF /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		FADA61FB2B9CCE4E00FDD9AF /* SignInModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInModelView.swift; sourceTree = "<group>"; };
+		FAE1601F2D56127C0094A3BD /* LoginMethodSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginMethodSelectionViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		FAE160182D55F6D70094A3BD /* Coordinator */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Coordinator; sourceTree = "<group>"; };
 		FAFF03EA2D4BA6FE00BCA8CE /* Alert */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Alert; sourceTree = "<group>"; };
 		FAFF03ED2D4BA73700BCA8CE /* Extensions */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Extensions; sourceTree = "<group>"; };
 		FAFF03F22D4E253600BCA8CE /* GoogleSignIn */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = GoogleSignIn; sourceTree = "<group>"; };
@@ -119,20 +103,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FAA1D1C02B8C80F600EE7364 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FAA1D1CA2B8C80F600EE7364 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -148,8 +118,6 @@
 			isa = PBXGroup;
 			children = (
 				FAA1D1B32B8C80F400EE7364 /* Coffe.app */,
-				FAA1D1C32B8C80F600EE7364 /* CoffeTests.xctest */,
-				FAA1D1CD2B8C80F600EE7364 /* CoffeUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -158,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				FAA1D1B62B8C80F400EE7364 /* CoffeApp.swift */,
+				FAE160182D55F6D70094A3BD /* Coordinator */,
 				FAFF03ED2D4BA73700BCA8CE /* Extensions */,
 				FAA1D1E92B8C822E00EE7364 /* ViewModels */,
 				FAA1D1E82B8C822000EE7364 /* Models */,
@@ -209,6 +178,7 @@
 		FAA1D1E92B8C822E00EE7364 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				FAE1601F2D56127C0094A3BD /* LoginMethodSelectionViewModel.swift */,
 				FAA1D1F52B8C8B9800EE7364 /* HomeViewModel.swift */,
 				FAA1D2052B8CE41B00EE7364 /* BasketViewModel.swift */,
 				FAA1D2072B8DEC2D00EE7364 /* AccountViewModel.swift */,
@@ -282,6 +252,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				FAE160182D55F6D70094A3BD /* Coordinator */,
 				FAFF03EA2D4BA6FE00BCA8CE /* Alert */,
 				FAFF03ED2D4BA73700BCA8CE /* Extensions */,
 				FAFF03F22D4E253600BCA8CE /* GoogleSignIn */,
@@ -303,42 +274,6 @@
 			productReference = FAA1D1B32B8C80F400EE7364 /* Coffe.app */;
 			productType = "com.apple.product-type.application";
 		};
-		FAA1D1C22B8C80F600EE7364 /* CoffeTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FAA1D1DA2B8C80F600EE7364 /* Build configuration list for PBXNativeTarget "CoffeTests" */;
-			buildPhases = (
-				FAA1D1BF2B8C80F600EE7364 /* Sources */,
-				FAA1D1C02B8C80F600EE7364 /* Frameworks */,
-				FAA1D1C12B8C80F600EE7364 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FAA1D1C52B8C80F600EE7364 /* PBXTargetDependency */,
-			);
-			name = CoffeTests;
-			productName = CoffeTests;
-			productReference = FAA1D1C32B8C80F600EE7364 /* CoffeTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		FAA1D1CC2B8C80F600EE7364 /* CoffeUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FAA1D1DD2B8C80F600EE7364 /* Build configuration list for PBXNativeTarget "CoffeUITests" */;
-			buildPhases = (
-				FAA1D1C92B8C80F600EE7364 /* Sources */,
-				FAA1D1CA2B8C80F600EE7364 /* Frameworks */,
-				FAA1D1CB2B8C80F600EE7364 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FAA1D1CF2B8C80F600EE7364 /* PBXTargetDependency */,
-			);
-			name = CoffeUITests;
-			productName = CoffeUITests;
-			productReference = FAA1D1CD2B8C80F600EE7364 /* CoffeUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -351,14 +286,6 @@
 				TargetAttributes = {
 					FAA1D1B22B8C80F400EE7364 = {
 						CreatedOnToolsVersion = 15.2;
-					};
-					FAA1D1C22B8C80F600EE7364 = {
-						CreatedOnToolsVersion = 15.2;
-						TestTargetID = FAA1D1B22B8C80F400EE7364;
-					};
-					FAA1D1CC2B8C80F600EE7364 = {
-						CreatedOnToolsVersion = 15.2;
-						TestTargetID = FAA1D1B22B8C80F400EE7364;
 					};
 				};
 			};
@@ -383,8 +310,6 @@
 			projectRoot = "";
 			targets = (
 				FAA1D1B22B8C80F400EE7364 /* Coffe */,
-				FAA1D1C22B8C80F600EE7364 /* CoffeTests */,
-				FAA1D1CC2B8C80F600EE7364 /* CoffeUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -397,20 +322,6 @@
 				FAA1D1BE2B8C80F600EE7364 /* Preview Assets.xcassets in Resources */,
 				FA33177D2B9DF4E100248936 /* GoogleService-Info.plist in Resources */,
 				FAA1D1BB2B8C80F600EE7364 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FAA1D1C12B8C80F600EE7364 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FAA1D1CB2B8C80F600EE7364 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,6 +349,7 @@
 				FA33177A2B9DC8B200248936 /* AuthenticationViewModel.swift in Sources */,
 				FADA61F62B9C9CA100FDD9AF /* AuthenticationManager.swift in Sources */,
 				FAA1D1F92B8C8C8C00EE7364 /* FirebaseRepository.swift in Sources */,
+				FAE160202D56127C0094A3BD /* LoginMethodSelectionViewModel.swift in Sources */,
 				FAA1D1EB2B8C825A00EE7364 /* Drink.swift in Sources */,
 				FAA1D1F32B8C8ABD00EE7364 /* UserModel.swift in Sources */,
 				FAA1D21A2B8F1D9C00EE7364 /* RemoteImageView.swift in Sources */,
@@ -448,34 +360,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FAA1D1BF2B8C80F600EE7364 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FAA1D1C92B8C80F600EE7364 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		FAA1D1C52B8C80F600EE7364 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FAA1D1B22B8C80F400EE7364 /* Coffe */;
-			targetProxy = FAA1D1C42B8C80F600EE7364 /* PBXContainerItemProxy */;
-		};
-		FAA1D1CF2B8C80F600EE7364 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FAA1D1B22B8C80F400EE7364 /* Coffe */;
-			targetProxy = FAA1D1CE2B8C80F600EE7364 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		FAA1D1D52B8C80F600EE7364 /* Debug */ = {
@@ -657,78 +542,6 @@
 			};
 			name = Release;
 		};
-		FAA1D1DB2B8C80F600EE7364 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 57FHRQVBLR;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "luky.skrivos-gmail.com.CoffeTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Coffe.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Coffe";
-			};
-			name = Debug;
-		};
-		FAA1D1DC2B8C80F600EE7364 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 57FHRQVBLR;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "luky.skrivos-gmail.com.CoffeTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Coffe.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Coffe";
-			};
-			name = Release;
-		};
-		FAA1D1DE2B8C80F600EE7364 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 57FHRQVBLR;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "luky.skrivos-gmail.com.CoffeUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Coffe;
-			};
-			name = Debug;
-		};
-		FAA1D1DF2B8C80F600EE7364 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 57FHRQVBLR;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "luky.skrivos-gmail.com.CoffeUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Coffe;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -746,24 +559,6 @@
 			buildConfigurations = (
 				FAA1D1D82B8C80F600EE7364 /* Debug */,
 				FAA1D1D92B8C80F600EE7364 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FAA1D1DA2B8C80F600EE7364 /* Build configuration list for PBXNativeTarget "CoffeTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FAA1D1DB2B8C80F600EE7364 /* Debug */,
-				FAA1D1DC2B8C80F600EE7364 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FAA1D1DD2B8C80F600EE7364 /* Build configuration list for PBXNativeTarget "CoffeUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FAA1D1DE2B8C80F600EE7364 /* Debug */,
-				FAA1D1DF2B8C80F600EE7364 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

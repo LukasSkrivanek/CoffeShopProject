@@ -7,7 +7,8 @@
 import SwiftUI
 
 struct LoginMethodSelectionView: View {
-    var onMethodSelected: (LoginMethod) -> Void
+    @Environment(Coordinator.self) private var
+    @Environment(LoginMethodSelectionViewModel.self) private var loginMethodViewModel
     
     var body: some View {
         VStack(spacing: 20) {
@@ -16,12 +17,13 @@ struct LoginMethodSelectionView: View {
                 .bold()
             
             Button("Login with Email") {
-                onMethodSelected(.email)
+                loginMethodViewModel.selectedMethod = .email
+              
             }
             .styledButton(color: .mint)
             
             Button("Login with Google") {
-                onMethodSelected(.google)
+                loginMethodViewModel.selectedMethod = .google
             }
             .styledButton(color: .blue)
         }

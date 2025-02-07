@@ -16,6 +16,7 @@ class DependencyContainer {
         container.register(UserRepository.self) { _ in UserRepository() }.inObjectScope(.container)
         container.register(HomeViewModel.self) { _ in HomeViewModel() }.inObjectScope(.container)
         container.register(AccountViewModel.self) { _ in AccountViewModel() }.inObjectScope(.container)
+        container.register(LoginMethodSelectionViewModel.self) { _ in LoginMethodSelectionViewModel()}.inObjectScope(.container)
         container.register(AuthenticationViewModel.self) { _ in
             return MainActor.assumeIsolated {
                 AuthenticationViewModel()
