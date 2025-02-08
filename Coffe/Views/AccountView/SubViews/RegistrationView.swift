@@ -7,8 +7,9 @@
 import SwiftUI
 
 struct RegistrationView: View {
+    @Environment(Coordinator.self) private var coordinator
+    
     @State private var registrationViewModel = RegistrationViewModel(userRepository: UserRepository())
-    @Binding var isPresented: Bool
     @Binding var isSignedIn: Bool
 
     
@@ -36,7 +37,7 @@ struct RegistrationView: View {
             .styledButton(color: .brown)
             
             Button("Cancel") {
-                isPresented.toggle()
+                coordinator.dismissSheet()
             }
             .styledButton(color: .red)
         }

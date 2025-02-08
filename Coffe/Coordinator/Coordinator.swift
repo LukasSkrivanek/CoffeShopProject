@@ -8,10 +8,12 @@
 import Foundation
 import SwiftUI
 
+@MainActor
 @Observable
 class Coordinator {
     var path : NavigationPath = NavigationPath()
     var sheet: Sheet?
+    var sheetDetent: Set<PresentationDetent> = [.fraction(0.6)]
     var fullScreenCover: FullScreenCorver?
     
     
@@ -29,9 +31,11 @@ class Coordinator {
         }
     }
     
-    func presentSheet(_ sheet: Sheet) {
+    func presentSheet(_ sheet: Sheet,  detent: PresentationDetent = .medium) {
         self.sheet = sheet
+        self.sheetDetent =  [detent]
     }
+
     
     func presentFullScreenCover(_ cover: FullScreenCorver) {
         fullScreenCover = cover
@@ -60,7 +64,7 @@ class Coordinator {
     func buildSheet(sheet: Sheet) -> some View {
         switch sheet {
         case .loginMethod: LoginMethodSelectionView()
-        case .registration: RegistrationView(isPresented: .constant(true), isSignedIn: .constant(true))
+        case .registration: RegistrationView(isSignedIn: .constant(true))
             
         }
         

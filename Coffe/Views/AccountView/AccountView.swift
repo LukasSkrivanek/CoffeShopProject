@@ -11,11 +11,9 @@ struct AccountView: View {
     
     @Environment(UserRepository.self) private var userRepository
     @Environment(AccountViewModel.self) private var accountViewModel
+    
     @Binding var isSignedIn: Bool
-    @Environment(\.colorScheme) var colorScheme
     
-    
-   
     var body: some View {
             ScrollView {
                 VStack(spacing: 15) {
@@ -23,8 +21,8 @@ struct AccountView: View {
                         UserInfoView(user: user, logOutAction: logOut)
                     } else {
                         AuthButtonsView(
-                            onLogin: { coordinator.presentSheet(.loginMethod)},
-                            onRegister: { accountViewModel.isRegisterSheetPresented.toggle() }
+                            onLogin: { coordinator.presentSheet(.loginMethod, detent: .fraction(0.35))},
+                            onRegister: { coordinator.presentSheet(.registration, detent: .medium) }
                         )
                     }
                     
@@ -38,14 +36,7 @@ struct AccountView: View {
                     accountViewModel.setup(user: user)
                 }
             }
-            
-            .sheet(isPresented: .twoWay(\.isRegisterSheetPresented, on: accountViewModel)) {
-                RegistrationView(isPresented: .twoWay(\.isRegisterSheetPresented, on: accountViewModel), isSignedIn: $isSignedIn)
-                    .presentationDetents([.fraction(0.6)])
-                    .preferredColorScheme(colorScheme)
-            }
-    }
-    
+        }
     private func logOut() {
         userRepository.removeUser()
         accountViewModel.setup(user: nil)

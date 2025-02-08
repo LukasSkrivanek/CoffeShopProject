@@ -43,8 +43,6 @@ final class HomeViewModel {
             }
         }
     }
-    
-    
      func fetchDrinks() async {
         do {
             drinks = try await firebaseRepository.fetchDrinks()
@@ -62,5 +60,4 @@ final class HomeViewModel {
     func selectDrink(drink: Drink){
         selectedDrink = drink
     }
-    
 }

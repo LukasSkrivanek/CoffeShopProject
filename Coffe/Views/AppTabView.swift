@@ -16,24 +16,23 @@ struct AppTabView: View {
     
     @State var isSignedIn: Bool = true
     var body: some View {
-        TabView{
-            coordinator.build(page: .home)
-                .tabItem{
-                    Image(systemName: "house")
-                    Text("Home")
-                }
-            coordinator.build(page: .basket)
-                .tabItem{
-                    Image(systemName: "bag")
-                    Text("Basket")
-                }
-            coordinator.build(page: .account)
-                .tabItem{
-                    Image(systemName: "bag")
-                    Text("Setting")
-                }
-            
-        }
+            TabView{
+                HomeView()
+                    .tabItem{
+                        Image(systemName: "house")
+                        Text("Home")
+                    }
+                coordinator.build(page: .basket)
+                    .tabItem{
+                        Image(systemName: "bag")
+                        Text("Basket")
+                    }
+                coordinator.build(page: .account)
+                    .tabItem{
+                        Image(systemName: "bag")
+                        Text("Setting")
+                    }
+            }
         .tint(.brown)
         .onAppear {
             // Zjistíme, zda je uživatel přihlášen

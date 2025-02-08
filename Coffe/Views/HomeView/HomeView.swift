@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
+    @Environment(Coordinator.self) private var coordinator
     @Environment(HomeViewModel.self) private var homeViewModel
     var body: some View {
         ZStack{
@@ -26,7 +27,6 @@ struct HomeView: View {
                         Text(key)
                             .font(.subheadline)
                     }
-
                 }
                 .navigationTitle("☕️ Home")
                 .searchable(text: .twoWay(\.searchText, on: homeViewModel),placement: .automatic, prompt: Text("Search for your drink"))

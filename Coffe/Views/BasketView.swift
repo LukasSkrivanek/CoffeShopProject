@@ -8,13 +8,12 @@
 import SwiftUI
 
 struct BasketView: View {
+    @Environment(Coordinator.self) private var  coordinator
     @Environment(BasketViewModel.self) private var basketViewModel
     @Environment(UserRepository.self) private var  userRepository
-    @State var showAlert: AnyAppAlert?
     
     var body: some View {
         @Bindable var order = basketViewModel
-        NavigationStack{
             ZStack{
                 VStack{
                     List{
@@ -46,10 +45,10 @@ struct BasketView: View {
                 }
             }
             .navigationTitle("🛒 Basket")
-            .showCustomAlert(alert: $showAlert)
+            .showCustomAlert(alert: .twoWay(\.showAlert, on: basketViewModel))
             .onChange(of: order.showError) { _, showError in
                 if showError {
-                    showAlert = AnyAppAlert(
+                    basketViewModel.showAlert = AnyAppAlert(
                         title: "Error",
                         subtitle: order.basketError?.description ?? "Unknown error",
                         buttons: {
@@ -60,20 +59,19 @@ struct BasketView: View {
                     )
                 }
             }
-        }
     }
-    
-
     private func placeOrderButton() -> some View {
         Button(action: {
-            showAlert = AnyAppAlert(
+            basketViewModel.showAlert = AnyAppAlert(
                 title: "Create Order?",
                 subtitle: "Do you want to create an order for this basket?",
                 buttons: {
                     AnyView(
                         Button("Create") {
                             basketViewModel.createOrder(for: userRepository.user)
+                            
                         }
+                        
                     )
                 }
             )
