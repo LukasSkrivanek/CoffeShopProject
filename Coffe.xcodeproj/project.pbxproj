@@ -42,6 +42,7 @@
 		FADA61FC2B9CCE4E00FDD9AF /* SignInModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADA61FB2B9CCE4E00FDD9AF /* SignInModelView.swift */; };
 		FAE160202D56127C0094A3BD /* LoginMethodSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE1601F2D56127C0094A3BD /* LoginMethodSelectionViewModel.swift */; };
 		FAE160E02D578D560094A3BD /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE160DF2D578D560094A3BD /* RegistrationViewModel.swift */; };
+		FAE160E22D57A9150094A3BD /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE160E12D57A9150094A3BD /* AppState.swift */; };
 		FAFF034A2D4B773200BCA8CE /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = FAFF03492D4B773200BCA8CE /* Swinject */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +77,7 @@
 		FADA61FB2B9CCE4E00FDD9AF /* SignInModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInModelView.swift; sourceTree = "<group>"; };
 		FAE1601F2D56127C0094A3BD /* LoginMethodSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginMethodSelectionViewModel.swift; sourceTree = "<group>"; };
 		FAE160DF2D578D560094A3BD /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
+		FAE160E12D57A9150094A3BD /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -125,6 +127,7 @@
 		FAA1D1B52B8C80F400EE7364 /* Coffe */ = {
 			isa = PBXGroup;
 			children = (
+				FAE160E12D57A9150094A3BD /* AppState.swift */,
 				FAA1D1B62B8C80F400EE7364 /* CoffeApp.swift */,
 				FAE160182D55F6D70094A3BD /* Coordinator */,
 				FAFF03ED2D4BA73700BCA8CE /* Extensions */,
@@ -355,6 +358,7 @@
 				FAA1D21A2B8F1D9C00EE7364 /* RemoteImageView.swift in Sources */,
 				FAA1D2082B8DEC2D00EE7364 /* AccountViewModel.swift in Sources */,
 				FAA1D2132B8E049500EE7364 /* UserRepository.swift in Sources */,
+				FAE160E22D57A9150094A3BD /* AppState.swift in Sources */,
 				FAA1D1E62B8C81C300EE7364 /* AppTabView.swift in Sources */,
 				FAA1D2272B8F55A100EE7364 /* AppError.swift in Sources */,
 			);

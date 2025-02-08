@@ -15,22 +15,21 @@ struct BasketView: View {
     @Environment(UserRepository.self) private var  userRepository
     
     var body: some View {
-        @Bindable var order = basketViewModel
             ZStack{
                 VStack{
                     List{
-                        ForEach(order.items){drink in
+                        ForEach(basketViewModel.items){drink in
                             DrinkRow(drink: drink, didClickRow: {})
                                 .disabled(true)
                         }
-                        .onDelete(perform: order.deleteItems)
+                        .onDelete(perform: basketViewModel.deleteItems)
                     }
                     .listStyle(.grouped)
                     .safeAreaInset(edge: .bottom) {
                         placeOrderButton()
                     }
                 }
-                if order.items.isEmpty{
+                if basketViewModel.items.isEmpty{
                     ContentUnavailableView {
                         Image(systemName: "list.bullet.clipboard")
                             .symbolRenderingMode(.palette)
@@ -48,14 +47,14 @@ struct BasketView: View {
             }
             .navigationTitle("🛒 Basket")
             .showCustomAlert(alert: .twoWay(\.showAlert, on: basketViewModel), colorScheme: colorScheme)
-            .onChange(of: order.showError) { _, showError in
+            .onChange(of: basketViewModel.showError) { _, showError in
                 if showError {
                     basketViewModel.showAlert = AnyAppAlert(
                         title: "Error",
-                        subtitle: order.basketError?.description ?? "Unknown error",
+                        subtitle: basketViewModel.basketError?.description ?? "Unknown error",
                         buttons: {
                             AnyView(Button("OK") {
-                                order.showError = false
+                                basketViewModel.showError = false
                             })
                         }
                     )
@@ -71,7 +70,6 @@ struct BasketView: View {
                     AnyView(
                         Button("Create") {
                             basketViewModel.createOrder(for: userRepository.user)
-                            
                         }
                         
                     )

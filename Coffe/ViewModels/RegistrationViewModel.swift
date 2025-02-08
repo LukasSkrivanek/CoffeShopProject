@@ -12,7 +12,6 @@ class RegistrationViewModel {
     var password: String = ""
     var confirmPassword: String = ""
     var errorMessage: String? = nil
-    var isSignedIn: Bool = false
     
     private var userRepository: UserRepository
     
@@ -30,7 +29,6 @@ class RegistrationViewModel {
         do {
             try await AuthenticationManager.shared.createUser(email: email, password: password)
             userRepository.user = await userRepository.fetchUser()
-            isSignedIn = true
         } catch {
             errorMessage = error.localizedDescription
         }

@@ -17,6 +17,11 @@ class DependencyContainer {
         container.register(HomeViewModel.self) { _ in HomeViewModel() }.inObjectScope(.container)
         container.register(AccountViewModel.self) { _ in AccountViewModel() }.inObjectScope(.container)
         container.register(LoginMethodSelectionViewModel.self) { _ in LoginMethodSelectionViewModel()}.inObjectScope(.container)
+        container.register(AppState.self) { _ in
+            MainActor.assumeIsolated {
+                AppState()
+            }
+        }.inObjectScope(.container)
     
     }
 

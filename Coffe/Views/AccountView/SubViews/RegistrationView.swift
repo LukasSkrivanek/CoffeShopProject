@@ -10,7 +10,6 @@ struct RegistrationView: View {
     @Environment(Coordinator.self) private var coordinator
     
     @State private var registrationViewModel = RegistrationViewModel(userRepository: UserRepository())
-    @Binding var isSignedIn: Bool
 
     
     var body: some View {

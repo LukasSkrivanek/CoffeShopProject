@@ -54,7 +54,7 @@ class Coordinator {
         switch page {
         case .appTabBar: AppTabView()
         case .home: HomeView()
-        case .account: AccountView(isSignedIn: .constant(true))
+        case .account: AccountView()
         case .basket: BasketView()
         }
     }
@@ -64,7 +64,7 @@ class Coordinator {
     func buildSheet(sheet: Sheet) -> some View {
         switch sheet {
         case .loginMethod: LoginMethodSelectionView()
-        case .registration: RegistrationView(isSignedIn: .constant(true))
+        case .registration: RegistrationView()
             
         }
         

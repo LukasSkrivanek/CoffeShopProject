@@ -15,6 +15,7 @@ struct CoffeApp: App {
         WindowGroup {
             CoordinatorView()
                 .environment(Coordinator())
+                .environment(DependencyContainer.shared.resolve(AppState.self))
                 .environment(DependencyContainer.shared.resolve(LoginMethodSelectionViewModel.self))
                 .environment(DependencyContainer.shared.resolve(BasketViewModel.self))
                 .environment(DependencyContainer.shared.resolve(UserRepository.self))

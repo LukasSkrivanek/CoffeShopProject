@@ -8,11 +8,10 @@ import SwiftUI
 
 struct AccountView: View {
     @Environment(Coordinator.self) private var coordinator
+    @Environment(AppState.self) private var appState
     
     @Environment(UserRepository.self) private var userRepository
     @Environment(AccountViewModel.self) private var accountViewModel
-    
-    @Binding var isSignedIn: Bool
     
     var body: some View {
             ScrollView {
@@ -40,7 +39,7 @@ struct AccountView: View {
     private func logOut() {
         userRepository.removeUser()
         accountViewModel.setup(user: nil)
-        isSignedIn.toggle()
+        appState.isSignedIn.toggle()
     }
 
     private func handleLoginMethod(_ method: LoginMethod) {
@@ -54,7 +53,7 @@ struct AccountView: View {
                     userRepository.user = await userRepository.fetchUser()
                 }
                 accountViewModel.setup(user: userRepository.user)
-                isSignedIn = true
+                appState.isSignedIn = true
             } catch {
                 print(error)
             }
