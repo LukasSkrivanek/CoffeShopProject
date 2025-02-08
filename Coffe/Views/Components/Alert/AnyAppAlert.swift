@@ -42,7 +42,7 @@ enum AlertType {
 
 extension View {
     @ViewBuilder
-    func showCustomAlert(type: AlertType = .alert, alert: Binding<AnyAppAlert?>) -> some View {
+    func showCustomAlert(type: AlertType = .alert, alert: Binding<AnyAppAlert?>, colorScheme: ColorScheme? = nil) -> some View {
         switch type {
         case .alert:
             self
@@ -54,6 +54,7 @@ extension View {
                         Text(subtitle)
                     }
                 })
+                .preferredColorScheme(colorScheme)
         case .confirmationDialog:
             self
                 .confirmationDialog(alert.wrappedValue?.title ?? "", isPresented: Binding(ifNotNil: alert)) {
@@ -63,7 +64,7 @@ extension View {
                         Text(subtitle)
                     }
                 }
-    
+                .preferredColorScheme(colorScheme)
         }
         
     }

@@ -12,7 +12,7 @@ enum Category: String, Codable, Hashable{
 }
 
 struct Drink: Codable, Identifiable {
-    let id: String
+    var id: String = UUID().uuidString
     let name: String
     let description: String
     let imageLink: String

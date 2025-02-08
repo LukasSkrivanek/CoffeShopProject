@@ -19,7 +19,7 @@ struct LoginMethodSelectionView: View {
                 loginMethodViewModel.selectedMethod = .email
               
             }
-            .styledButton(color: .mint)
+            .styledButton(color: .brown)
             
             Button("Login with Google") {
                 loginMethodViewModel.selectedMethod = .google

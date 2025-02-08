@@ -27,7 +27,7 @@ final class BasketViewModel {
     var totalprice: Double {
         items.reduce(0) { $0 + $1.price }
     }
-    func createOrder(for user: UserModel?) {ý
+    func createOrder(for user: UserModel?) {
         guard !items.isEmpty else {
             setError(.emptyBasketError)
             return

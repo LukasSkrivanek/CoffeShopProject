@@ -41,6 +41,7 @@
 		FADA61F62B9C9CA100FDD9AF /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADA61F52B9C9CA100FDD9AF /* AuthenticationManager.swift */; };
 		FADA61FC2B9CCE4E00FDD9AF /* SignInModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADA61FB2B9CCE4E00FDD9AF /* SignInModelView.swift */; };
 		FAE160202D56127C0094A3BD /* LoginMethodSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE1601F2D56127C0094A3BD /* LoginMethodSelectionViewModel.swift */; };
+		FAE160E02D578D560094A3BD /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE160DF2D578D560094A3BD /* RegistrationViewModel.swift */; };
 		FAFF034A2D4B773200BCA8CE /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = FAFF03492D4B773200BCA8CE /* Swinject */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,7 @@
 		FADA61F52B9C9CA100FDD9AF /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		FADA61FB2B9CCE4E00FDD9AF /* SignInModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInModelView.swift; sourceTree = "<group>"; };
 		FAE1601F2D56127C0094A3BD /* LoginMethodSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginMethodSelectionViewModel.swift; sourceTree = "<group>"; };
+		FAE160DF2D578D560094A3BD /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -176,6 +178,7 @@
 		FAA1D1E92B8C822E00EE7364 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				FAE160DF2D578D560094A3BD /* RegistrationViewModel.swift */,
 				FAE1601F2D56127C0094A3BD /* LoginMethodSelectionViewModel.swift */,
 				FAA1D1F52B8C8B9800EE7364 /* HomeViewModel.swift */,
 				FAA1D2052B8CE41B00EE7364 /* BasketViewModel.swift */,
@@ -331,6 +334,7 @@
 			files = (
 				FAA1D2112B8E036100EE7364 /* SecureStorage.swift in Sources */,
 				FAA1D2222B8F231000EE7364 /* FColletionReference.swift in Sources */,
+				FAE160E02D578D560094A3BD /* RegistrationViewModel.swift in Sources */,
 				FAA1D1F62B8C8B9800EE7364 /* HomeViewModel.swift in Sources */,
 				FAA1D1EF2B8C8A4800EE7364 /* Basket.swift in Sources */,
 				FAA1D1E32B8C819A00EE7364 /* BasketView.swift in Sources */,

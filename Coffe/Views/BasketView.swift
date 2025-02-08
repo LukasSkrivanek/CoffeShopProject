@@ -9,6 +9,8 @@ import SwiftUI
 
 struct BasketView: View {
     @Environment(Coordinator.self) private var  coordinator
+    @Environment(\.colorScheme) private var colorScheme
+    
     @Environment(BasketViewModel.self) private var basketViewModel
     @Environment(UserRepository.self) private var  userRepository
     
@@ -45,7 +47,7 @@ struct BasketView: View {
                 }
             }
             .navigationTitle("🛒 Basket")
-            .showCustomAlert(alert: .twoWay(\.showAlert, on: basketViewModel))
+            .showCustomAlert(alert: .twoWay(\.showAlert, on: basketViewModel), colorScheme: colorScheme)
             .onChange(of: order.showError) { _, showError in
                 if showError {
                     basketViewModel.showAlert = AnyAppAlert(

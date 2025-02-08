@@ -17,7 +17,7 @@ struct AppTabView: View {
     @State var isSignedIn: Bool = true
     var body: some View {
             TabView{
-                HomeView()
+                coordinator.build(page: .home)
                     .tabItem{
                         Image(systemName: "house")
                         Text("Home")
