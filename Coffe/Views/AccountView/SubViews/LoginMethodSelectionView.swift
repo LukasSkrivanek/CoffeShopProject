@@ -7,7 +7,6 @@
 import SwiftUI
 
 struct LoginMethodSelectionView: View {
-    @Environment(Coordinator.self) private var
     @Environment(LoginMethodSelectionViewModel.self) private var loginMethodViewModel
     
     var body: some View {

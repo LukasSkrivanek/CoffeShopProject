@@ -7,12 +7,10 @@
 import SwiftUI
 
 struct RegistrationView: View {
-    @State private var email: String = ""
-    @State private var password: String = ""
-    @State private var confirmPassword: String = ""
+    @State private var registrationViewModel = RegistrationViewModel(userRepository: UserRepository())
     @Binding var isPresented: Bool
     @Binding var isSignedIn: Bool
-    @Environment(UserRepository.self) private var userRepository
+
     
     var body: some View {
         VStack(spacing: 20) {
@@ -20,46 +18,29 @@ struct RegistrationView: View {
                 .font(.title2)
                 .bold()
 
-            TextField("Email", text: $email)
+            TextField("Email", text: $registrationViewModel.email)
                 .textFieldStyle()
                 .autocapitalization(.none)
                 .keyboardType(.emailAddress)
             
-            SecureField("Password", text: $password)
+            SecureField("Password", text: $registrationViewModel.password)
                 .textFieldStyle()
 
-            SecureField("Confirm Password", text: $confirmPassword)
+            SecureField("Confirm Password", text: $registrationViewModel.confirmPassword)
                 .textFieldStyle()
             Button("Register") {
                 Task {
-                    await registerUser()
+                    await registrationViewModel.registerUser()
                 }
             }
-            .styledButton(color: .green)
+            .styledButton(color: .brown)
             
             Button("Cancel") {
                 isPresented.toggle()
             }
-            .styledButton(color: .gray)
+            .styledButton(color: .red)
         }
         .padding()
-    }
-    
-    private func registerUser() async {
-        guard password == confirmPassword else {
-            print("Passwords do not match")
-            return
-        }
-        
-        do {
-            let newUser = try await AuthenticationManager.shared.createUser(email: email, password: password)
-            userRepository.user = await userRepository.fetchUser()
-            isSignedIn = true
-            isPresented.toggle()
-            print("User registered: \(newUser.email ?? "No email")")
-        } catch {
-            print("Registration failed: \(error.localizedDescription)")
-        }
     }
 }
 
@@ -88,7 +69,7 @@ class RegistrationViewModel {
         }
         
         do {
-            let newUser = try await AuthenticationManager.shared.createUser(email: email, password: password)
+            try await AuthenticationManager.shared.createUser(email: email, password: password)
             userRepository.user = await userRepository.fetchUser()
             isSignedIn = true
         } catch {

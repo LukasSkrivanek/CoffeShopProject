@@ -28,6 +28,13 @@ final class AccountViewModel {
         
     }
     
+    func signInGoogle() async throws{
+        let helper = SignInGoogleHelper()
+        let tokens = try await helper.signIn()
+        try await AuthenticationManager.shared.signInWithGoogle(tokens: tokens)
+        
+    }
+    
     func isInvalidForm() -> Bool {
         name.isEmpty || address.isEmpty || mobile.isEmpty
     }

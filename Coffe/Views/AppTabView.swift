@@ -34,6 +34,7 @@ struct AppTabView: View {
                 }
             
         }
+        .tint(.brown)
         .onAppear {
             // Zjistíme, zda je uživatel přihlášen
             if  let user = userRepository.user  {
@@ -49,4 +50,10 @@ struct AppTabView: View {
 
 #Preview {
     AppTabView()
+        .environment(Coordinator())
+        .environment(UserRepository())
+        .environment(AccountViewModel())
+        .environment(HomeViewModel())
+        .environment(BasketViewModel())
+       
 }

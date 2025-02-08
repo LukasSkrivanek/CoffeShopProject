@@ -11,16 +11,14 @@ struct AccountView: View {
     
     @Environment(UserRepository.self) private var userRepository
     @Environment(AccountViewModel.self) private var accountViewModel
-    @Environment(AuthenticationViewModel.self) private var authenticationViewModel
     @Binding var isSignedIn: Bool
     @Environment(\.colorScheme) var colorScheme
     
     
    
     var body: some View {
-        NavigationStack {
             ScrollView {
-                VStack(spacing: 20) {
+                VStack(spacing: 15) {
                     if let user = userRepository.user {
                         UserInfoView(user: user, logOutAction: logOut)
                     } else {
@@ -46,7 +44,6 @@ struct AccountView: View {
                     .presentationDetents([.fraction(0.6)])
                     .preferredColorScheme(colorScheme)
             }
-        }
     }
     
     private func logOut() {
@@ -62,7 +59,7 @@ struct AccountView: View {
                 case .email:
                     userRepository.user = await userRepository.fetchUser()
                 case .google:
-                    try await authenticationViewModel.signInGoogle()
+                    try await accountViewModel.signInGoogle()
                     userRepository.user = await userRepository.fetchUser()
                 }
                 accountViewModel.setup(user: userRepository.user)

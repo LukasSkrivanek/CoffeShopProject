@@ -33,7 +33,7 @@ struct BasketView: View {
                     ContentUnavailableView {
                         Image(systemName: "list.bullet.clipboard")
                             .symbolRenderingMode(.palette)
-                            .foregroundStyle(.gray, .red, .green)
+                            .foregroundStyle(.brown)
                             .font(.system(size: 120))
                     } description: {
                         Text("You have no items in your basket \n Please add some")

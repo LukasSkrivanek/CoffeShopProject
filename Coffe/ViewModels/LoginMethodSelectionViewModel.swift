@@ -8,10 +8,6 @@ import SwiftUI
 
 @Observable
 class LoginMethodSelectionViewModel {
-    enum LoginMethod {
-        case email
-        case google
-    }
 
    var selectedMethod: LoginMethod? = nil
     

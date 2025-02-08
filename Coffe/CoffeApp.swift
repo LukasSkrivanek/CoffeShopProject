@@ -20,7 +20,6 @@ struct CoffeApp: App {
                 .environment(DependencyContainer.shared.resolve(UserRepository.self))
                 .environment(DependencyContainer.shared.resolve(HomeViewModel.self))
                 .environment(DependencyContainer.shared.resolve(AccountViewModel.self))
-                .environment(DependencyContainer.shared.resolve(AuthenticationViewModel.self))
         }
     }
 }

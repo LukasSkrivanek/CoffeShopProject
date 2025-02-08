@@ -16,15 +16,11 @@ final class SignInEmailViewModel {
     
     func signUp() async throws{
         guard !email.isEmpty, !password.isEmpty else {return}
-        
-    
-        _ = try await AuthenticationManager.shared.createUser(email: email, password: password)
+        try await AuthenticationManager.shared.createUser(email: email, password: password)
     }
     
     func signIn() async throws{
         guard !email.isEmpty, !password.isEmpty else {return}
-        
-    
-        _ = try await AuthenticationManager.shared.signInUser(email: email, password: password)
+        try await AuthenticationManager.shared.signInUser(email: email, password: password)
     }
 }

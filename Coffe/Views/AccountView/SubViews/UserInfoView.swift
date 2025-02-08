@@ -35,14 +35,23 @@ struct AuthButtonsView: View {
             Text("Please log in or register to continue.")
                 .padding()
 
-            Button("Login", action: onLogin)
-                .styledButton()
-
-            Button("Register", action: onRegister)
-                .styledButton(color: .green)
+            Button(action: onLogin) {
+                Text("Login")
+                    .frame(maxWidth: .infinity)
+                   
+            }
+            .styledButton(color: .brown)
+            
+            Button(action: onRegister) {
+                Text("Register")
+                    .frame(maxWidth: .infinity)
+                    
+            }
+            .styledButton(color: Color(red: 47.8 / 255, green: 62.4 / 255, blue: 20.8 / 255))
         }
     }
 }
+
 
 struct DarkModeToggle: View {
     @Binding var isDarkMode: Bool
@@ -69,5 +78,7 @@ extension View {
             .cornerRadius(12)
             .shadow(radius: 5)
             .padding(.horizontal)
+            .contentShape(Rectangle())
+            
     }
 }

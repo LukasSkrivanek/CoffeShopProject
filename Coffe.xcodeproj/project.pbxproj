@@ -13,7 +13,6 @@
 		FA3317722B9DC5E900248936 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = FA3317712B9DC5E900248936 /* GoogleSignIn */; };
 		FA3317742B9DC5E900248936 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FA3317732B9DC5E900248936 /* GoogleSignInSwift */; };
 		FA3317782B9DC6DC00248936 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3317772B9DC6DC00248936 /* Utilities.swift */; };
-		FA33177A2B9DC8B200248936 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3317792B9DC8B200248936 /* AuthenticationViewModel.swift */; };
 		FA33177D2B9DF4E100248936 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA33177C2B9DF4E100248936 /* GoogleService-Info.plist */; };
 		FA56F5E42D4B759B004B12E9 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56F5E32D4B759B004B12E9 /* DependencyContainer.swift */; };
 		FAA1D1B72B8C80F400EE7364 /* CoffeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1B62B8C80F400EE7364 /* CoffeApp.swift */; };
@@ -47,7 +46,6 @@
 
 /* Begin PBXFileReference section */
 		FA3317772B9DC6DC00248936 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
-		FA3317792B9DC8B200248936 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		FA33177C2B9DF4E100248936 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FA3317822B9DFB9200248936 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA56F5E32D4B759B004B12E9 /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
@@ -183,7 +181,6 @@
 				FAA1D2052B8CE41B00EE7364 /* BasketViewModel.swift */,
 				FAA1D2072B8DEC2D00EE7364 /* AccountViewModel.swift */,
 				FADA61FB2B9CCE4E00FDD9AF /* SignInModelView.swift */,
-				FA3317792B9DC8B200248936 /* AuthenticationViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -346,7 +343,6 @@
 				FADA61FC2B9CCE4E00FDD9AF /* SignInModelView.swift in Sources */,
 				FA56F5E42D4B759B004B12E9 /* DependencyContainer.swift in Sources */,
 				FA3317782B9DC6DC00248936 /* Utilities.swift in Sources */,
-				FA33177A2B9DC8B200248936 /* AuthenticationViewModel.swift in Sources */,
 				FADA61F62B9C9CA100FDD9AF /* AuthenticationManager.swift in Sources */,
 				FAA1D1F92B8C8C8C00EE7364 /* FirebaseRepository.swift in Sources */,
 				FAE160202D56127C0094A3BD /* LoginMethodSelectionViewModel.swift in Sources */,
