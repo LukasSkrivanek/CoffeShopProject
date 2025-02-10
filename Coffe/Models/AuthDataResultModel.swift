@@ -15,10 +15,12 @@ protocol AuthUserProtocol {
 struct AuthDataResultModel {
     let uid: String
     let email: String?
+    let user: AuthUserProtocol 
     
-    init(user: AuthUserProtocol){
+    init(user: AuthUserProtocol) {
         self.uid = user.uid
         self.email = user.email
-
+        self.user = user
     }
 }
+

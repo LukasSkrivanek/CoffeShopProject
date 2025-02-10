@@ -43,6 +43,8 @@
 		FAE160E02D578D560094A3BD /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE160DF2D578D560094A3BD /* RegistrationViewModel.swift */; };
 		FAE160E22D57A9150094A3BD /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE160E12D57A9150094A3BD /* AppState.swift */; };
 		FAE161502D5A3E490094A3BD /* AuthDataResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE1614F2D5A3E490094A3BD /* AuthDataResultModel.swift */; };
+		FAE161522D5A40CD0094A3BD /* FirebaseAuthUserAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE161512D5A40CD0094A3BD /* FirebaseAuthUserAdapter.swift */; };
+		FAE161562D5A412C0094A3BD /* FirebaseAuthServiceAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE161552D5A412C0094A3BD /* FirebaseAuthServiceAdapter.swift */; };
 		FAFF034A2D4B773200BCA8CE /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = FAFF03492D4B773200BCA8CE /* Swinject */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +80,8 @@
 		FAE160DF2D578D560094A3BD /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		FAE160E12D57A9150094A3BD /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		FAE1614F2D5A3E490094A3BD /* AuthDataResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDataResultModel.swift; sourceTree = "<group>"; };
+		FAE161512D5A40CD0094A3BD /* FirebaseAuthUserAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthUserAdapter.swift; sourceTree = "<group>"; };
+		FAE161552D5A412C0094A3BD /* FirebaseAuthServiceAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthServiceAdapter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -225,6 +229,7 @@
 		FADA61F42B9C9BDA00FDD9AF /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				FAE161572D5A41400094A3BD /* Firebase */,
 				FAFF03F22D4E253600BCA8CE /* GoogleSignIn */,
 				FADA61F52B9C9CA100FDD9AF /* AuthenticationManager.swift */,
 			);
@@ -238,6 +243,15 @@
 				FAA1D1B62B8C80F400EE7364 /* CoffeApp.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		FAE161572D5A41400094A3BD /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				FAE161512D5A40CD0094A3BD /* FirebaseAuthUserAdapter.swift */,
+				FAE161552D5A412C0094A3BD /* FirebaseAuthServiceAdapter.swift */,
+			);
+			path = Firebase;
 			sourceTree = "<group>";
 		};
 		FAFF03F72D4E40F800BCA8CE /* HomeView */ = {
@@ -351,8 +365,10 @@
 				FAE160E02D578D560094A3BD /* RegistrationViewModel.swift in Sources */,
 				FAA1D1F62B8C8B9800EE7364 /* HomeViewModel.swift in Sources */,
 				FAA1D1EF2B8C8A4800EE7364 /* Basket.swift in Sources */,
+				FAE161522D5A40CD0094A3BD /* FirebaseAuthUserAdapter.swift in Sources */,
 				FAA1D1E32B8C819A00EE7364 /* BasketView.swift in Sources */,
 				FAA1D1F12B8C8A7C00EE7364 /* Order.swift in Sources */,
+				FAE161562D5A412C0094A3BD /* FirebaseAuthServiceAdapter.swift in Sources */,
 				FAA1D1B92B8C80F400EE7364 /* HomeView.swift in Sources */,
 				FAA1D2182B8F1D9600EE7364 /* DrinkRow.swift in Sources */,
 				FAA1D2062B8CE41B00EE7364 /* BasketViewModel.swift in Sources */,
