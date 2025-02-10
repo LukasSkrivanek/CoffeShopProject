@@ -19,20 +19,26 @@ struct LoginMethodSelectionView: View {
                 .font(.title2)
                 .bold()
             
-            Button("Login with Email") {
-                loginMethodViewModel.selectedMethod = .email
-              
-            }
-            .styledButton(color: .brown)
+            Button(action: {
+                coordinator.presentSheet(.login)
+
+            }, label: {
+                Text("Login with Email")
+                    .styledButton(color: .brown)
+            })
             
-            Button("Login with Google") {
+            
+            Button(action: {
                 handleLoginMethod(.google)
-            }
-            .styledButton(color: .blue)
+            }, label: {
+                Text("Login with Google")
+                    .styledButton(color: .oliveGreen)
+            })
+            
         }
         .padding()
+
     }
-    
     private func handleLoginMethod(_ method: LoginMethod) {
         Task {
             do {
@@ -59,3 +65,6 @@ struct LoginMethodSelectionView: View {
 enum LoginMethod {
     case email, google
 }
+
+
+

@@ -37,17 +37,13 @@ struct AuthButtonsView: View {
 
             Button(action: onLogin) {
                 Text("Login")
-                    .frame(maxWidth: .infinity)
+                    .styledButton(color: .brown)
                    
             }
-            .styledButton(color: .brown)
-            
             Button(action: onRegister) {
                 Text("Register")
-                    .frame(maxWidth: .infinity)
-                    
+                    .styledButton(color: .oliveGreen)
             }
-            .styledButton(color: Color(red: 47.8 / 255, green: 62.4 / 255, blue: 20.8 / 255))
         }
     }
 }

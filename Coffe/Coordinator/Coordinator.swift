@@ -70,6 +70,7 @@ class Coordinator {
         switch sheet {
         case .loginMethod: LoginMethodSelectionView()
         case .registration: RegistrationView()
+        case .login: LoginSheetView()
         }
         
     }

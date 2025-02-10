@@ -15,21 +15,9 @@ struct BasketView: View {
     @Environment(UserRepository.self) private var  userRepository
     
     var body: some View {
-            ZStack{
-                VStack{
-                    List{
-                        ForEach(basketViewModel.items, id: \.hashValue){drink in
-                            DrinkRow(drink: drink, didClickRow: {})
-                                .disabled(true)
-                        }
-                        .onDelete(perform: basketViewModel.deleteItems)
-                    }
-                    .listStyle(.grouped)
-                    .safeAreaInset(edge: .bottom) {
-                        placeOrderButton()
-                    }
-                }
-                if basketViewModel.items.isEmpty{
+        NavigationStack {
+            VStack {
+                if basketViewModel.items.isEmpty {
                     ContentUnavailableView {
                         Image(systemName: "list.bullet.clipboard")
                             .symbolRenderingMode(.palette)
@@ -42,6 +30,18 @@ struct BasketView: View {
                             .multilineTextAlignment(.center)
                             .foregroundColor(.secondary)
                             .padding()
+                    }
+                } else {
+                    List {
+                        ForEach(basketViewModel.items, id: \.hashValue) { drink in
+                            DrinkRow(drink: drink, didClickRow: {})
+                                .allowsHitTesting(false)
+                        }
+                        .onDelete(perform: basketViewModel.deleteItems)
+                    }
+                    .listStyle(.grouped)
+                    .safeAreaInset(edge: .bottom) {
+                        placeOrderButton()
                     }
                 }
             }
@@ -60,7 +60,9 @@ struct BasketView: View {
                     )
                 }
             }
+        }
     }
+
     private func placeOrderButton() -> some View {
         Button(action: {
             basketViewModel.showAlert = AnyAppAlert(

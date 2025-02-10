@@ -9,6 +9,7 @@ import SwiftUI
 struct RegistrationView: View {
     @Environment(Coordinator.self) private var coordinator
     
+    
     @State private var registrationViewModel = RegistrationViewModel(userRepository: UserRepository())
 
     

@@ -25,6 +25,7 @@ enum Sheet:  String, Identifiable {
     
     case loginMethod
     case registration
+    case login
 }
 
 

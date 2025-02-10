@@ -20,7 +20,6 @@
 		FAA1D1BB2B8C80F600EE7364 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAA1D1BA2B8C80F600EE7364 /* Assets.xcassets */; };
 		FAA1D1BE2B8C80F600EE7364 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAA1D1BD2B8C80F600EE7364 /* Preview Assets.xcassets */; };
 		FAA1D1E32B8C819A00EE7364 /* BasketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1E22B8C819A00EE7364 /* BasketView.swift */; };
-		FAA1D1E62B8C81C300EE7364 /* AppTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1E02B8C811500EE7364 /* AppTabView.swift */; };
 		FAA1D1EB2B8C825A00EE7364 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1EA2B8C825A00EE7364 /* Drink.swift */; };
 		FAA1D1ED2B8C831C00EE7364 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1EC2B8C831C00EE7364 /* DummyData.swift */; };
 		FAA1D1EF2B8C8A4800EE7364 /* Basket.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1EE2B8C8A4800EE7364 /* Basket.swift */; };
@@ -43,6 +42,7 @@
 		FAE160202D56127C0094A3BD /* LoginMethodSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE1601F2D56127C0094A3BD /* LoginMethodSelectionViewModel.swift */; };
 		FAE160E02D578D560094A3BD /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE160DF2D578D560094A3BD /* RegistrationViewModel.swift */; };
 		FAE160E22D57A9150094A3BD /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE160E12D57A9150094A3BD /* AppState.swift */; };
+		FAE161502D5A3E490094A3BD /* AuthDataResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE1614F2D5A3E490094A3BD /* AuthDataResultModel.swift */; };
 		FAFF034A2D4B773200BCA8CE /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = FAFF03492D4B773200BCA8CE /* Swinject */; };
 /* End PBXBuildFile section */
 
@@ -56,7 +56,6 @@
 		FAA1D1B82B8C80F400EE7364 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		FAA1D1BA2B8C80F600EE7364 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAA1D1BD2B8C80F600EE7364 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		FAA1D1E02B8C811500EE7364 /* AppTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabView.swift; sourceTree = "<group>"; };
 		FAA1D1E22B8C819A00EE7364 /* BasketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketView.swift; sourceTree = "<group>"; };
 		FAA1D1EA2B8C825A00EE7364 /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
 		FAA1D1EC2B8C831C00EE7364 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
@@ -78,10 +77,12 @@
 		FAE1601F2D56127C0094A3BD /* LoginMethodSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginMethodSelectionViewModel.swift; sourceTree = "<group>"; };
 		FAE160DF2D578D560094A3BD /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		FAE160E12D57A9150094A3BD /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		FAE1614F2D5A3E490094A3BD /* AuthDataResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDataResultModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		FAE160182D55F6D70094A3BD /* Coordinator */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Coordinator; sourceTree = "<group>"; };
+		FAE1614D2D5A3E070094A3BD /* root */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = root; sourceTree = "<group>"; };
 		FAFF03EA2D4BA6FE00BCA8CE /* Alert */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Alert; sourceTree = "<group>"; };
 		FAFF03ED2D4BA73700BCA8CE /* Extensions */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Extensions; sourceTree = "<group>"; };
 		FAFF03F22D4E253600BCA8CE /* GoogleSignIn */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = GoogleSignIn; sourceTree = "<group>"; };
@@ -127,7 +128,7 @@
 		FAA1D1B52B8C80F400EE7364 /* Coffe */ = {
 			isa = PBXGroup;
 			children = (
-				FAA1D1B62B8C80F400EE7364 /* CoffeApp.swift */,
+				FAE1614E2D5A3E230094A3BD /* App */,
 				FAE160182D55F6D70094A3BD /* Coordinator */,
 				FAFF03ED2D4BA73700BCA8CE /* Extensions */,
 				FAA1D1E92B8C822E00EE7364 /* ViewModels */,
@@ -155,8 +156,7 @@
 		FAA1D1E72B8C821600EE7364 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				FAE160E12D57A9150094A3BD /* AppState.swift */,
-				FAA1D1E02B8C811500EE7364 /* AppTabView.swift */,
+				FAE1614D2D5A3E070094A3BD /* root */,
 				FAFF03F72D4E40F800BCA8CE /* HomeView */,
 				FAFF03F42D4E285200BCA8CE /* AccountView */,
 				FAA1D1E22B8C819A00EE7364 /* BasketView.swift */,
@@ -168,6 +168,7 @@
 		FAA1D1E82B8C822000EE7364 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FAE1614F2D5A3E490094A3BD /* AuthDataResultModel.swift */,
 				FAA1D1EC2B8C831C00EE7364 /* DummyData.swift */,
 				FAA1D1EE2B8C8A4800EE7364 /* Basket.swift */,
 				FAA1D1EA2B8C825A00EE7364 /* Drink.swift */,
@@ -230,6 +231,15 @@
 			path = Authentication;
 			sourceTree = "<group>";
 		};
+		FAE1614E2D5A3E230094A3BD /* App */ = {
+			isa = PBXGroup;
+			children = (
+				FAE160E12D57A9150094A3BD /* AppState.swift */,
+				FAA1D1B62B8C80F400EE7364 /* CoffeApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
 		FAFF03F72D4E40F800BCA8CE /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
@@ -256,6 +266,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				FAE160182D55F6D70094A3BD /* Coordinator */,
+				FAE1614D2D5A3E070094A3BD /* root */,
 				FAFF03EA2D4BA6FE00BCA8CE /* Alert */,
 				FAFF03ED2D4BA73700BCA8CE /* Extensions */,
 				FAFF03F22D4E253600BCA8CE /* GoogleSignIn */,
@@ -351,6 +362,7 @@
 				FA56F5E42D4B759B004B12E9 /* DependencyContainer.swift in Sources */,
 				FA3317782B9DC6DC00248936 /* Utilities.swift in Sources */,
 				FADA61F62B9C9CA100FDD9AF /* AuthenticationManager.swift in Sources */,
+				FAE161502D5A3E490094A3BD /* AuthDataResultModel.swift in Sources */,
 				FAA1D1F92B8C8C8C00EE7364 /* FirebaseRepository.swift in Sources */,
 				FAE160202D56127C0094A3BD /* LoginMethodSelectionViewModel.swift in Sources */,
 				FAA1D1EB2B8C825A00EE7364 /* Drink.swift in Sources */,
@@ -359,7 +371,6 @@
 				FAA1D2082B8DEC2D00EE7364 /* AccountViewModel.swift in Sources */,
 				FAA1D2132B8E049500EE7364 /* UserRepository.swift in Sources */,
 				FAE160E22D57A9150094A3BD /* AppState.swift in Sources */,
-				FAA1D1E62B8C81C300EE7364 /* AppTabView.swift in Sources */,
 				FAA1D2272B8F55A100EE7364 /* AppError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

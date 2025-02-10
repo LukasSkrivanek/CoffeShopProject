@@ -36,10 +36,11 @@ struct DrinkDetailView: View {
                     .fontWeight(.semibold)
                     .foregroundColor(Color(red: 47.8 / 255, green: 62.4 / 255, blue: 20.8 / 255))
                     .padding(.top)
+                    .frame(maxHeight: .infinity)
 
-                Spacer()
                 
                 addToBasketButton()
+                    .padding(.bottom, 30)
             }
             .padding(.top, 20)
         }
@@ -47,6 +48,7 @@ struct DrinkDetailView: View {
         .background(Color(.systemBackground))
         .cornerRadius(20)
         .shadow(radius: 10)
+        .ignoresSafeArea(edges: .bottom)
         .overlay(alignment: .topTrailing) {
             dismissButton()
         }

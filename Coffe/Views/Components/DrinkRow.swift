@@ -31,6 +31,7 @@ struct DrinkRow: View {
                 VStack(alignment: .leading, spacing: 5){
                     Text(drink.name)
                         .font(.title2)
+                        .foregroundStyle(.primary)
                         .fontWeight(.medium)
                     Text("\(drink.price, format: .currency(code: "Eur"))")
                         .font(.subheadline)
