@@ -11,10 +11,13 @@ import SwiftUI
 @MainActor
 @Observable
 class Coordinator {
+    
     var path : NavigationPath = NavigationPath()
     var sheet: Sheet?
-    var sheetDetent: Set<PresentationDetent> = [.fraction(0.6)]
     var fullScreenCover: FullScreenCorver?
+    
+    
+    var sheetDetent: Set<PresentationDetent> = [.fraction(0.6)]
     
     
     func push(page: AppPages) {
@@ -56,6 +59,8 @@ class Coordinator {
         case .home: HomeView()
         case .account: AccountView()
         case .basket: BasketView()
+        case .drinkDetail(let drink): DrinkDetailView(drink: drink)
+                .navigationBarBackButtonHidden(true)
         }
     }
     
@@ -65,7 +70,6 @@ class Coordinator {
         switch sheet {
         case .loginMethod: LoginMethodSelectionView()
         case .registration: RegistrationView()
-            
         }
         
     }

@@ -8,14 +8,17 @@
 import Foundation
 
 
-enum AppPages {
+enum AppPages: Hashable {
+    
     case appTabBar
     case home
     case account
     case basket
+    case drinkDetail(Drink)
 }
 
-enum Sheet: String, Identifiable {
+enum Sheet:  String, Identifiable {
+    
     var id: String {
         self.rawValue
     }

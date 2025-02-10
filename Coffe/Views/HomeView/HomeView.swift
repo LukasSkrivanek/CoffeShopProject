@@ -16,10 +16,11 @@ struct HomeView: View {
                 List(homeViewModel.filterCategories.keys.sorted(), id: \String.self){key in
                     Section {
                         if let drinks = homeViewModel.categories[key]{
-                            ForEach(drinks){drink in
+                            ForEach(drinks, id: \.hashValue){drink in
                                 DrinkRow(drink: drink){
                                     homeViewModel.selectDrink(drink: drink)
                                     homeViewModel.isShowingDetail = true
+                                    coordinator.push(page: .drinkDetail(drink))
                                 }
                             }
                         }
@@ -33,13 +34,7 @@ struct HomeView: View {
                 .task {
                     await homeViewModel.fetchDrinks()
                 }
-                .blur(radius: homeViewModel.isShowingDetail ? 20 : 0)
-                .disabled(homeViewModel.isShowingDetail)
-                }
-            if homeViewModel.isShowingDetail {
-                if let drink = homeViewModel.selectedDrink{
-                    DrinkDetailView(drink: drink, isShowingDetail: .twoWay(\.isShowingDetail, on: homeViewModel))
-                }
+
             }
         }
     }

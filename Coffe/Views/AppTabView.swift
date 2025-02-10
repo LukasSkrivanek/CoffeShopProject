@@ -9,9 +9,7 @@ import SwiftUI
 
 struct AppTabView: View {
     @Environment(Coordinator.self) private var coordinator
-    @Environment(AppState.self) private var appState
-    
-    @Environment(UserRepository.self) private var  userRepository
+
     @Environment(AccountViewModel.self) private var accountViewModel
 
     var body: some View {
@@ -33,15 +31,6 @@ struct AppTabView: View {
                     }
             }
         .tint(.brown)
-        .onAppear {
-            // Zjistíme, zda je uživatel přihlášen
-            if  let user = userRepository.user  {
-                accountViewModel.setup(user: user)
-                appState.isSignedIn = true
-            } else {
-                appState.isSignedIn = false
-            }
-        }
     }
 }
 

@@ -7,6 +7,10 @@
 import SwiftUI
 
 struct LoginMethodSelectionView: View {
+    @Environment(Coordinator.self) private var coordinator
+    @Environment(AppState.self) private var appState
+    @Environment(AccountViewModel.self) private var accountViewModel
+    @Environment(UserRepository.self) private var userRepository
     @Environment(LoginMethodSelectionViewModel.self) private var loginMethodViewModel
     
     var body: some View {
@@ -22,10 +26,36 @@ struct LoginMethodSelectionView: View {
             .styledButton(color: .brown)
             
             Button("Login with Google") {
-                loginMethodViewModel.selectedMethod = .google
+                handleLoginMethod(.google)
             }
             .styledButton(color: .blue)
         }
         .padding()
     }
+    
+    private func handleLoginMethod(_ method: LoginMethod) {
+        Task {
+            do {
+                switch method {
+                case .email:
+                    userRepository.user = await userRepository.fetchUser()
+                case .google:
+                    try await accountViewModel.signInGoogle()
+                    userRepository.user = await userRepository.fetchUser()
+                }
+                accountViewModel.setup(user: userRepository.user)
+                appState.isSignedIn = true
+                coordinator.dismissSheet()
+            } catch {
+                print(error)
+            }
+           
+        }
+    }
+    
+    
+}
+
+enum LoginMethod {
+    case email, google
 }

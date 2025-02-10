@@ -40,8 +40,8 @@ final class SignInGoogleHelper{
         
         userRepository.saveChanges(
                     name: name ?? "Unknown",
-                    address: "Unknown Address", // Můžeš to nahradit skutečnou adresou, pokud ji máš
-                    mobile: "Unknown Mobile",   // Můžeš to nahradit skutečným mobilem, pokud ho máš
+                    address: "Unknown Address",
+                    mobile: "Unknown Mobile",   
                     email: email ?? "Unknown Email"
                 )
         return tokens

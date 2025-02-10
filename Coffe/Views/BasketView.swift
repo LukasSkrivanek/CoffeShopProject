@@ -18,7 +18,7 @@ struct BasketView: View {
             ZStack{
                 VStack{
                     List{
-                        ForEach(basketViewModel.items){drink in
+                        ForEach(basketViewModel.items, id: \.hashValue){drink in
                             DrinkRow(drink: drink, didClickRow: {})
                                 .disabled(true)
                         }
@@ -71,6 +71,7 @@ struct BasketView: View {
                         Button("Create") {
                             basketViewModel.createOrder(for: userRepository.user)
                         }
+                            .background(.brown)
                         
                     )
                 }

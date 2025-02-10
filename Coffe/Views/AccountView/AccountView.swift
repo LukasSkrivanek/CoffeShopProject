@@ -61,7 +61,3 @@ struct AccountView: View {
         }
     }
 }
-
-enum LoginMethod {
-    case email, google
-}

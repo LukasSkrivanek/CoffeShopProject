@@ -7,60 +7,82 @@
 
 import SwiftUI
 
+
 struct DrinkDetailView: View {
     let drink: Drink
-    @Environment(BasketViewModel.self) private var order
-    @Binding var isShowingDetail: Bool
+    @Environment(BasketViewModel.self) private var basketViewModel
+    @Environment(Coordinator.self) private var coordinator
+    
     var body: some View {
-        VStack(spacing: 10){
+        VStack(spacing: 20) {
             RemoteImageView(url: drink.imageURL)
-                .frame(width: 300, height: 225)
-                .aspectRatio(contentMode: .fit)
-            VStack{
+                .frame(maxWidth: .infinity, maxHeight: 250)
+
+            VStack(spacing: 10) {
                 Text(drink.name)
                     .font(.title)
-                    .fontWeight(.semibold)
-                
+                    .fontWeight(.bold)
+                    .foregroundColor(.primary)
+                    .padding(.horizontal)
+
                 Text(drink.description)
                     .multilineTextAlignment(.center)
                     .font(.body)
-                    .padding()
+                    .foregroundColor(.secondary)
+                    .padding(.horizontal)
+                
+                Text("\(drink.price, format: .currency(code: "EUR"))")
+                    .font(.title2)
+                    .fontWeight(.semibold)
+                    .foregroundColor(Color(red: 47.8 / 255, green: 62.4 / 255, blue: 20.8 / 255))
+                    .padding(.top)
+
+                Spacer()
+                
+                addToBasketButton()
             }
-            Spacer()
-            addToBasketButton()
+            .padding(.top, 20)
         }
-        .frame(width: 300, height: 525)
+        .padding()
         .background(Color(.systemBackground))
-        .shadow(radius: 4)
+        .cornerRadius(20)
+        .shadow(radius: 10)
         .overlay(alignment: .topTrailing) {
             dismissButton()
         }
     }
+
     @ViewBuilder
     private func addToBasketButton() -> some View {
         Button(action: {
-            order.add(drink: drink)
-            isShowingDetail = false
-        }, label: {
-            Text("\(drink.price, format: .currency(code: "EUR")) - Add to Basket")
-        })
-        .buttonStyle(.borderedProminent)
-        .padding(.bottom, 30)
+            basketViewModel.add(drink: drink)
+            coordinator.pop()
+        }) {
+            Text("Add to Basket")
+                .frame(maxWidth: .infinity)
+                .padding()
+                .foregroundColor(.white)
+                .background(.brown)
+                .cornerRadius(10)
+                .font(.headline)
+                .shadow(radius: 5)
+        }
+        .padding(.bottom, 20)
+        .buttonStyle(PlainButtonStyle())
     }
-    
+
     @ViewBuilder
     private func dismissButton() -> some View {
         Button(action: {
-            isShowingDetail = false
-        }, label: {
-           Image(systemName: "xmark.circle.fill")
+            coordinator.pop()
+        }) {
+            Image(systemName: "xmark.circle.fill")
                 .scaleEffect(1.5)
-                .padding()
-                .foregroundStyle(.gray)
-        })
+                .padding(15)
+                .foregroundColor(.white)
+                .background(Color.brown.opacity(0.9))
+                .clipShape(Circle())
+                .shadow(radius: 5)
+        }
     }
-}
-
-#Preview {
-    DrinkDetailView(drink: DummyData.drinks[0], isShowingDetail: .constant(true))
 }

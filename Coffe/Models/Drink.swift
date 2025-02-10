@@ -11,7 +11,7 @@ enum Category: String, Codable, Hashable{
     case hot, cold, softDrinks
 }
 
-struct Drink: Codable, Identifiable {
+struct Drink: Codable, Hashable {
     var id: String = UUID().uuidString
     let name: String
     let description: String

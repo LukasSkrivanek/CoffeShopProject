@@ -127,7 +127,6 @@
 		FAA1D1B52B8C80F400EE7364 /* Coffe */ = {
 			isa = PBXGroup;
 			children = (
-				FAE160E12D57A9150094A3BD /* AppState.swift */,
 				FAA1D1B62B8C80F400EE7364 /* CoffeApp.swift */,
 				FAE160182D55F6D70094A3BD /* Coordinator */,
 				FAFF03ED2D4BA73700BCA8CE /* Extensions */,
@@ -156,6 +155,7 @@
 		FAA1D1E72B8C821600EE7364 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FAE160E12D57A9150094A3BD /* AppState.swift */,
 				FAA1D1E02B8C811500EE7364 /* AppTabView.swift */,
 				FAFF03F72D4E40F800BCA8CE /* HomeView */,
 				FAFF03F42D4E285200BCA8CE /* AccountView */,
