@@ -16,16 +16,14 @@ protocol AuthServiceProtocol {
     func updatePassword(password: String) async throws
     func updateEmail(email: String) async throws
     func signInWithGoogle(tokens: GoogleSignInResultModel) async throws -> AuthDataResultModel
+    func signOut() throws
 }
 
 class FirebaseAuthServiceAdapter: AuthServiceProtocol {
-    func getAuthenticatedUser() throws -> AuthDataResultModel {
-        guard let user = Auth.auth().currentUser else {
-            throw URLError(.badServerResponse)
-        }
-        return AuthDataResultModel(user: FirebaseAuthUserAdapter(user: user))
+    func signOut() throws {
+        try Auth.auth().signOut()
     }
-    
+
     func createUser(email: String, password: String) async throws -> AuthDataResultModel {
         let authDataResult = try await Auth.auth().createUser(withEmail: email, password: password)
         return AuthDataResultModel(user: FirebaseAuthUserAdapter(user: authDataResult.user))
@@ -36,8 +34,10 @@ class FirebaseAuthServiceAdapter: AuthServiceProtocol {
         return AuthDataResultModel(user: FirebaseAuthUserAdapter(user: authDataResult.user))
     }
     
-    func getAuthenticatedUser() throws -> AuthDataResultModel? {
-        guard let user = Auth.auth().currentUser else { return nil }
+    func getAuthenticatedUser() throws -> AuthDataResultModel {
+        guard let user = Auth.auth().currentUser else {
+            throw URLError(.badServerResponse)
+        }
         return AuthDataResultModel(user: FirebaseAuthUserAdapter(user: user))
     }
 

@@ -24,27 +24,31 @@ extension AuthenticationManager {
     func createUser(email: String, password: String) async throws -> AuthDataResultModel {
         return try await authService.createUser(email: email, password: password)
     }
-
+    
     @discardableResult
     func signInUser(email: String, password: String) async throws -> AuthDataResultModel {
         return try await authService.signInUser(email: email, password: password)
     }
-
+    
     func getAuthenticatedUser() throws -> AuthDataResultModel? {
         return try authService.getAuthenticatedUser()
     }
-
+    
     func resetPassword(email: String) async throws {
         try await authService.resetPassword(email: email)
     }
-
+    
     func updatePassword(password: String) async throws {
         try await authService.updatePassword(password: password)
     }
-
+    
     func updateEmail(email: String) async throws {
         try await authService.updateEmail(email: email)
     }
+    
+    func signOut() throws { 
+           try authService.signOut()
+       }
 }
 
 extension AuthenticationManager {

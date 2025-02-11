@@ -33,6 +33,7 @@ struct RegistrationView: View {
                 Task {
                     await registrationViewModel.registerUser()
                 }
+                coordinator.dismissSheet()
             }
             .styledButton(color: .brown)
             

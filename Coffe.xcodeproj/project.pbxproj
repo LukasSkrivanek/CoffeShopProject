@@ -40,9 +40,9 @@
 		FADA61F62B9C9CA100FDD9AF /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADA61F52B9C9CA100FDD9AF /* AuthenticationManager.swift */; };
 		FADA61FC2B9CCE4E00FDD9AF /* SignInModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADA61FB2B9CCE4E00FDD9AF /* SignInModelView.swift */; };
 		FAE160202D56127C0094A3BD /* LoginMethodSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE1601F2D56127C0094A3BD /* LoginMethodSelectionViewModel.swift */; };
+		FAE160392D563DC20094A3BD /* GoogleSignInHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE160382D563DC20094A3BD /* GoogleSignInHelper.swift */; };
 		FAE160E02D578D560094A3BD /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE160DF2D578D560094A3BD /* RegistrationViewModel.swift */; };
 		FAE160E22D57A9150094A3BD /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE160E12D57A9150094A3BD /* AppState.swift */; };
-		FAE161502D5A3E490094A3BD /* AuthDataResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE1614F2D5A3E490094A3BD /* AuthDataResultModel.swift */; };
 		FAE161522D5A40CD0094A3BD /* FirebaseAuthUserAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE161512D5A40CD0094A3BD /* FirebaseAuthUserAdapter.swift */; };
 		FAE161562D5A412C0094A3BD /* FirebaseAuthServiceAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE161552D5A412C0094A3BD /* FirebaseAuthServiceAdapter.swift */; };
 		FAFF034A2D4B773200BCA8CE /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = FAFF03492D4B773200BCA8CE /* Swinject */; };
@@ -77,9 +77,9 @@
 		FADA61F52B9C9CA100FDD9AF /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		FADA61FB2B9CCE4E00FDD9AF /* SignInModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInModelView.swift; sourceTree = "<group>"; };
 		FAE1601F2D56127C0094A3BD /* LoginMethodSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginMethodSelectionViewModel.swift; sourceTree = "<group>"; };
+		FAE160382D563DC20094A3BD /* GoogleSignInHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInHelper.swift; sourceTree = "<group>"; };
 		FAE160DF2D578D560094A3BD /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		FAE160E12D57A9150094A3BD /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
-		FAE1614F2D5A3E490094A3BD /* AuthDataResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDataResultModel.swift; sourceTree = "<group>"; };
 		FAE161512D5A40CD0094A3BD /* FirebaseAuthUserAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthUserAdapter.swift; sourceTree = "<group>"; };
 		FAE161552D5A412C0094A3BD /* FirebaseAuthServiceAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthServiceAdapter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,9 +87,9 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		FAE160182D55F6D70094A3BD /* Coordinator */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Coordinator; sourceTree = "<group>"; };
 		FAE1614D2D5A3E070094A3BD /* root */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = root; sourceTree = "<group>"; };
+		FAE161582D5B56A10094A3BD /* Models */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Models; sourceTree = "<group>"; };
 		FAFF03EA2D4BA6FE00BCA8CE /* Alert */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Alert; sourceTree = "<group>"; };
 		FAFF03ED2D4BA73700BCA8CE /* Extensions */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Extensions; sourceTree = "<group>"; };
-		FAFF03F22D4E253600BCA8CE /* GoogleSignIn */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = GoogleSignIn; sourceTree = "<group>"; };
 		FAFF03F42D4E285200BCA8CE /* AccountView */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = AccountView; sourceTree = "<group>"; };
 		FAFF03F82D4E410900BCA8CE /* DrinkDetailView */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = DrinkDetailView; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -172,7 +172,6 @@
 		FAA1D1E82B8C822000EE7364 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				FAE1614F2D5A3E490094A3BD /* AuthDataResultModel.swift */,
 				FAA1D1EC2B8C831C00EE7364 /* DummyData.swift */,
 				FAA1D1EE2B8C8A4800EE7364 /* Basket.swift */,
 				FAA1D1EA2B8C825A00EE7364 /* Drink.swift */,
@@ -229,8 +228,8 @@
 		FADA61F42B9C9BDA00FDD9AF /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				FAE161582D5B56A10094A3BD /* Models */,
 				FAE161572D5A41400094A3BD /* Firebase */,
-				FAFF03F22D4E253600BCA8CE /* GoogleSignIn */,
 				FADA61F52B9C9CA100FDD9AF /* AuthenticationManager.swift */,
 			);
 			path = Authentication;
@@ -248,6 +247,7 @@
 		FAE161572D5A41400094A3BD /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
+				FAE160382D563DC20094A3BD /* GoogleSignInHelper.swift */,
 				FAE161512D5A40CD0094A3BD /* FirebaseAuthUserAdapter.swift */,
 				FAE161552D5A412C0094A3BD /* FirebaseAuthServiceAdapter.swift */,
 			);
@@ -281,9 +281,9 @@
 			fileSystemSynchronizedGroups = (
 				FAE160182D55F6D70094A3BD /* Coordinator */,
 				FAE1614D2D5A3E070094A3BD /* root */,
+				FAE161582D5B56A10094A3BD /* Models */,
 				FAFF03EA2D4BA6FE00BCA8CE /* Alert */,
 				FAFF03ED2D4BA73700BCA8CE /* Extensions */,
-				FAFF03F22D4E253600BCA8CE /* GoogleSignIn */,
 				FAFF03F42D4E285200BCA8CE /* AccountView */,
 				FAFF03F82D4E410900BCA8CE /* DrinkDetailView */,
 			);
@@ -367,6 +367,7 @@
 				FAA1D1EF2B8C8A4800EE7364 /* Basket.swift in Sources */,
 				FAE161522D5A40CD0094A3BD /* FirebaseAuthUserAdapter.swift in Sources */,
 				FAA1D1E32B8C819A00EE7364 /* BasketView.swift in Sources */,
+				FAE160392D563DC20094A3BD /* GoogleSignInHelper.swift in Sources */,
 				FAA1D1F12B8C8A7C00EE7364 /* Order.swift in Sources */,
 				FAE161562D5A412C0094A3BD /* FirebaseAuthServiceAdapter.swift in Sources */,
 				FAA1D1B92B8C80F400EE7364 /* HomeView.swift in Sources */,
@@ -378,7 +379,6 @@
 				FA56F5E42D4B759B004B12E9 /* DependencyContainer.swift in Sources */,
 				FA3317782B9DC6DC00248936 /* Utilities.swift in Sources */,
 				FADA61F62B9C9CA100FDD9AF /* AuthenticationManager.swift in Sources */,
-				FAE161502D5A3E490094A3BD /* AuthDataResultModel.swift in Sources */,
 				FAA1D1F92B8C8C8C00EE7364 /* FirebaseRepository.swift in Sources */,
 				FAE160202D56127C0094A3BD /* LoginMethodSelectionViewModel.swift in Sources */,
 				FAA1D1EB2B8C825A00EE7364 /* Drink.swift in Sources */,

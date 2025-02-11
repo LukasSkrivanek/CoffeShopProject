@@ -11,27 +11,28 @@ struct LoginSheetView: View {
     @Environment(AppState.self) private var appState
     @Environment(UserRepository.self) private var userRepository
     @Environment(AccountViewModel.self) private var accountViewModel
-    
-    @State private var loginViewModel = LoginViewModel(userRepository: UserRepository()) // Předpokládám, že máte ViewModel pro přihlášení
-    
+
+    @State private var loginViewModel =  LoginViewModel()
+
+   
+
     var body: some View {
         VStack(spacing: 20) {
             Text("Login")
                 .font(.title2)
                 .bold()
-            
+
             TextField("Email", text: $loginViewModel.email)
                 .textFieldStyle()
                 .autocapitalization(.none)
                 .keyboardType(.emailAddress)
-            
-            
+
             SecureField("Password", text: $loginViewModel.password)
                 .textFieldStyle()
-            
+
             Button {
                 Task {
-                    await loginViewModel.loginUser()
+                    await loginViewModel.loginUser(userRepository: userRepository)
                     appState.isSignedIn = true
                     accountViewModel.setup(user: userRepository.user)
                     coordinator.dismissSheet()
@@ -40,14 +41,13 @@ struct LoginSheetView: View {
                 Text("Login")
                     .styledButton(color: .brown)
             }
-            
+
             Button {
                 coordinator.dismissSheet()
             } label: {
                 Text("Cancel")
                     .styledButton(color: .red)
             }
-            
         }
         .padding()
     }
@@ -60,28 +60,24 @@ class LoginViewModel {
     var password: String = ""
     var errorMessage: String?
 
-    private var userRepository: UserRepository
-
-    // Inicializace s předáním UserRepository
-    init(userRepository: UserRepository) {
-        self.userRepository = userRepository
-    }
-
-    func loginUser() async {
-        // Prověřte, zda jsou email a heslo zadány
+    func loginUser(userRepository: UserRepository) async {
         guard !email.isEmpty, !password.isEmpty else {
             errorMessage = "Email and password cannot be empty"
             return
         }
 
         do {
-            // Přihlášení uživatele pomocí AuthenticationManager
-            try await AuthenticationManager.shared.signInUser(email: email, password: password)
-            // Po přihlášení si načteme uživatelská data
-            userRepository.user = await userRepository.fetchUser()
+            let authUser = try await AuthenticationManager.shared.signInUser(email: email, password: password)
+            let userModel = UserModel(id: authUser.user.uid, name: "Lukas", email: authUser.user.email ?? "", address: "", mobile: "")
+
+            await MainActor.run {
+                userRepository.user = userModel
+            
+            }
         } catch {
-            // Pokud dojde k chybě, zobrazí se chybová zpráva
-            errorMessage = error.localizedDescription
+            await MainActor.run {
+                errorMessage = error.localizedDescription
+            }
         }
     }
 }

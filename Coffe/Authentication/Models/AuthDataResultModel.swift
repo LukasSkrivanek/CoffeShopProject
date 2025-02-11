@@ -6,7 +6,7 @@
 //
 import Foundation
 
-protocol AuthUserProtocol {
+protocol AuthUserProtocol: Sendable {
     var uid: String { get }
     var email: String? { get }
 }

@@ -8,7 +8,6 @@ import SwiftUI
 
 struct AccountView: View {
     @Environment(Coordinator.self) private var coordinator
-    @Environment(AppState.self) private var appState
     
     @Environment(UserRepository.self) private var userRepository
     @Environment(AccountViewModel.self) private var accountViewModel
@@ -29,35 +28,21 @@ struct AccountView: View {
                 }
                 .padding(.bottom, 30)
             }
-            .background(Color(UIColor.systemGroupedBackground))
-            .onAppear {
-                if let user = userRepository.user {
-                    accountViewModel.setup(user: user)
+            .onChange(of: userRepository.user, { _, newValue in
+                if newValue != nil {
+                    
                 }
-            }
+            })
+            .background(Color(UIColor.systemGroupedBackground))
+           
+            
         }
     private func logOut() {
-        userRepository.removeUser()
-        accountViewModel.setup(user: nil)
-        appState.isSignedIn.toggle()
-    }
-
-    private func handleLoginMethod(_ method: LoginMethod) {
-        Task {
-            do {
-                switch method {
-                case .email:
-                    userRepository.user = await userRepository.fetchUser()
-                case .google:
-                    try await accountViewModel.signInGoogle()
-                    userRepository.user = await userRepository.fetchUser()
-                }
-                accountViewModel.setup(user: userRepository.user)
-                appState.isSignedIn = true
-            } catch {
-                print(error)
-            }
-           
+        do {
+            try AuthenticationManager.shared.signOut()
+            userRepository.removeUser()
+        } catch  {
+            print("Chyba")
         }
     }
 }
