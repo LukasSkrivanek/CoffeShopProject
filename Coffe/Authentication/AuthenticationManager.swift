@@ -8,12 +8,12 @@
 import Foundation
 import FirebaseAuth
 
-struct AuthenticationManager {
+final class AuthenticationManager {
     static let shared = AuthenticationManager()
     
     private var authService: AuthServiceProtocol
 
-    init(authService: AuthServiceProtocol = FirebaseAuthServiceAdapter()) {
+    private init(authService: AuthServiceProtocol = FirebaseAuthServiceAdapter()) {
         self.authService = authService
     }
 }

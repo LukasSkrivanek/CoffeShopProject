@@ -48,7 +48,9 @@ final class BasketViewModel {
             items: items,
             orderTotal: totalprice
         )
-        firebaseRepository.placeOrder(order: order)
+        Task {
+            await firebaseRepository.placeOrder(order: order)
+        }
         items = []
     }
     private func setError(_ error: AppError) {

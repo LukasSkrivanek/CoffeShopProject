@@ -6,7 +6,7 @@
 //
 import Foundation
 
-final class FirebaseRepository {}
+actor FirebaseRepository {}
 
 // MARK: - Fetching Drinks
 extension FirebaseRepository {

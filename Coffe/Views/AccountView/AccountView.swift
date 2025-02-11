@@ -30,7 +30,7 @@ struct AccountView: View {
             }
             .onChange(of: userRepository.user, { _, newValue in
                 if newValue != nil {
-                    
+                    print(newValue)
                 }
             })
             .background(Color(UIColor.systemGroupedBackground))

@@ -19,7 +19,7 @@ protocol AuthServiceProtocol {
     func signOut() throws
 }
 
-class FirebaseAuthServiceAdapter: AuthServiceProtocol {
+final class FirebaseAuthServiceAdapter: AuthServiceProtocol {
     func signOut() throws {
         try Auth.auth().signOut()
     }
