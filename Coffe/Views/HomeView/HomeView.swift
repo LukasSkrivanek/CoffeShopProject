@@ -34,5 +34,5 @@ struct HomeView: View {
 
 #Preview {
     HomeView()
-        .environment(HomeViewModel())
+        .environment(HomeViewModel(firebaseRepository: FirebaseRepository()))
 }

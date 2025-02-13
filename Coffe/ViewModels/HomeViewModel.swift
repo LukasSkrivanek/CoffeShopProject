@@ -8,7 +8,11 @@ import Foundation
 
 @Observable
 final class HomeViewModel {
-    private let firebaseRepository = FirebaseRepository()
+    private let firebaseRepository: FirebaseRepository
+    
+    init(firebaseRepository: FirebaseRepository) {
+        self.firebaseRepository = firebaseRepository
+    }
     
     private(set) var drinks: [Drink] = []
     private(set) var selectedDrink: Drink?

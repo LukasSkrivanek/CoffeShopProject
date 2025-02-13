@@ -15,12 +15,12 @@ struct CoffeApp: App {
         WindowGroup {
             CoordinatorView()
                 .environment(Coordinator())
-                .environment(DependencyContainer.shared.resolve(AppState.self))
-                .environment(DependencyContainer.shared.resolve(LoginMethodSelectionViewModel.self))
-                .environment(DependencyContainer.shared.resolve(BasketViewModel.self))
-                .environment(DependencyContainer.shared.resolve(UserRepository.self))
-                .environment(DependencyContainer.shared.resolve(HomeViewModel.self))
-                .environment(DependencyContainer.shared.resolve(AccountViewModel.self))
+                .environment(DependencyContainer.resolve(AppState.self))
+                .environment(DependencyContainer.resolve(LoginMethodSelectionViewModel.self))
+                .environment(DependencyContainer.resolve(BasketViewModel.self))
+                .environment(DependencyContainer.resolve(UserRepository.self))
+                .environment(DependencyContainer.resolve(HomeViewModel.self))
+                .environment(DependencyContainer.resolve(AccountViewModel.self))
         }
     }
 }
