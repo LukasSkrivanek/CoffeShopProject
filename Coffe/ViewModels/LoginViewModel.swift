@@ -9,19 +9,22 @@ import SwiftUI
 @Observable
 class LoginViewModel {
     var userRepository: UserRepository
-    
     var email: String = ""
     var password: String = ""
     var errorMessage: String?
-    
+    var alert: AnyAppAlert? // Alert, který bude zobrazen
+
     init(userRepository: UserRepository) {
         self.userRepository = userRepository
     }
 
-    func loginUser() async {
+    /// Pokusí se přihlásit uživatele a vrátí `true`, pokud bylo přihlášení úspěšné.
+    func loginUser() async -> Bool {
         guard !email.isEmpty, !password.isEmpty else {
-            errorMessage = "Email and password cannot be empty"
-            return
+            await MainActor.run {
+                alert = AnyAppAlert(title: "Error", subtitle: "Email and password cannot be empty")
+            }
+            return false
         }
 
         do {
@@ -30,12 +33,15 @@ class LoginViewModel {
 
             await MainActor.run {
                 userRepository.user = userModel
-            
             }
+
+            return true
         } catch {
             await MainActor.run {
-                errorMessage = error.localizedDescription
+                alert = AnyAppAlert(error: error) // Nastavení alertu
             }
+            return false
         }
     }
 }
+

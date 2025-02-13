@@ -21,7 +21,7 @@ class LoginMethodSelectionViewModel {
     }
     
     func signInGoogle() async throws{
-            let helper = SignInGoogleHelper()
+        let helper = SignInGoogleHelper(userRepository: userRepository)
             let tokens = try await helper.signIn()
             try await AuthenticationManager.shared.signInWithGoogle(tokens: tokens)
             

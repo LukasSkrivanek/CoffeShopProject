@@ -9,17 +9,35 @@ import Observation
 
 @Observable
 final class UserRepository {
-    private let secureStorage = SecureStorage()
+    var secureStorage: SecureStorage
+    var user: UserModel? {
+            didSet {
+                Task {
+                    await saveUser()
+                }
+            }
+        }
     
-    var user: UserModel?
-    init() {
+    init(secureStorage: SecureStorage) {
+        self.secureStorage = secureStorage
         Task{
             user = await loadUser()
         }
     }
+    
     @MainActor
         private func loadUser() async -> UserModel? {
             return await fetchUser()
+        }
+    
+    private func saveUser() async {
+            guard let user = user else { return }
+            do {
+                let userData = try JSONEncoder().encode(user)
+                await secureStorage.save(data: userData, with: userKey)
+            } catch {
+                print("Error saving user!")
+            }
         }
 
     

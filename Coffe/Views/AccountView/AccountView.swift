@@ -8,13 +8,15 @@ import SwiftUI
 
 struct AccountView: View {
     @Environment(Coordinator.self) private var coordinator
+    @Environment(AppState.self) private var appState
+
     
     @Environment(AccountViewModel.self) private var accountViewModel
     
     var body: some View {
         ScrollView {
             VStack(spacing: 15) {
-                if let user = accountViewModel.userRepository.user {
+                if let user = accountViewModel.userRepository.user , appState.isSignedIn {
                     UserInfoView(user: user, logOutAction: logOut)
                 } else {
                     AuthButtonsView(
@@ -35,5 +37,6 @@ struct AccountView: View {
     }
     private func logOut() {
         accountViewModel.logOut()
+        appState.isSignedIn = false
     }
 }

@@ -10,6 +10,7 @@ import SwiftUI
 struct CoordinatorView: View {
     @Environment(Coordinator.self) private var coordinator
     @Environment(\.colorScheme) private var colorScheme
+
     
     var body: some View {
         NavigationStack(path: .twoWay(\.path, on: coordinator)) {

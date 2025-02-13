@@ -20,6 +20,11 @@ struct GoogleSignInResultModel{
 
 
 final class SignInGoogleHelper{
+    var userRepository: UserRepository
+    
+    init(userRepository: UserRepository) {
+        self.userRepository = userRepository
+    }
     
     @MainActor
     func signIn() async throws  -> GoogleSignInResultModel{
@@ -36,7 +41,6 @@ final class SignInGoogleHelper{
         let email = gidSignInResult.user.profile?.email
         
         let tokens = GoogleSignInResultModel(idToken: idToken, accessToken: accesToken, name: name, email: email)
-        let userRepository = UserRepository()
         
         userRepository.saveChanges(
                     name: name ?? "Unknown",

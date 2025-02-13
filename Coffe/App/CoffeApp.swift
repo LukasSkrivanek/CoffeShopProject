@@ -10,6 +10,7 @@ import FirebaseCore
 @main
 struct CoffeApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
 
     
     var body: some Scene {
@@ -24,6 +25,7 @@ struct CoffeApp: App {
                 .environment(DependencyContainer.resolve(UserRepository.self))
                 .environment(DependencyContainer.resolve(HomeViewModel.self))
                 .environment(DependencyContainer.resolve(AccountViewModel.self))
+                .environment(DependencyContainer.resolve(SecureStorage.self))
         }
     }
 }

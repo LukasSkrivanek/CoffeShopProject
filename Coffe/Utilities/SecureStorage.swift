@@ -10,6 +10,7 @@ import KeychainAccess
 
 let userKey = "userSecureKey"
 
+@Observable
 final class SecureStorage {
     
     private static let keychain = Keychain(service: "luky.skrivos-gmail.com.Coffe")

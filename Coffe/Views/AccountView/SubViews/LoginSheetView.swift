@@ -13,34 +13,33 @@ struct LoginSheetView: View {
     @Environment(LoginViewModel.self) private var loginViewModel
     
     var body: some View {
-        @Bindable var loginViewModel = loginViewModel
         VStack(spacing: 20) {
             Text("Login")
                 .font(.title2)
                 .bold()
-
-            TextField("Email", text: $loginViewModel.email)
+            
+            TextField("Email", text: .twoWay(\.email, on: loginViewModel))
                 .textFieldStyle()
                 .autocapitalization(.none)
                 .keyboardType(.emailAddress)
-
-            SecureField("Password", text: $loginViewModel.password)
+            
+            SecureField("Password", text: .twoWay(\.password, on: loginViewModel))
                 .textFieldStyle()
-
+            
             Button {
                 Task {
-                    await loginViewModel.loginUser()
-                    appState.isSignedIn = true
-            
-                    loginViewModel.email = ""
-                    loginViewModel.password = ""
-                    coordinator.dismissSheet()
+                    if await loginViewModel.loginUser() {
+                        loginViewModel.email = ""
+                        loginViewModel.password = ""
+                        appState.isSignedIn = true
+                        coordinator.dismissSheet()
+                    }
                 }
             } label: {
                 Text("Login")
                     .styledButton(usedColor: .brown)
             }
-
+            
             Button {
                 coordinator.dismissSheet()
             } label: {
@@ -48,6 +47,7 @@ struct LoginSheetView: View {
                     .styledButton(usedColor: .red)
             }
         }
+        .showCustomAlert(alert: .twoWay(\.alert, on: loginViewModel), colorScheme: .dark)
         .padding()
     }
 }

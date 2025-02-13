@@ -37,9 +37,9 @@ struct AppTabView: View {
 #Preview {
     AppTabView()
         .environment(Coordinator())
-        .environment(UserRepository())
-        .environment(AccountViewModel(userRepository: UserRepository()))
+        .environment(UserRepository(secureStorage: SecureStorage()))
+        .environment(AccountViewModel(userRepository: UserRepository(secureStorage: SecureStorage())))
         .environment(HomeViewModel(firebaseRepository: FirebaseRepository()))
-        .environment(BasketViewModel(userRepository: UserRepository(), firebaseRepository: FirebaseRepository()))
+        .environment(BasketViewModel(userRepository: UserRepository(secureStorage: SecureStorage()), firebaseRepository: FirebaseRepository()))
        
 }

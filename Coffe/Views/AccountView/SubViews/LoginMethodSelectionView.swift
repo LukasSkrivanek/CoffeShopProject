@@ -46,9 +46,8 @@ struct LoginMethodSelectionView: View {
                     break
                 case .google:
                     try await loginMethodViewModel.signInGoogle()
-                    loginMethodViewModel.userRepository.user = await loginMethodViewModel.userRepository.fetchUser()
+                    appState.isSignedIn = true
                 }
-                appState.isSignedIn = true
                 coordinator.dismissSheet()
             } catch {
                 print(error)
