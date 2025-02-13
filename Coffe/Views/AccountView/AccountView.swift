@@ -12,35 +12,28 @@ struct AccountView: View {
     @Environment(AccountViewModel.self) private var accountViewModel
     
     var body: some View {
-            ScrollView {
-                VStack(spacing: 15) {
-                    if let user = accountViewModel.userRepository.user {
-                        UserInfoView(user: user, logOutAction: logOut)
-                    } else {
-                        AuthButtonsView(
-                            onLogin: { coordinator.presentSheet(.loginMethod, detent: .fraction(0.35))},
-                            onRegister: { coordinator.presentSheet(.registration, detent: .medium) }
-                        )
-                    }
-                    
-                    DarkModeToggle(isDarkMode: .twoWay(\.isDarkMode, on: accountViewModel))
+        ScrollView {
+            VStack(spacing: 15) {
+                if let user = accountViewModel.userRepository.user {
+                    UserInfoView(user: user, logOutAction: logOut)
+                } else {
+                    AuthButtonsView(
+                        onLogin: { coordinator.presentSheet(.loginMethod, detent: .fraction(0.35))},
+                        onRegister: { coordinator.presentSheet(.registration, detent: .medium) }
+                    )
                 }
-                .padding(.bottom, 30)
+                
+                DarkModeToggle(isDarkMode: .twoWay(\.isDarkMode, on: accountViewModel))
             }
-            .onChange(of: accountViewModel.userRepository.user, { _, newValue in
-                if newValue != nil {
-                }
-            })
-            .background(Color(UIColor.systemGroupedBackground))
-           
-            
+            .padding(.bottom, 30)
         }
+        .onChange(of: accountViewModel.userRepository.user, { _, newValue in
+            if newValue != nil {
+            }
+        })
+        .background(Color(UIColor.systemGroupedBackground))
+    }
     private func logOut() {
-        do {
-            try AuthenticationManager.shared.signOut()
-            accountViewModel.userRepository.removeUser()
-        } catch  {
-            print("Chyba")
-        }
+        accountViewModel.logOut()
     }
 }

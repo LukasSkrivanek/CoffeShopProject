@@ -10,11 +10,12 @@ import FirebaseCore
 @main
 struct CoffeApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+
     
     var body: some Scene {
         WindowGroup {
             CoordinatorView()
-                .environment(Coordinator())
+                .environment(DependencyContainer.resolve(Coordinator.self))
                 .environment(DependencyContainer.resolve(RegistrationViewModel.self))
                 .environment(DependencyContainer.resolve(LoginViewModel.self))
                 .environment(DependencyContainer.resolve(AppState.self))

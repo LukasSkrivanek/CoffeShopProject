@@ -32,11 +32,16 @@ class DependencyContainer {
             RegistrationViewModel(userRepository: r.resolve(UserRepository.self)!)
         }
 
-        // 🔹 GlobalStates
+        // GlobalStates
         container.register(AppState.self) { _ in
             MainActor.assumeIsolated {
                 AppState()
             }
+        }.inObjectScope(.container)
+        
+        // Coordinator
+        container.register(Coordinator.self) { _ in
+            Coordinator()
         }.inObjectScope(.container)
     }
 
