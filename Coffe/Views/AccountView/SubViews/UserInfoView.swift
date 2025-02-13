@@ -64,12 +64,12 @@ struct AuthButtonsView: View {
 
             Button(action: onLogin) {
                 Text("Login")
-                    .styledButton(color: .brown)
+                    .styledButton(usedColor: .brown)
                    
             }
             Button(action: onRegister) {
                 Text("Register")
-                    .styledButton(color: .oliveGreen)
+                    .styledButton(usedColor: .oliveGreen)
             }
         }
     }
@@ -85,7 +85,7 @@ struct DarkModeToggle: View {
             UIApplication.shared.windows.first?.rootViewController?.view.overrideUserInterfaceStyle = isDarkMode ? .dark : .light
         }) {
             Text("Switch to \(isDarkMode ? "Light" : "Dark") Mode")
-                .styledButton(color: .gray.opacity(0.4))
+                .styledButton(usedColor: .gray.opacity(0.4))
         }
         
     }

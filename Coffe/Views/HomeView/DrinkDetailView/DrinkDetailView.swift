@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct DrinkDetailView: View {
-    let drink: Drink
-    @Environment(BasketViewModel.self) private var basketViewModel
     @Environment(Coordinator.self) private var coordinator
+    
+    @Environment(BasketViewModel.self) private var basketViewModel
+
+    let drink: Drink
     
     var body: some View {
         VStack(spacing: 20) {

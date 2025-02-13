@@ -38,14 +38,14 @@ struct LoginSheetView: View {
                 }
             } label: {
                 Text("Login")
-                    .styledButton(color: .brown)
+                    .styledButton(usedColor: .brown)
             }
 
             Button {
                 coordinator.dismissSheet()
             } label: {
                 Text("Cancel")
-                    .styledButton(color: .red)
+                    .styledButton(usedColor: .red)
             }
         }
         .padding()

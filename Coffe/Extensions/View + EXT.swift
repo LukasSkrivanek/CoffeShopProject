@@ -7,11 +7,11 @@
 import SwiftUI
 
 extension View {
-    func styledButton(color: Color = .blue) -> some View {
+    func styledButton(usedColor: Color = .blue) -> some View {
         self
             .frame(maxWidth: .infinity)
             .padding()
-            .background(color)
+            .background(usedColor)
             .foregroundColor(.white)
             .cornerRadius(12)
             .shadow(radius: 5)

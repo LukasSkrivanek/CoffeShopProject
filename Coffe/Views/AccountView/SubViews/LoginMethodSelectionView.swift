@@ -23,7 +23,7 @@ struct LoginMethodSelectionView: View {
 
             }, label: {
                 Text("Login with Email")
-                    .styledButton(color: .brown)
+                    .styledButton(usedColor: .brown)
             })
             
             
@@ -31,7 +31,7 @@ struct LoginMethodSelectionView: View {
                 handleLoginMethod(.google)
             }, label: {
                 Text("Login with Google")
-                    .styledButton(color: .oliveGreen)
+                    .styledButton(usedColor: .oliveGreen)
             })
             
         }

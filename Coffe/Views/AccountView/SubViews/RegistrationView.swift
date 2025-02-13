@@ -35,14 +35,14 @@ struct RegistrationView: View {
                 coordinator.dismissSheet()
             } label: {
                 Text("Register")
-                    .styledButton(color: .brown)
+                    .styledButton(usedColor: .brown)
             }
 
             Button {
                 coordinator.dismissSheet()
             } label: {
                 Text("Cancel")
-                    .styledButton(color: .red)
+                    .styledButton(usedColor: .red)
             }
         }
         .padding()
