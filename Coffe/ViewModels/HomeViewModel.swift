@@ -8,7 +8,7 @@ import Foundation
 
 @Observable
 final class HomeViewModel {
-    private let firebaseRepository: FirebaseRepository
+    var firebaseRepository: FirebaseRepository
     
     init(firebaseRepository: FirebaseRepository) {
         self.firebaseRepository = firebaseRepository

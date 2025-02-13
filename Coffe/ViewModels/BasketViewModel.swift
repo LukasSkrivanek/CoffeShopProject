@@ -12,11 +12,12 @@ import Firebase
 final class BasketViewModel {
     var firebaseRepository: FirebaseRepository
     var userRepository: UserRepository
+    
     private(set) var items: [Drink] = []
     
-    init(usereRepository: UserRepository, firebaseRepository: FirebaseRepository) {
+    init(userRepository: UserRepository, firebaseRepository: FirebaseRepository) {
         self.firebaseRepository = firebaseRepository
-        self.userRepository = usereRepository
+        self.userRepository = userRepository
     }
     
     var basketError: AppError?
@@ -30,7 +31,7 @@ final class BasketViewModel {
     func deleteItems(at offsets: IndexSet) {
         items.remove(atOffsets: offsets)
     }
-    var totalprice: Double {
+    var totalPrice: Double {
         items.reduce(0) { $0 + $1.price }
     }
     func createOrder(for user: UserModel?) {
@@ -52,7 +53,7 @@ final class BasketViewModel {
             customerAdress: user.address,
             customerMobile: user.mobile,
             items: items,
-            orderTotal: totalprice
+            orderTotal: totalPrice
         )
         Task {
             await firebaseRepository.placeOrder(order: order)

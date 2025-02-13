@@ -9,11 +9,10 @@ import SwiftUI
 struct RegistrationView: View {
     @Environment(Coordinator.self) private var coordinator
     
-    
-    @State private var registrationViewModel = RegistrationViewModel(userRepository: UserRepository())
-
+    @Environment(RegistrationViewModel.self) private var registrationViewModel
     
     var body: some View {
+        @Bindable var registrationViewModel = registrationViewModel
         VStack(spacing: 20) {
             Text("Create an Account")
                 .font(.title2)
@@ -29,18 +28,22 @@ struct RegistrationView: View {
 
             SecureField("Confirm Password", text: $registrationViewModel.confirmPassword)
                 .textFieldStyle()
-            Button("Register") {
+            Button {
                 Task {
                     await registrationViewModel.registerUser()
                 }
                 coordinator.dismissSheet()
+            } label: {
+                Text("Register")
+                    .styledButton(color: .brown)
             }
-            .styledButton(color: .brown)
-            
-            Button("Cancel") {
+
+            Button {
                 coordinator.dismissSheet()
+            } label: {
+                Text("Cancel")
+                    .styledButton(color: .red)
             }
-            .styledButton(color: .red)
         }
         .padding()
     }

@@ -8,11 +8,11 @@ import SwiftUI
 
 @Observable
 class LoginViewModel {
+    var userRepository: UserRepository
+    
     var email: String = ""
     var password: String = ""
     var errorMessage: String?
-    
-    private var userRepository: UserRepository
     
     init(userRepository: UserRepository) {
         self.userRepository = userRepository

@@ -78,7 +78,7 @@ struct BasketView: View {
                 }
             )
         }, label: {
-            Text("\(basketViewModel.totalprice, format: .currency(code: "EUR")) - Place Order")
+            Text("\(basketViewModel.totalPrice, format: .currency(code: "EUR")) - Place Order")
         })
         .buttonStyle(.borderedProminent)
         .padding(.bottom, 30)

@@ -43,7 +43,7 @@ struct LoginMethodSelectionView: View {
             do {
                 switch method {
                 case .email:
-                    loginMethodViewModel.userRepository.user = await loginMethodViewModel.userRepository.fetchUser()
+                    break
                 case .google:
                     try await loginMethodViewModel.signInGoogle()
                     loginMethodViewModel.userRepository.user = await loginMethodViewModel.userRepository.fetchUser()

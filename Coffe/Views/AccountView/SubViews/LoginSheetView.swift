@@ -31,6 +31,9 @@ struct LoginSheetView: View {
                 Task {
                     await loginViewModel.loginUser()
                     appState.isSignedIn = true
+            
+                    loginViewModel.email = ""
+                    loginViewModel.password = ""
                     coordinator.dismissSheet()
                 }
             } label: {

@@ -10,11 +10,12 @@ import Observation
 
 @Observable
 final class AccountViewModel {
+    var userRepository: UserRepository
+    
     var isDarkMode: Bool = false
     var isRegisterSheetPresented: Bool = false
     var loginMethod: LoginMethod? = nil
     
-    var userRepository: UserRepository
     
     init(userRepository: UserRepository) {
         self.userRepository = userRepository

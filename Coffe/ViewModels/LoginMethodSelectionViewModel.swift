@@ -8,9 +8,9 @@ import SwiftUI
 
 @Observable
 class LoginMethodSelectionViewModel {
-
-    var selectedMethod: LoginMethod? = nil
     var userRepository: UserRepository
+    
+    var selectedMethod: LoginMethod? = nil
     
     init(userRepository: UserRepository) {
         self.userRepository = userRepository

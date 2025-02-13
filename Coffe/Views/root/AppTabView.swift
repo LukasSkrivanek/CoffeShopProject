@@ -40,6 +40,6 @@ struct AppTabView: View {
         .environment(UserRepository())
         .environment(AccountViewModel(userRepository: UserRepository()))
         .environment(HomeViewModel(firebaseRepository: FirebaseRepository()))
-        .environment(BasketViewModel(usereRepository: UserRepository(), firebaseRepository: FirebaseRepository()))
+        .environment(BasketViewModel(userRepository: UserRepository(), firebaseRepository: FirebaseRepository()))
        
 }
