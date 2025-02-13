@@ -15,7 +15,6 @@ class RegistrationViewModel {
     
     private var userRepository: UserRepository
     
-    // Inicializace s předáním UserRepository
     init(userRepository: UserRepository) {
         self.userRepository = userRepository
     }

@@ -21,10 +21,13 @@ class DependencyContainer {
         container.register(HomeViewModel.self) { r in
             HomeViewModel(firebaseRepository: r.resolve(FirebaseRepository.self)!)
         }.inObjectScope(.container)
+        container.register(LoginViewModel.self) { r in
+            LoginViewModel(userRepository: r.resolve(UserRepository.self)!) }.inObjectScope(.container)
 
-        container.register(BasketViewModel.self) { _ in BasketViewModel() }.inObjectScope(.container)
-        container.register(AccountViewModel.self) { _ in AccountViewModel() }.inObjectScope(.container)
-        container.register(LoginMethodSelectionViewModel.self) { _ in LoginMethodSelectionViewModel() }.inObjectScope(.container)
+        container.register(BasketViewModel.self) { r in BasketViewModel(usereRepository: r.resolve(UserRepository.self)!, firebaseRepository: r.resolve(FirebaseRepository.self)!) }.inObjectScope(.container)
+        container.register(AccountViewModel.self) { r in AccountViewModel(userRepository: r.resolve(UserRepository.self)!) }.inObjectScope(.container)
+        container.register(LoginMethodSelectionViewModel.self) { r in LoginMethodSelectionViewModel(userRepository: r.resolve(UserRepository.self)!)
+            }.inObjectScope(.container)
 
         // 🔹 GlobalStates
         container.register(AppState.self) { _ in

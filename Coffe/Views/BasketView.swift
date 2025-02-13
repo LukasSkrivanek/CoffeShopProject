@@ -12,7 +12,6 @@ struct BasketView: View {
     @Environment(\.colorScheme) private var colorScheme
     
     @Environment(BasketViewModel.self) private var basketViewModel
-    @Environment(UserRepository.self) private var  userRepository
     
     var body: some View {
         NavigationStack {
@@ -71,7 +70,7 @@ struct BasketView: View {
                 buttons: {
                     AnyView(
                         Button("Create") {
-                            basketViewModel.createOrder(for: userRepository.user)
+                            basketViewModel.createOrder(for: basketViewModel.userRepository.user)
                         }
                             .background(.brown)
                         

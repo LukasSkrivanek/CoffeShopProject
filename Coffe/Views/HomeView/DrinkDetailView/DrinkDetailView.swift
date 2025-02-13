@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct DrinkDetailView: View {
     let drink: Drink
     @Environment(BasketViewModel.self) private var basketViewModel

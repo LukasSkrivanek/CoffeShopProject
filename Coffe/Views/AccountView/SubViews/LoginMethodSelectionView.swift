@@ -9,8 +9,7 @@ import SwiftUI
 struct LoginMethodSelectionView: View {
     @Environment(Coordinator.self) private var coordinator
     @Environment(AppState.self) private var appState
-    @Environment(AccountViewModel.self) private var accountViewModel
-    @Environment(UserRepository.self) private var userRepository
+    
     @Environment(LoginMethodSelectionViewModel.self) private var loginMethodViewModel
     
     var body: some View {
@@ -44,12 +43,11 @@ struct LoginMethodSelectionView: View {
             do {
                 switch method {
                 case .email:
-                    userRepository.user = await userRepository.fetchUser()
+                    loginMethodViewModel.userRepository.user = await loginMethodViewModel.userRepository.fetchUser()
                 case .google:
-                    try await accountViewModel.signInGoogle()
-                    userRepository.user = await userRepository.fetchUser()
+                    try await loginMethodViewModel.signInGoogle()
+                    loginMethodViewModel.userRepository.user = await loginMethodViewModel.userRepository.fetchUser()
                 }
-                accountViewModel.setup(user: userRepository.user)
                 appState.isSignedIn = true
                 coordinator.dismissSheet()
             } catch {

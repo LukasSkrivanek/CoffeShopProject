@@ -14,25 +14,17 @@ final class AccountViewModel {
     var isRegisterSheetPresented: Bool = false
     var loginMethod: LoginMethod? = nil
     
+    var userRepository: UserRepository
+    
+    init(userRepository: UserRepository) {
+        self.userRepository = userRepository
+    }
+    
     var name = ""
     var address = ""
     var mobile = ""
     var email = ""
     
-    func setup(user: UserModel?){
-        name = user?.name ?? ""
-        address = user?.address ?? ""
-        mobile = user?.mobile ?? ""
-        email = user?.email ?? ""
-        
-    }
-    
-    func signInGoogle() async throws{
-            let helper = SignInGoogleHelper()
-            let tokens = try await helper.signIn()
-            try await AuthenticationManager.shared.signInWithGoogle(tokens: tokens)
-            
-        }
     
     func isInvalidForm() -> Bool {
         name.isEmpty || address.isEmpty || mobile.isEmpty

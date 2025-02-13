@@ -9,13 +9,12 @@ import SwiftUI
 struct AccountView: View {
     @Environment(Coordinator.self) private var coordinator
     
-    @Environment(UserRepository.self) private var userRepository
     @Environment(AccountViewModel.self) private var accountViewModel
     
     var body: some View {
             ScrollView {
                 VStack(spacing: 15) {
-                    if let user = userRepository.user {
+                    if let user = accountViewModel.userRepository.user {
                         UserInfoView(user: user, logOutAction: logOut)
                     } else {
                         AuthButtonsView(
@@ -28,7 +27,7 @@ struct AccountView: View {
                 }
                 .padding(.bottom, 30)
             }
-            .onChange(of: userRepository.user, { _, newValue in
+            .onChange(of: accountViewModel.userRepository.user, { _, newValue in
                 if newValue != nil {
                 }
             })
@@ -39,7 +38,7 @@ struct AccountView: View {
     private func logOut() {
         do {
             try AuthenticationManager.shared.signOut()
-            userRepository.removeUser()
+            accountViewModel.userRepository.removeUser()
         } catch  {
             print("Chyba")
         }

@@ -38,8 +38,8 @@ struct AppTabView: View {
     AppTabView()
         .environment(Coordinator())
         .environment(UserRepository())
-        .environment(AccountViewModel())
+        .environment(AccountViewModel(userRepository: UserRepository()))
         .environment(HomeViewModel(firebaseRepository: FirebaseRepository()))
-        .environment(BasketViewModel())
+        .environment(BasketViewModel(usereRepository: UserRepository(), firebaseRepository: FirebaseRepository()))
        
 }

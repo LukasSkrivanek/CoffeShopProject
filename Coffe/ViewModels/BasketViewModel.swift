@@ -10,8 +10,14 @@ import Firebase
 
 @Observable
 final class BasketViewModel {
-    private let firebaseRepository = FirebaseRepository()
+    var firebaseRepository: FirebaseRepository
+    var userRepository: UserRepository
     private(set) var items: [Drink] = []
+    
+    init(usereRepository: UserRepository, firebaseRepository: FirebaseRepository) {
+        self.firebaseRepository = firebaseRepository
+        self.userRepository = usereRepository
+    }
     
     var basketError: AppError?
     var showAlert: AnyAppAlert?
