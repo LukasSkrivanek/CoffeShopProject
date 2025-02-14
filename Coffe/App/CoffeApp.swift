@@ -15,9 +15,7 @@ struct CoffeApp: App {
     var body: some Scene {
         WindowGroup {
             CoordinatorView()
-                .onAppear {
-                    IsDarkMode.shared.updateUserInterfaceStyle()
-                }
+                .environment(DependencyContainer.resolve(IsDarkMode.self))
                 .environment(DependencyContainer.resolve(Coordinator.self))
                 .environment(DependencyContainer.resolve(RegistrationViewModel.self))
                 .environment(DependencyContainer.resolve(LoginViewModel.self))

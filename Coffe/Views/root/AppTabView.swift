@@ -38,7 +38,7 @@ struct AppTabView: View {
     AppTabView()
         .environment(Coordinator())
         .environment(UserRepository(secureStorage: SecureStorage()))
-        .environment(AccountViewModel(userRepository: UserRepository(secureStorage: SecureStorage())))
+        .environment(AccountViewModel(userRepository: UserRepository(secureStorage: SecureStorage()), authenticationManager: AuthenticationManager(authServiceProtocol: FirebaseAuthServiceAdapter())))
         .environment(HomeViewModel(firebaseRepository: FirebaseRepository()))
         .environment(BasketViewModel(userRepository: UserRepository(secureStorage: SecureStorage()), firebaseRepository: FirebaseRepository()))
        

@@ -9,11 +9,13 @@ import SwiftUI
 @Observable
 class LoginMethodSelectionViewModel {
     var userRepository: UserRepository
+    var authenticationManager: AuthenticationManager!
     
     var selectedMethod: LoginMethod? = nil
     
-    init(userRepository: UserRepository) {
+    init(userRepository: UserRepository, authenticationManager: AuthenticationManager!) {
         self.userRepository = userRepository
+        self.authenticationManager = authenticationManager
     }
     
     func selectMethod(_ method: LoginMethod) {
@@ -23,7 +25,7 @@ class LoginMethodSelectionViewModel {
     func signInGoogle() async throws{
         let helper = SignInGoogleHelper(userRepository: userRepository)
             let tokens = try await helper.signIn()
-            try await AuthenticationManager.shared.signInWithGoogle(tokens: tokens)
+        try await authenticationManager.signInWithGoogle(tokens: tokens)
             
         }
 

@@ -9,13 +9,15 @@ import SwiftUI
 @Observable
 class LoginViewModel {
     var userRepository: UserRepository
+    var authenticationManager: AuthenticationManager
+    
     var email: String = ""
     var password: String = ""
-    var errorMessage: String?
-    var alert: AnyAppAlert? // Alert, který bude zobrazen
+    var alert: AnyAppAlert?
 
-    init(userRepository: UserRepository) {
+    init(userRepository: UserRepository, authenticationManager: AuthenticationManager ) {
         self.userRepository = userRepository
+        self.authenticationManager = authenticationManager
     }
 
     /// Pokusí se přihlásit uživatele a vrátí `true`, pokud bylo přihlášení úspěšné.
@@ -28,7 +30,7 @@ class LoginViewModel {
         }
 
         do {
-            let authUser = try await AuthenticationManager.shared.signInUser(email: email, password: password)
+            let authUser = try await authenticationManager.signInUser(email: email, password: password)
             let userModel = UserModel(id: authUser.user.uid, name: "Lukas", email: authUser.user.email ?? "", address: "", mobile: "")
 
             await MainActor.run {
@@ -38,7 +40,7 @@ class LoginViewModel {
             return true
         } catch {
             await MainActor.run {
-                alert = AnyAppAlert(error: error) // Nastavení alertu
+                alert = AnyAppAlert(error: error)
             }
             return false
         }

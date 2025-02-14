@@ -15,29 +15,45 @@ class DependencyContainer {
         container = Container()
         
         // 🔹 Repositories
-        container.register(SecureStorage.self) { _ in SecureStorage() }
+        container.register(SecureStorage.self) { _ in SecureStorage() }.inObjectScope(.container)
         container.register(FirebaseRepository.self) { _ in FirebaseRepository() }.inObjectScope(.container)
         container.register(UserRepository.self) { r in UserRepository(secureStorage: r.resolve(SecureStorage.self)!) }.inObjectScope(.container)
+        
+        
+        
+        // 🔹 Managers
+        container.register(AuthServiceProtocol.self) { _ in
+            FirebaseAuthServiceAdapter()
+        }.inObjectScope(.container)
+
+        container.register(AuthenticationManager.self) { r in
+            AuthenticationManager(authServiceProtocol: r.resolve(AuthServiceProtocol.self)!)
+        }.inObjectScope(.container)
 
         // 🔹 ViewModels
         container.register(HomeViewModel.self) { r in
             HomeViewModel(firebaseRepository: r.resolve(FirebaseRepository.self)!)
         }.inObjectScope(.container)
         container.register(LoginViewModel.self) { r in
-            LoginViewModel(userRepository: r.resolve(UserRepository.self)!) }.inObjectScope(.container)
+            LoginViewModel(userRepository: r.resolve(UserRepository.self)!, authenticationManager: r.resolve(AuthenticationManager.self)!) }.inObjectScope(.container)
 
         container.register(BasketViewModel.self) { r in BasketViewModel(userRepository: r.resolve(UserRepository.self)!, firebaseRepository: r.resolve(FirebaseRepository.self)!) }.inObjectScope(.container)
-        container.register(AccountViewModel.self) { r in AccountViewModel(userRepository: r.resolve(UserRepository.self)!) }.inObjectScope(.container)
-        container.register(LoginMethodSelectionViewModel.self) { r in LoginMethodSelectionViewModel(userRepository: r.resolve(UserRepository.self)!)
+        container.register(AccountViewModel.self) { r in AccountViewModel(userRepository: r.resolve(UserRepository.self)!, authenticationManager: r.resolve(AuthenticationManager.self)!) }.inObjectScope(.container)
+        container.register(LoginMethodSelectionViewModel.self) { r in LoginMethodSelectionViewModel(userRepository: r.resolve(UserRepository.self)!, authenticationManager: r.resolve(AuthenticationManager.self)!)
             }.inObjectScope(.container)
         container.register(RegistrationViewModel.self) { r in
-            RegistrationViewModel(userRepository: r.resolve(UserRepository.self)!)
+            RegistrationViewModel(userRepository: r.resolve(UserRepository.self)!, authenticationManager: r.resolve(AuthenticationManager.self)!)
         }
 
         // GlobalStates
         container.register(AppState.self) { _ in
             MainActor.assumeIsolated {
                 AppState()
+            }
+        }.inObjectScope(.container)
+        container.register(IsDarkMode.self) { _ in
+            MainActor.assumeIsolated {
+                IsDarkMode()
             }
         }.inObjectScope(.container)
         

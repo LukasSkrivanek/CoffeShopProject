@@ -7,27 +7,30 @@
 
 import SwiftUI
 
-@MainActor
+
 @Observable
 final class IsDarkMode {
-    static let shared = IsDarkMode()
     var isDarkMode: Bool {
         didSet {
             UserDefaults.standard.set(isDarkMode, forKey: "isDarkMode")
+            print("\(isDarkMode)")
+            updateUserInterfaceStyle()
         }
     }
     
-    private init() {
+    init() {
         self.isDarkMode = UserDefaults.standard.bool(forKey: "isDarkMode")
+        updateUserInterfaceStyle()
     }
     
     func updateUserInterfaceStyle() {
-        if isDarkMode {
-                  // Nastavení tmavého režimu
-                  UIApplication.shared.windows.first?.overrideUserInterfaceStyle = .dark
-              } else {
-                  // Nastavení světlého režimu
-                  UIApplication.shared.windows.first?.overrideUserInterfaceStyle = .light
-              }           }
-       }
+        DispatchQueue.main.async {
+            guard let window = UIApplication.shared.windows.first else {
+                return
+            }
+            window.overrideUserInterfaceStyle = self.isDarkMode ? .dark : .light
+        }
+    }
+
+}
 

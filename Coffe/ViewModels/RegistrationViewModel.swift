@@ -8,15 +8,19 @@ import Foundation
 
 @Observable
 class RegistrationViewModel {
+    private var userRepository: UserRepository
+    var authenticationManager: AuthenticationManager
+
+    
     var email: String = ""
     var password: String = ""
     var confirmPassword: String = ""
     var alert: AnyAppAlert?  
 
-    private var userRepository: UserRepository
-
-    init(userRepository: UserRepository) {
+    
+    init(userRepository: UserRepository, authenticationManager: AuthenticationManager) {
         self.userRepository = userRepository
+        self.authenticationManager = authenticationManager
     }
 
     func registerUser() async {
@@ -35,7 +39,7 @@ class RegistrationViewModel {
         }
 
         do {
-            try await AuthenticationManager.shared.createUser(email: email, password: password)
+            try await authenticationManager.createUser(email: email, password: password)
             userRepository.user = await userRepository.fetchUser()
         } catch {
             await MainActor.run {

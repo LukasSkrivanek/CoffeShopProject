@@ -9,12 +9,11 @@ import Foundation
 import FirebaseAuth
 
 final class AuthenticationManager {
-    static let shared = AuthenticationManager()
     
-    private var authService: AuthServiceProtocol
+    private var authServiceProtocol: AuthServiceProtocol
 
-    private init(authService: AuthServiceProtocol = FirebaseAuthServiceAdapter()) {
-        self.authService = authService
+    init(authServiceProtocol: AuthServiceProtocol) {
+        self.authServiceProtocol = authServiceProtocol
     }
 }
 
@@ -22,38 +21,38 @@ final class AuthenticationManager {
 extension AuthenticationManager {
     @discardableResult
     func createUser(email: String, password: String) async throws -> AuthDataResultModel {
-        return try await authService.createUser(email: email, password: password)
+        return try await authServiceProtocol.createUser(email: email, password: password)
     }
     
     @discardableResult
     func signInUser(email: String, password: String) async throws -> AuthDataResultModel {
-        return try await authService.signInUser(email: email, password: password)
+        return try await authServiceProtocol.signInUser(email: email, password: password)
     }
     
     func getAuthenticatedUser() throws -> AuthDataResultModel? {
-        return try authService.getAuthenticatedUser()
+        return try authServiceProtocol.getAuthenticatedUser()
     }
     
     func resetPassword(email: String) async throws {
-        try await authService.resetPassword(email: email)
+        try await authServiceProtocol.resetPassword(email: email)
     }
     
     func updatePassword(password: String) async throws {
-        try await authService.updatePassword(password: password)
+        try await authServiceProtocol.updatePassword(password: password)
     }
     
     func updateEmail(email: String) async throws {
-        try await authService.updateEmail(email: email)
+        try await authServiceProtocol.updateEmail(email: email)
     }
     
     func signOut() throws { 
-           try authService.signOut()
+           try authServiceProtocol.signOut()
        }
 }
 
 extension AuthenticationManager {
     @discardableResult
     func signInWithGoogle(tokens: GoogleSignInResultModel) async throws -> AuthDataResultModel {
-        return try await authService.signInWithGoogle(tokens: tokens)
+        return try await authServiceProtocol.signInWithGoogle(tokens: tokens)
     }
 }

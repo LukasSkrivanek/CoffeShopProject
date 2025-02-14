@@ -74,17 +74,3 @@ struct AuthButtonsView: View {
         }
     }
 }
-
-struct DarkModeToggle: View {
-    @Binding var isDarkMode: Bool
-
-    var body: some View {
-        Button(action: {
-            isDarkMode.toggle()
-            IsDarkMode.shared.updateUserInterfaceStyle()
-        }) {
-            Text("Switch to \(isDarkMode ? "Light" : "Dark") Mode")
-                .styledButton(usedColor: .gray.opacity(0.4))
-        }
-    }
-}

@@ -9,6 +9,8 @@ import SwiftUI
 struct AccountView: View {
     @Environment(Coordinator.self) private var coordinator
     @Environment(AppState.self) private var appState
+    @Environment(IsDarkMode.self) private var isDarkMode
+    
 
     
     @Environment(AccountViewModel.self) private var accountViewModel
@@ -25,7 +27,13 @@ struct AccountView: View {
                     )
                 }
                 
-                DarkModeToggle(isDarkMode: .twoWay(\.isDarkMode, on: IsDarkMode.shared))
+                Button(action: {
+                    isDarkMode.isDarkMode.toggle()
+                    isDarkMode.updateUserInterfaceStyle()
+                }) {
+                    Text("Switch to \(isDarkMode.isDarkMode ? "Light" : "Dark") Mode")
+                        .styledButton(usedColor: .gray.opacity(0.4))
+                }
             }
             .padding(.bottom, 30)
         }

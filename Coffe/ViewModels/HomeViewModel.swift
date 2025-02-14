@@ -10,13 +10,14 @@ import Foundation
 final class HomeViewModel {
     var firebaseRepository: FirebaseRepository
     
-    init(firebaseRepository: FirebaseRepository) {
-        self.firebaseRepository = firebaseRepository
-    }
-    
     private(set) var drinks: [Drink] = []
     private(set) var selectedDrink: Drink?
     private(set)var filterCategories: [String : [Drink]] = [:]
+    
+    init(firebaseRepository: FirebaseRepository) {
+        self.firebaseRepository = firebaseRepository
+    }
+
     
     var isShowingDetail = false
     

@@ -14,15 +14,16 @@ final class BasketViewModel {
     var userRepository: UserRepository
     
     private(set) var items: [Drink] = []
+    var basketError: AppError?
+    var showAlert: AnyAppAlert?
+    var showError = false
     
     init(userRepository: UserRepository, firebaseRepository: FirebaseRepository) {
         self.firebaseRepository = firebaseRepository
         self.userRepository = userRepository
     }
     
-    var basketError: AppError?
-    var showAlert: AnyAppAlert?
-    var showError = false
+   
     
     func add(drink: Drink) {
         items.append(drink)
