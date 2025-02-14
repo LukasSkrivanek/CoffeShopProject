@@ -16,6 +16,7 @@
 		FA33177D2B9DF4E100248936 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA33177C2B9DF4E100248936 /* GoogleService-Info.plist */; };
 		FA56F5E42D4B759B004B12E9 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56F5E32D4B759B004B12E9 /* DependencyContainer.swift */; };
 		FA83BB3D2D5DF143007BFA55 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83BB3C2D5DF143007BFA55 /* LoginViewModel.swift */; };
+		FA83BB3F2D5F3863007BFA55 /* IsDarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83BB3E2D5F3855007BFA55 /* IsDarkMode.swift */; };
 		FAA1D1B72B8C80F400EE7364 /* CoffeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1B62B8C80F400EE7364 /* CoffeApp.swift */; };
 		FAA1D1B92B8C80F400EE7364 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1D1B82B8C80F400EE7364 /* HomeView.swift */; };
 		FAA1D1BB2B8C80F600EE7364 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAA1D1BA2B8C80F600EE7364 /* Assets.xcassets */; };
@@ -55,6 +56,7 @@
 		FA3317822B9DFB9200248936 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA56F5E32D4B759B004B12E9 /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
 		FA83BB3C2D5DF143007BFA55 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		FA83BB3E2D5F3855007BFA55 /* IsDarkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsDarkMode.swift; sourceTree = "<group>"; };
 		FAA1D1B32B8C80F400EE7364 /* Coffe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Coffe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA1D1B62B8C80F400EE7364 /* CoffeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeApp.swift; sourceTree = "<group>"; };
 		FAA1D1B82B8C80F400EE7364 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 		FAE1614E2D5A3E230094A3BD /* App */ = {
 			isa = PBXGroup;
 			children = (
+				FA83BB3E2D5F3855007BFA55 /* IsDarkMode.swift */,
 				FAE160E12D57A9150094A3BD /* AppState.swift */,
 				FAA1D1B62B8C80F400EE7364 /* CoffeApp.swift */,
 			);
@@ -387,6 +390,7 @@
 				FAE160202D56127C0094A3BD /* LoginMethodSelectionViewModel.swift in Sources */,
 				FAA1D1EB2B8C825A00EE7364 /* Drink.swift in Sources */,
 				FAA1D1F32B8C8ABD00EE7364 /* UserModel.swift in Sources */,
+				FA83BB3F2D5F3863007BFA55 /* IsDarkMode.swift in Sources */,
 				FAA1D21A2B8F1D9C00EE7364 /* RemoteImageView.swift in Sources */,
 				FAA1D2082B8DEC2D00EE7364 /* AccountViewModel.swift in Sources */,
 				FAA1D2132B8E049500EE7364 /* UserRepository.swift in Sources */,

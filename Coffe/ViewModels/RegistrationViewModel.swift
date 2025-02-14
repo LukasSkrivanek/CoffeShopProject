@@ -11,25 +11,36 @@ class RegistrationViewModel {
     var email: String = ""
     var password: String = ""
     var confirmPassword: String = ""
-    var errorMessage: String? = nil
-    
+    var alert: AnyAppAlert?  
+
     private var userRepository: UserRepository
-    
+
     init(userRepository: UserRepository) {
         self.userRepository = userRepository
     }
-    
+
     func registerUser() async {
-        guard password == confirmPassword else {
-            errorMessage = "Passwords do not match"
+        guard !email.isEmpty, !password.isEmpty, !confirmPassword.isEmpty else {
+            await MainActor.run {
+                alert = AnyAppAlert(title: "Error", subtitle: "All fields are required")
+            }
             return
         }
-        
+
+        guard password == confirmPassword else {
+            await MainActor.run {
+                alert = AnyAppAlert(title: "Error", subtitle: "Passwords do not match")
+            }
+            return
+        }
+
         do {
             try await AuthenticationManager.shared.createUser(email: email, password: password)
             userRepository.user = await userRepository.fetchUser()
         } catch {
-            errorMessage = error.localizedDescription
+            await MainActor.run {
+                alert = AnyAppAlert(error: error)
+            }
         }
     }
 }

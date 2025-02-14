@@ -8,6 +8,7 @@ import SwiftUI
 
 struct RegistrationView: View {
     @Environment(Coordinator.self) private var coordinator
+    @Environment(\.colorScheme) private var colorScheme
     
     @Environment(RegistrationViewModel.self) private var registrationViewModel
     
@@ -30,9 +31,16 @@ struct RegistrationView: View {
                 .textFieldStyle()
             Button {
                 Task {
-                    await registrationViewModel.registerUser()
-                }
-                coordinator.dismissSheet()
+                        await registrationViewModel.registerUser()
+                        await MainActor.run {
+                            if registrationViewModel.alert == nil {
+                                coordinator.dismissSheet()
+                                registrationViewModel.email = ""
+                                registrationViewModel.password = ""
+                                registrationViewModel.confirmPassword = ""
+                            }
+                        }
+                    }
             } label: {
                 Text("Register")
                     .styledButton(usedColor: .brown)
@@ -45,6 +53,7 @@ struct RegistrationView: View {
                     .styledButton(usedColor: .red)
             }
         }
+        .showCustomAlert(alert: .twoWay(\.alert, on: registrationViewModel), colorScheme: colorScheme)
         .padding()
     }
 }

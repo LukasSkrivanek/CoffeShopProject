@@ -75,18 +75,16 @@ struct AuthButtonsView: View {
     }
 }
 
-
 struct DarkModeToggle: View {
     @Binding var isDarkMode: Bool
 
     var body: some View {
         Button(action: {
             isDarkMode.toggle()
-            UIApplication.shared.windows.first?.rootViewController?.view.overrideUserInterfaceStyle = isDarkMode ? .dark : .light
+            IsDarkMode.shared.updateUserInterfaceStyle()
         }) {
             Text("Switch to \(isDarkMode ? "Light" : "Dark") Mode")
                 .styledButton(usedColor: .gray.opacity(0.4))
         }
-        
     }
 }

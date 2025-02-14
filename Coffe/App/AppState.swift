@@ -9,7 +9,7 @@ import SwiftUI
 
 @MainActor
 @Observable
-class AppState {
+final class AppState {
     var isSignedIn: Bool {
         didSet {
             UserDefaults.standard.set(isSignedIn, forKey: "isSignedIn")

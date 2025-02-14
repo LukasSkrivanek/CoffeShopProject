@@ -12,13 +12,19 @@ import Observation
 final class AccountViewModel {
     var userRepository: UserRepository
     
-    var isDarkMode: Bool = false
     var isRegisterSheetPresented: Bool = false
     var loginMethod: LoginMethod? = nil
+    var isDarkMode: Bool {
+            didSet {
+                UserDefaults.standard.set(isDarkMode, forKey: "isDarkMode")
+            }
+        }
     
     
     init(userRepository: UserRepository) {
         self.userRepository = userRepository
+        self.isDarkMode = UserDefaults.standard.bool(forKey: "isDarkMode")
+        print("Setting isDarkMode to: \(self.isDarkMode)")
     }
     
     var name = ""

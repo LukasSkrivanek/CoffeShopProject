@@ -9,6 +9,7 @@ import SwiftUI
 struct LoginSheetView: View {
     @Environment(Coordinator.self) private var coordinator
     @Environment(AppState.self) private var appState
+    @Environment(\.colorScheme) private var colorScheme
     
     @Environment(LoginViewModel.self) private var loginViewModel
     

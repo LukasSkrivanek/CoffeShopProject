@@ -25,7 +25,7 @@ struct AccountView: View {
                     )
                 }
                 
-                DarkModeToggle(isDarkMode: .twoWay(\.isDarkMode, on: accountViewModel))
+                DarkModeToggle(isDarkMode: .twoWay(\.isDarkMode, on: IsDarkMode.shared))
             }
             .padding(.bottom, 30)
         }
