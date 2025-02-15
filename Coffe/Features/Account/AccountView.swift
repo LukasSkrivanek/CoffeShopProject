@@ -10,9 +10,7 @@ struct AccountView: View {
     @Environment(Coordinator.self) private var coordinator
     @Environment(AppState.self) private var appState
     @Environment(IsDarkMode.self) private var isDarkMode
-    
-
-    
+  
     @Environment(AccountViewModel.self) private var accountViewModel
     
     var body: some View {

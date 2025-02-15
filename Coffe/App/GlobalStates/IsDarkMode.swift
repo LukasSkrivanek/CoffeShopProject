@@ -13,7 +13,6 @@ final class IsDarkMode {
     var isDarkMode: Bool {
         didSet {
             UserDefaults.standard.set(isDarkMode, forKey: "isDarkMode")
-            print("\(isDarkMode)")
             updateUserInterfaceStyle()
         }
     }
