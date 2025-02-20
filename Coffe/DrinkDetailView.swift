@@ -52,7 +52,7 @@ struct DrinkDetailView: View {
         Button(action: {
             basketViewModel.add(drink: drink)
             coordinator.pop()
-        }) {
+        }, label: {
             Text("Add to Basket")
                 .frame(maxWidth: .infinity)
                 .padding()
@@ -61,14 +61,14 @@ struct DrinkDetailView: View {
                 .cornerRadius(10)
                 .font(.headline)
                 .shadow(radius: 5)
-        }
+        })
         .padding(.bottom, 20)
         .buttonStyle(PlainButtonStyle())
     }
     private func dismissButton() -> some View {
         Button(action: {
             coordinator.pop()
-        }) {
+        }, label: {
             Image(systemName: "xmark.circle.fill")
                 .scaleEffect(1.5)
                 .padding(15)
@@ -76,6 +76,6 @@ struct DrinkDetailView: View {
                 .background(Color.brown.opacity(0.9))
                 .clipShape(Circle())
                 .shadow(radius: 5)
-        }
+        })
     }
 }

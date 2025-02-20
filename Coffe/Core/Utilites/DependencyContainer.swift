@@ -57,11 +57,13 @@ class DependencyContainer {
             MainActor.assumeIsolated {
                 AppState()
             }
-        }.inObjectScope(.container)
+        }
+        .inObjectScope(.container)
         container.register(IsDarkMode.self) { _ in
             MainActor.assumeIsolated {
                 IsDarkMode()
-            }}.inObjectScope(.container)        
+            }}
+        .inObjectScope(.container)
         // Coordinator
         container.register(Coordinator.self) { _ in
             Coordinator()

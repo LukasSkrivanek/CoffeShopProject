@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import FirebaseAuth
 
 final class AuthenticationManager {
     private var authServiceProtocol: AuthServiceProtocol
@@ -17,11 +16,9 @@ final class AuthenticationManager {
 }
 
 extension AuthenticationManager {
-    @discardableResult
     func createUser(email: String, password: String) async throws -> AuthDataResultModel {
         return try await authServiceProtocol.createUser(email: email, password: password)
     }
-    @discardableResult
     func signInUser(email: String, password: String) async throws -> AuthDataResultModel {
         return try await authServiceProtocol.signInUser(email: email, password: password)
     }

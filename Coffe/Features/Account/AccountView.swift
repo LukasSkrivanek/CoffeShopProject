@@ -27,11 +27,11 @@ struct AccountView: View {
                         isDarkMode.isDarkMode.toggle()
                         isDarkMode
                             .updateUserInterfaceStyle()
-                    }) {
+                    }, label: {
                     Text("Switch to \(isDarkMode.isDarkMode ? "Light" : "Dark") Mode")
                         .styledButton(usedColor: .gray.opacity(0.4))
+                })
                 }
-            }
             .padding(.bottom, 30)
         }
         .onChange(of: accountViewModel.userRepository.user, { _, newValue in
