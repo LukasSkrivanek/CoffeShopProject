@@ -31,7 +31,7 @@ final class DrinkListViewModel {
         } else {
             filterCategories = [:]
             for (key, drinks) in categories {
-                var  filteredDrinks = drinks.filter { $0.name.lowercased().contains(searchText.lowercased())}
+                let filteredDrinks = drinks.filter { $0.name.lowercased().contains(searchText.lowercased())}
                 if !filteredDrinks.isEmpty {
                     filterCategories[key] = filteredDrinks
                 }

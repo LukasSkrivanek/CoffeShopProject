@@ -22,9 +22,12 @@ struct AccountView: View {
                         onRegister: { coordinator.presentSheet(.registration, detent: .medium) }
                     )
                 }
-                Button(action: {
-                    isDarkMode.isDarkMode.toggle()
-                    isDarkMode.updateUserInterfaceStyle()}){
+                Button(
+                    action: {
+                        isDarkMode.isDarkMode.toggle()
+                        isDarkMode
+                            .updateUserInterfaceStyle()
+                    }) {
                     Text("Switch to \(isDarkMode.isDarkMode ? "Light" : "Dark") Mode")
                         .styledButton(usedColor: .gray.opacity(0.4))
                 }

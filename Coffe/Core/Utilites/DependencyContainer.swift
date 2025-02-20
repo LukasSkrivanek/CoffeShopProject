@@ -16,7 +16,8 @@ class DependencyContainer {
         // 🔹 Repositories
         container.register(SecureStorage.self) { _ in SecureStorage() }.inObjectScope(.container)
         container.register(FirebaseRepository.self) { _ in FirebaseRepository() }.inObjectScope(.container)
-        container.register(UserRepository.self) {resolve in UserRepository(secureStorage: resolve.resolve(SecureStorage.self)!) }.inObjectScope(.container)
+        container.register(UserRepository.self) {resolve in
+            UserRepository(secureStorage: resolve.resolve(SecureStorage.self)!) }.inObjectScope(.container)
         // 🔹 Managers
         container.register(AuthServiceProtocol.self) { _ in
             FirebaseAuthServiceAdapter()
@@ -30,17 +31,26 @@ class DependencyContainer {
             DrinkListViewModel(firebaseRepository: resolve.resolve(FirebaseRepository.self)!)
         }.inObjectScope(.container)
         container.register(LoginViewModel.self) { resolve in
-            LoginViewModel(userRepository: resolve.resolve(UserRepository.self)!, authenticationManager: resolve.resolve(AuthenticationManager.self)!) }.inObjectScope(.container)
-
+            LoginViewModel(userRepository: resolve.resolve(UserRepository.self)!,
+                           authenticationManager: resolve.resolve(AuthenticationManager.self)!) }
+        .inObjectScope(.container)
         container.register(BasketViewModel.self) { resolve in
-            BasketViewModel(userRepository: resolve.resolve(UserRepository.self)!, firebaseRepository: resolve.resolve(FirebaseRepository.self)!) }.inObjectScope(.container)
+            BasketViewModel(userRepository:
+                                resolve.resolve(UserRepository.self)!,
+                            firebaseRepository: resolve.resolve(FirebaseRepository.self)!) }
+        .inObjectScope(.container)
         container.register(AccountViewModel.self) { resolve in
-            AccountViewModel(userRepository: resolve.resolve(UserRepository.self)!, authenticationManager: resolve.resolve(AuthenticationManager.self)!) }.inObjectScope(.container)
+            AccountViewModel(userRepository: resolve.resolve(UserRepository.self)!,
+                             authenticationManager: resolve.resolve(AuthenticationManager.self)!) }
+        .inObjectScope(.container)
         container.register(LoginMethodSelectionViewModel.self) { resolve in
-            LoginMethodSelectionViewModel(userRepository: resolve.resolve(UserRepository.self)!, authenticationManager: resolve.resolve(AuthenticationManager.self)!)
-            }.inObjectScope(.container)
+            LoginMethodSelectionViewModel(userRepository: resolve.resolve(UserRepository.self)!,
+                                          authenticationManager: resolve.resolve(AuthenticationManager.self)!)
+            }
+        .inObjectScope(.container)
         container.register(RegistrationViewModel.self) { resolve in
-            RegistrationViewModel(userRepository: resolve.resolve(UserRepository.self)!, authenticationManager: resolve.resolve(AuthenticationManager.self)!)
+            RegistrationViewModel(userRepository: resolve.resolve(UserRepository.self)!,
+                                  authenticationManager: resolve.resolve(AuthenticationManager.self)!)
         }
         // GlobalStates
         container.register(AppState.self) { _ in
@@ -51,8 +61,7 @@ class DependencyContainer {
         container.register(IsDarkMode.self) { _ in
             MainActor.assumeIsolated {
                 IsDarkMode()
-            }
-        }.inObjectScope(.container)        
+            }}.inObjectScope(.container)        
         // Coordinator
         container.register(Coordinator.self) { _ in
             Coordinator()

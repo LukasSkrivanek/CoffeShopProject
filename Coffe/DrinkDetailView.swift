@@ -65,8 +65,6 @@ struct DrinkDetailView: View {
         .padding(.bottom, 20)
         .buttonStyle(PlainButtonStyle())
     }
-
-    @ViewBuilder
     private func dismissButton() -> some View {
         Button(action: {
             coordinator.pop()

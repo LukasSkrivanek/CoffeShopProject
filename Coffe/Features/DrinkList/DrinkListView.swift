@@ -13,7 +13,7 @@ struct DrinkListView: View {
     @State private var searchText: String = ""
     var body: some View {
         NavigationStack {
-            List(drinkListViewModel.filterCategories.keys.sorted(), id: \String.self){ key in
+            List(drinkListViewModel.filterCategories.keys.sorted(), id: \String.self) { key in
                 Section {
                     if let drinks = drinkListViewModel.categories[key] {
                         ForEach(drinks, id: \.hashValue) { drink in
@@ -28,7 +28,16 @@ struct DrinkListView: View {
                 }
             }
         }
-            .searchable(text: .twoWay(\.searchText, on: drinkListViewModel), placement: .toolbar, prompt: Text("Search for your drink"))
+        .searchable(
+            text: .twoWay(
+                \.searchText,
+                 on: drinkListViewModel
+            ),
+            placement: .toolbar,
+            prompt: Text(
+                "Search for your drink"
+            )
+        )
             .task {
                 await drinkListViewModel.fetchDrinks()
             }

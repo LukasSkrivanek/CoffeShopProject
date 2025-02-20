@@ -23,11 +23,11 @@ final class AccountViewModel {
     func isInvalidForm() -> Bool {
         name.isEmpty || address.isEmpty || mobile.isEmpty
     }
-    func logOut()   {
+    func logOut() {
         do {
             try authenticationManager.signOut()
             userRepository.removeUser()
-        } catch  {
+        } catch {
             print("Error")
         }
     }

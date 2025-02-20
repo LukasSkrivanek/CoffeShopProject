@@ -26,7 +26,13 @@ class LoginViewModel {
         }
         do {
             let authUser = try await authenticationManager.signInUser(email: email, password: password)
-            let userModel = UserModel(id: authUser.user.uid, name: "Lukas", email: authUser.user.email ?? "", address: "", mobile: "")
+            let userModel = UserModel(
+                id: authUser.user.uid,
+                name: "Lukas",
+                email: authUser.user.email ?? "",
+                address: "",
+                mobile: ""
+            )
 
             await MainActor.run {
                 userRepository.user = userModel
