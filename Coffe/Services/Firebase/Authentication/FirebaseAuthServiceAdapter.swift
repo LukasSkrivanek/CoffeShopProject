@@ -23,17 +23,14 @@ final class FirebaseAuthServiceAdapter: AuthServiceProtocol {
     func signOut() throws {
         try Auth.auth().signOut()
     }
-
     func createUser(email: String, password: String) async throws -> AuthDataResultModel {
         let authDataResult = try await Auth.auth().createUser(withEmail: email, password: password)
         return AuthDataResultModel(user: FirebaseAuthUserAdapter(user: authDataResult.user))
     }
-    
     func signInUser(email: String, password: String) async throws -> AuthDataResultModel {
         let authDataResult = try await Auth.auth().signIn(withEmail: email, password: password)
         return AuthDataResultModel(user: FirebaseAuthUserAdapter(user: authDataResult.user))
     }
-    
     func getAuthenticatedUser() throws -> AuthDataResultModel {
         guard let user = Auth.auth().currentUser else {
             throw URLError(.badServerResponse)

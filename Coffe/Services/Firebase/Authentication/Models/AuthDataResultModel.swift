@@ -11,16 +11,13 @@ protocol AuthUserProtocol: Sendable {
     var email: String? { get }
 }
 
-
 struct AuthDataResultModel {
     let uid: String
     let email: String?
-    let user: AuthUserProtocol 
-    
+    let user: AuthUserProtocol
     init(user: AuthUserProtocol) {
         self.uid = user.uid
         self.email = user.email
         self.user = user
     }
 }
-

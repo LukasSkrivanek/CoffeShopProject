@@ -10,7 +10,6 @@ struct AnyAppAlert: Sendable {
     var title: String
     var subtitle: String?
     var buttons: @Sendable () -> AnyView
-    
     init(
         title: String,
         subtitle: String? = nil,
@@ -21,11 +20,9 @@ struct AnyAppAlert: Sendable {
         self.buttons = buttons ?? {
             AnyView(
                 Button("Ok") {
-                    
                 })
         }
     }
-    
     init(error: Error) {
         self
             .init(
@@ -42,7 +39,11 @@ enum AlertType {
 
 extension View {
     @ViewBuilder
-    func showCustomAlert(type: AlertType = .alert, alert: Binding<AnyAppAlert?>, colorScheme: ColorScheme? = nil) -> some View {
+    func showCustomAlert(
+        type: AlertType = .alert,
+        alert: Binding<AnyAppAlert?>,
+        colorScheme: ColorScheme? = nil
+    ) -> some View {
         switch type {
         case .alert:
             self
@@ -66,6 +67,5 @@ extension View {
                 }
                 .preferredColorScheme(colorScheme)
         }
-        
     }
 }

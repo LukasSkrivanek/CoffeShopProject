@@ -9,37 +9,29 @@ import SwiftUI
 
 struct DrinkDetailView: View {
     @Environment(Coordinator.self) private var coordinator
-    
     @Environment(BasketViewModel.self) private var basketViewModel
-
     let drink: Drink
-    
     var body: some View {
         VStack(spacing: 20) {
             RemoteImageView(url: drink.imageURL)
                 .frame(maxWidth: .infinity, maxHeight: 250)
-
             VStack(spacing: 10) {
                 Text(drink.name)
                     .font(.title)
                     .fontWeight(.bold)
                     .foregroundColor(.primary)
                     .padding(.horizontal)
-
                 Text(drink.description)
                     .multilineTextAlignment(.center)
                     .font(.body)
                     .foregroundColor(.secondary)
                     .padding(.horizontal)
-                
                 Text("\(drink.price, format: .currency(code: "EUR"))")
                     .font(.title2)
                     .fontWeight(.semibold)
                     .foregroundColor(Color(red: 47.8 / 255, green: 62.4 / 255, blue: 20.8 / 255))
                     .padding(.top)
                     .frame(maxHeight: .infinity)
-
-                
                 addToBasketButton()
                     .padding(.bottom, 30)
             }

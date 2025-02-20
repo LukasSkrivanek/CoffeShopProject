@@ -2,7 +2,7 @@
 //  BasketView.swift
 //  Coffe
 //
-//  Created by macbook on 26.02.2024.
+//  Created by macbook on 17.02.2025.
 //
 
 import SwiftUI
@@ -10,9 +10,7 @@ import SwiftUI
 struct BasketView: View {
     @Environment(Coordinator.self) private var  coordinator
     @Environment(\.colorScheme) private var colorScheme
-    
     @Environment(BasketViewModel.self) private var basketViewModel
-    
     var body: some View {
         NavigationStack {
             VStack {
@@ -70,10 +68,9 @@ struct BasketView: View {
                 buttons: {
                     AnyView(
                         Button("Create") {
-                            basketViewModel.createOrder(for: basketViewModel.userRepository.user)
+                            basketViewModel.createOrder()
                         }
                             .background(.brown)
-                        
                     )
                 }
             )
@@ -83,8 +80,6 @@ struct BasketView: View {
         .buttonStyle(.borderedProminent)
         .padding(.bottom, 30)
     }
-
-
 }
 
 #Preview {

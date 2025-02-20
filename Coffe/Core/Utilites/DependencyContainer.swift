@@ -13,38 +13,35 @@ class DependencyContainer {
 
     private init() {
         container = Container()
-        
         // 🔹 Repositories
         container.register(SecureStorage.self) { _ in SecureStorage() }.inObjectScope(.container)
         container.register(FirebaseRepository.self) { _ in FirebaseRepository() }.inObjectScope(.container)
-        container.register(UserRepository.self) { r in UserRepository(secureStorage: r.resolve(SecureStorage.self)!) }.inObjectScope(.container)
-        
-        
-        
+        container.register(UserRepository.self) {resolve in UserRepository(secureStorage: resolve.resolve(SecureStorage.self)!) }.inObjectScope(.container)
         // 🔹 Managers
         container.register(AuthServiceProtocol.self) { _ in
             FirebaseAuthServiceAdapter()
         }.inObjectScope(.container)
 
-        container.register(AuthenticationManager.self) { r in
-            AuthenticationManager(authServiceProtocol: r.resolve(AuthServiceProtocol.self)!)
+        container.register(AuthenticationManager.self) { resolve in
+            AuthenticationManager(authServiceProtocol: resolve.resolve(AuthServiceProtocol.self)!)
         }.inObjectScope(.container)
-
         // 🔹 ViewModels
-        container.register(HomeViewModel.self) { r in
-            HomeViewModel(firebaseRepository: r.resolve(FirebaseRepository.self)!)
+        container.register(DrinkListViewModel.self) { resolve in
+            DrinkListViewModel(firebaseRepository: resolve.resolve(FirebaseRepository.self)!)
         }.inObjectScope(.container)
-        container.register(LoginViewModel.self) { r in
-            LoginViewModel(userRepository: r.resolve(UserRepository.self)!, authenticationManager: r.resolve(AuthenticationManager.self)!) }.inObjectScope(.container)
+        container.register(LoginViewModel.self) { resolve in
+            LoginViewModel(userRepository: resolve.resolve(UserRepository.self)!, authenticationManager: resolve.resolve(AuthenticationManager.self)!) }.inObjectScope(.container)
 
-        container.register(BasketViewModel.self) { r in BasketViewModel(userRepository: r.resolve(UserRepository.self)!, firebaseRepository: r.resolve(FirebaseRepository.self)!) }.inObjectScope(.container)
-        container.register(AccountViewModel.self) { r in AccountViewModel(userRepository: r.resolve(UserRepository.self)!, authenticationManager: r.resolve(AuthenticationManager.self)!) }.inObjectScope(.container)
-        container.register(LoginMethodSelectionViewModel.self) { r in LoginMethodSelectionViewModel(userRepository: r.resolve(UserRepository.self)!, authenticationManager: r.resolve(AuthenticationManager.self)!)
+        container.register(BasketViewModel.self) { resolve in
+            BasketViewModel(userRepository: resolve.resolve(UserRepository.self)!, firebaseRepository: resolve.resolve(FirebaseRepository.self)!) }.inObjectScope(.container)
+        container.register(AccountViewModel.self) { resolve in
+            AccountViewModel(userRepository: resolve.resolve(UserRepository.self)!, authenticationManager: resolve.resolve(AuthenticationManager.self)!) }.inObjectScope(.container)
+        container.register(LoginMethodSelectionViewModel.self) { resolve in
+            LoginMethodSelectionViewModel(userRepository: resolve.resolve(UserRepository.self)!, authenticationManager: resolve.resolve(AuthenticationManager.self)!)
             }.inObjectScope(.container)
-        container.register(RegistrationViewModel.self) { r in
-            RegistrationViewModel(userRepository: r.resolve(UserRepository.self)!, authenticationManager: r.resolve(AuthenticationManager.self)!)
+        container.register(RegistrationViewModel.self) { resolve in
+            RegistrationViewModel(userRepository: resolve.resolve(UserRepository.self)!, authenticationManager: resolve.resolve(AuthenticationManager.self)!)
         }
-
         // GlobalStates
         container.register(AppState.self) { _ in
             MainActor.assumeIsolated {
@@ -55,8 +52,7 @@ class DependencyContainer {
             MainActor.assumeIsolated {
                 IsDarkMode()
             }
-        }.inObjectScope(.container)
-        
+        }.inObjectScope(.container)        
         // Coordinator
         container.register(Coordinator.self) { _ in
             Coordinator()

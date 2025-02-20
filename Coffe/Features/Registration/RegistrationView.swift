@@ -9,21 +9,17 @@ import SwiftUI
 struct RegistrationView: View {
     @Environment(Coordinator.self) private var coordinator
     @Environment(\.colorScheme) private var colorScheme
-    
     @Environment(RegistrationViewModel.self) private var registrationViewModel
-    
     var body: some View {
         @Bindable var registrationViewModel = registrationViewModel
         VStack(spacing: 20) {
             Text("Create an Account")
                 .font(.title2)
                 .bold()
-
             TextField("Email", text: $registrationViewModel.email)
                 .textFieldStyle()
                 .autocapitalization(.none)
                 .keyboardType(.emailAddress)
-            
             SecureField("Password", text: $registrationViewModel.password)
                 .textFieldStyle()
 

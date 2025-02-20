@@ -10,10 +10,9 @@ import Firebase
 import FirebaseFirestoreSwift
 
 enum FCollectionReference: String {
-    case Orders, Drinks
+    case orders, drinks
 }
 
-func FirebaseReference(_ collectionReference: FCollectionReference) -> CollectionReference {
+func firebaseReference(_ collectionReference: FCollectionReference) -> CollectionReference {
     Firestore.firestore().collection(collectionReference.rawValue)
 }
-

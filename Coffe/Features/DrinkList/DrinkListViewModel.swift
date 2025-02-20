@@ -7,41 +7,31 @@
 import Foundation
 
 @Observable
-final class HomeViewModel {
+final class DrinkListViewModel {
     var firebaseRepository: FirebaseRepository
-    
     private(set) var drinks: [Drink] = []
     private(set) var selectedDrink: Drink?
-    private(set)var filterCategories: [String : [Drink]] = [:]
-    
+    private(set)var filterCategories: [String: [Drink]] = [:]
     init(firebaseRepository: FirebaseRepository) {
         self.firebaseRepository = firebaseRepository
     }
-
-    
     var isShowingDetail = false
-    
     var searchText: String = "" {
-        didSet{
+        didSet {
             filterCategoriesFunc()
         }
     }
-    var categories: [String: [Drink]]{
+    var categories: [String: [Drink]] {
         .init(
             grouping: drinks) { $0.category.rawValue }
     }
-   
-    private func filterCategoriesFunc(){
+    private func filterCategoriesFunc() {
             if searchText.isEmpty {
                 filterCategories = categories
         } else {
             filterCategories = [:]
-            
-            // Iterate over each key-value pair in categories
             for (key, drinks) in categories {
-                // Filter the drinks whose name contains the searchText
                 var  filteredDrinks = drinks.filter { $0.name.lowercased().contains(searchText.lowercased())}
-                // If filteredDrinks is not empty, add it to the filterCategories dictionary
                 if !filteredDrinks.isEmpty {
                     filterCategories[key] = filteredDrinks
                 }
@@ -52,17 +42,11 @@ final class HomeViewModel {
         do {
             drinks = try await firebaseRepository.fetchDrinks()
             filterCategoriesFunc()
-        } catch  {
+        } catch {
             print("Error fetching drinks", error.localizedDescription)
         }
     }
-    /*
-    func saveMenu(){
-        firebaseRepository.saveDrinks()
-    }
-     */
-    
-    func selectDrink(drink: Drink){
+    func selectDrink(drink: Drink) {
         selectedDrink = drink
     }
 }

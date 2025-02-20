@@ -10,10 +10,9 @@ actor FirebaseRepository {}
 
 // MARK: - Fetching Drinks
 extension FirebaseRepository {
-    
     func fetchDrinks() async throws -> [Drink] {
         try await withCheckedThrowingContinuation { continuation in
-            FirebaseReference(.Drinks).getDocuments { querySnapshot, error in
+            firebaseReference(.drinks).getDocuments { querySnapshot, error in
                 if let error = error {
                     continuation.resume(throwing: error)
                     return
@@ -33,11 +32,10 @@ extension FirebaseRepository {
 
 // MARK: - Saving Drinks
 extension FirebaseRepository {
-    
     func saveDrinks() {
         for drink in DummyData.drinks {
             do {
-                try FirebaseReference(FCollectionReference.Drinks).document(drink.id).setData(from: drink.self)
+                try firebaseReference(FCollectionReference.drinks).document(drink.id).setData(from: drink.self)
             } catch {
                 print("Error saving drink to Firebase")
             }
@@ -47,10 +45,9 @@ extension FirebaseRepository {
 
 // MARK: - Placing Orders
 extension FirebaseRepository {
-    
     func placeOrder(order: Order) {
         do {
-            try FirebaseReference(FCollectionReference.Orders).document(order.id).setData(from: order.self)
+            try firebaseReference(FCollectionReference.orders).document(order.id).setData(from: order.self)
         } catch {
             print("Error saving order to Firebase,", error.localizedDescription)
         }

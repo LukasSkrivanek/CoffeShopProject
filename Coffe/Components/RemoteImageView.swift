@@ -13,7 +13,7 @@ struct RemoteImageView: View {
         self.url = url
     }
     var body: some View {
-        ZStack{
+        ZStack {
             KFImage(url)
                 .resizable()
                 .placeholder {Image(systemName: "photo")

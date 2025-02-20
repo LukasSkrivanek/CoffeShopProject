@@ -10,23 +10,17 @@ import SwiftUI
 class LoginMethodSelectionViewModel {
     var userRepository: UserRepository
     var authenticationManager: AuthenticationManager!
-    
-    var selectedMethod: LoginMethod? = nil
-    
+    var selectedMethod: LoginMethod?
     init(userRepository: UserRepository, authenticationManager: AuthenticationManager!) {
         self.userRepository = userRepository
         self.authenticationManager = authenticationManager
     }
-    
     func selectMethod(_ method: LoginMethod) {
         selectedMethod = method
     }
-    
-    func signInGoogle() async throws{
+    func signInGoogle() async throws {
         let helper = SignInGoogleHelper(userRepository: userRepository)
             let tokens = try await helper.signIn()
         try await authenticationManager.signInWithGoogle(tokens: tokens)
-            
         }
-
 }

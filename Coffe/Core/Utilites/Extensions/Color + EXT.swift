@@ -5,7 +5,6 @@
 //  Created by macbook on 10.02.2025.
 //
 
-
 import SwiftUI
 
 extension Color {

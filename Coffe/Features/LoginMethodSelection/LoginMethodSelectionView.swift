@@ -9,15 +9,12 @@ import SwiftUI
 struct LoginMethodSelectionView: View {
     @Environment(Coordinator.self) private var coordinator
     @Environment(AppState.self) private var appState
-    
     @Environment(LoginMethodSelectionViewModel.self) private var loginMethodViewModel
-    
     var body: some View {
         VStack(spacing: 20) {
             Text("Select Login Method")
                 .font(.title2)
                 .bold()
-            
             Button(action: {
                 coordinator.presentSheet(.login)
 
@@ -25,18 +22,14 @@ struct LoginMethodSelectionView: View {
                 Text("Login with Email")
                     .styledButton(usedColor: .brown)
             })
-            
-            
             Button(action: {
                 handleLoginMethod(.google)
             }, label: {
                 Text("Login with Google")
                     .styledButton(usedColor: .oliveGreen)
             })
-            
         }
         .padding()
-
     }
     private func handleLoginMethod(_ method: LoginMethod) {
         Task {
@@ -52,16 +45,9 @@ struct LoginMethodSelectionView: View {
             } catch {
                 print(error)
             }
-           
         }
     }
-    
-    
 }
-
 enum LoginMethod {
     case email, google
 }
-
-
-

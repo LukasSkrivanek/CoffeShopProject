@@ -4,7 +4,6 @@
 //
 //  Created by macbook on 01.02.2025.
 //
-import SwiftUI
 
 import SwiftUI
 
@@ -18,12 +17,10 @@ struct UserInfoView: View {
                 Text("Welcome")
                     .font(.title3)
                     .foregroundColor(.gray)
-                
                 Text(user.email)
                     .font(.title2)
                     .bold()
                     .multilineTextAlignment(.center)
-
                 Text(user.address)
                     .font(.body)
                     .foregroundColor(.secondary)
@@ -46,12 +43,10 @@ struct UserInfoView: View {
                     .cornerRadius(12)
                     .shadow(radius: 3)
             }
-           
         }
         .padding(.horizontal)
     }
 }
-
 
 struct AuthButtonsView: View {
     let onLogin: () -> Void
@@ -65,7 +60,6 @@ struct AuthButtonsView: View {
             Button(action: onLogin) {
                 Text("Login")
                     .styledButton(usedColor: .brown)
-                   
             }
             Button(action: onRegister) {
                 Text("Register")

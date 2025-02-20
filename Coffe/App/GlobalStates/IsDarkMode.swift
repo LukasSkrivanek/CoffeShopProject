@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 @Observable
 final class IsDarkMode {
     var isDarkMode: Bool {
@@ -16,12 +15,10 @@ final class IsDarkMode {
             updateUserInterfaceStyle()
         }
     }
-    
     init() {
         self.isDarkMode = UserDefaults.standard.bool(forKey: "isDarkMode")
         updateUserInterfaceStyle()
     }
-    
     func updateUserInterfaceStyle() {
         DispatchQueue.main.async {
             guard let window = UIApplication.shared.windows.first else {
@@ -32,4 +29,3 @@ final class IsDarkMode {
     }
 
 }
-

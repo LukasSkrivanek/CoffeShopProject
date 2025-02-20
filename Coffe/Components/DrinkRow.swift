@@ -8,27 +8,23 @@
 import SwiftUI
 
 struct DrinkRow: View {
-    
     private let drink: Drink
     var didClickRow: () -> Void
-    
     init(drink: Drink, didClickRow: @escaping () -> Void) {
         self.drink = drink
         self.didClickRow = didClickRow
     }
-    
     var body: some View {
-        Button{
+        Button {
             didClickRow()
         } label: {
-            HStack{
+            HStack {
                 RemoteImageView(url: drink.imageURL)
                     .scaledToFill()
                     .frame(width: 60, height: 60)
                     .cornerRadius(8)
                     .clipped()
-                
-                VStack(alignment: .leading, spacing: 5){
+                VStack(alignment: .leading, spacing: 5) {
                     Text(drink.name)
                         .font(.title2)
                         .foregroundStyle(.primary)
@@ -39,18 +35,15 @@ struct DrinkRow: View {
                         .foregroundStyle(.gray)
                 }
                 .padding(.leading)
-                
                 Spacer()
             }
             .frame(maxWidth: .infinity)
-            
         }
         .tint(.primary)
     }
 }
 
 #Preview {
-    DrinkRow(drink: DummyData.drinks[0]){
-        
+    DrinkRow(drink: DummyData.drinks[0]) {
     }
 }

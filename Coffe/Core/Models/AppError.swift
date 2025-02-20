@@ -11,7 +11,7 @@ enum AppError {
     case emptyBasketError, noUserError
 }
 
-extension AppError: CustomStringConvertible{
+extension AppError: CustomStringConvertible {
     public var description: String {
         switch self {
         case .emptyBasketError:

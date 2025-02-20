@@ -12,22 +12,17 @@ import Observation
 final class AccountViewModel {
     var userRepository: UserRepository
     var authenticationManager: AuthenticationManager
-    
     var name = ""
     var address = ""
     var mobile = ""
     var email = ""
-    
-    init(userRepository: UserRepository , authenticationManager: AuthenticationManager) {
+    init(userRepository: UserRepository, authenticationManager: AuthenticationManager) {
         self.userRepository = userRepository
         self.authenticationManager = authenticationManager
-        
     }
-
     func isInvalidForm() -> Bool {
         name.isEmpty || address.isEmpty || mobile.isEmpty
     }
-    
     func logOut()   {
         do {
             try authenticationManager.signOut()
@@ -35,6 +30,5 @@ final class AccountViewModel {
         } catch  {
             print("Error")
         }
-        
     }
 }

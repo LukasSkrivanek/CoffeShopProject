@@ -7,10 +7,9 @@
 
 import Foundation
 
-enum Category: String, Codable, Hashable{
+enum Category: String, Codable, Hashable {
     case hot, cold, softDrinks
 }
-
 struct Drink: Codable, Hashable {
     var id: String = UUID().uuidString
     let name: String
@@ -18,7 +17,6 @@ struct Drink: Codable, Hashable {
     let imageLink: String
     let price: Double
     let category: Category
-    
     var imageURL: URL? {
         URL(string: imageLink)
     }

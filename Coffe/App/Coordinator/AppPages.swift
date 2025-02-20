@@ -7,34 +7,26 @@
 
 import Foundation
 
-
 enum AppPages: Hashable {
-    
     case appTabBar
-    case home
+    case drinkList
     case account
     case basket
     case drinkDetail(Drink)
 }
 
-enum Sheet:  String, Identifiable {
-    
+enum Sheet: String, Identifiable {
     var id: String {
         self.rawValue
     }
-    
     case loginMethod
     case registration
     case login
 }
 
-
 enum FullScreenCorver: String, Identifiable {
     var id: String {
         self.rawValue
     }
-    
     case zero
-    
-    
 }

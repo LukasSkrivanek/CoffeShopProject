@@ -10,19 +10,14 @@ import Foundation
 class RegistrationViewModel {
     private var userRepository: UserRepository
     var authenticationManager: AuthenticationManager
-
-    
     var email: String = ""
     var password: String = ""
     var confirmPassword: String = ""
-    var alert: AnyAppAlert?  
-
-    
+    var alert: AnyAppAlert?
     init(userRepository: UserRepository, authenticationManager: AuthenticationManager) {
         self.userRepository = userRepository
         self.authenticationManager = authenticationManager
     }
-
     func registerUser() async {
         guard !email.isEmpty, !password.isEmpty, !confirmPassword.isEmpty else {
             await MainActor.run {
@@ -30,14 +25,12 @@ class RegistrationViewModel {
             }
             return
         }
-
         guard password == confirmPassword else {
             await MainActor.run {
                 alert = AnyAppAlert(title: "Error", subtitle: "Passwords do not match")
             }
             return
         }
-
         do {
             try await authenticationManager.createUser(email: email, password: password)
             userRepository.user = await userRepository.fetchUser()
