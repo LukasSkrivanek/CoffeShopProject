@@ -17,4 +17,4 @@ jobs:
         with:
           xcode-version: 16.2
       - name: Build and test
-        run: xcodebuild test -project Coffe.xcodeproj -scheme Coffe -destination "platform=iOS Simulator,OS=17.0.1,name=iPhone 15"
+        run: xcodebuild test -project Coffe.xcodeproj -scheme Coffe -destination "platform:iOS Simulator, OS:18.1"
