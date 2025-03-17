@@ -1,8 +1,8 @@
 name: iOS starter workflow
 
 on:
-  push:
-    branches: [ "feature/github_actions" ]
+  pull_request:
+    branches: [ "feature/ui_kit", "main" ]
 
 jobs:
   build:
