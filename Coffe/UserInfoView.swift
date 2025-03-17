@@ -5,6 +5,7 @@
 //  Created by macbook on 01.02.2025.
 //
 
+import Combine
 import SwiftUI
 
 struct UserInfoView: View {
@@ -49,15 +50,21 @@ struct UserInfoView: View {
 }
 
 struct AuthButtonsView: View {
-    let onLogin: () -> Void
     let onRegister: () -> Void
 
+    private let loginEvent = PassthroughSubject<Void, Never>()
+    var loginEventPublisher: AnyPublisher<Void, Never> {
+        loginEvent.eraseToAnyPublisher()
+    }
+    
     var body: some View {
         VStack(spacing: 10) {
             Text("Please log in or register to continue.")
                 .padding()
 
-            Button(action: onLogin) {
+            Button(action: {
+                loginEvent.send(())
+            }) {
                 Text("Login")
                     .styledButton(usedColor: .brown)
             }
