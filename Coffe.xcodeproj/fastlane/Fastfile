@@ -1,0 +1,14 @@
+
+platform :ios do
+  desc "Build and test the iOS project"
+  lane :build_and_test do
+    xcode_select("/Applications/Xcode_16.2.app")
+    scan(
+      project: "./Coffe.xcodeproj", 
+      scheme: "Coffe",              
+      device: "iPhone 16",          
+      os_version: "18.1",           
+      clean: true                   
+    )
+  end
+end
