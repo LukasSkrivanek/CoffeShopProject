@@ -2,7 +2,7 @@ name: iOS Fastlane CI
 
 on:
   push:
-    branches: [ "feature/ui_kit", "main" ]
+    branches: [ "feature/ui_kit", "main", "feature/ui_kit_main" ]
 jobs:
   build:
     runs-on: macos-latest
