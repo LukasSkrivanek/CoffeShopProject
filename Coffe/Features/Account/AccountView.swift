@@ -12,7 +12,6 @@ struct AccountView: View {
     @Environment(AppState.self) private var appState
     @Environment(IsDarkMode.self) private var isDarkMode
     @Environment(AccountViewModel.self) private var accountViewModel
-    
     @State var loginEventCancellable: AnyCancellable?
     
     var body: some View {
