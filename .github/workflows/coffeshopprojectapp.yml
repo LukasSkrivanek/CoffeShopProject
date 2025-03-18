@@ -1,20 +1,22 @@
-name: iOS starter workflow
+name: iOS Fastlane CI
 
 on:
   pull_request:
     branches: [ "feature/ui_kit", "main" ]
-
 jobs:
   build:
-    name: Build and Test default scheme using any available iPhone simulator
     runs-on: macos-latest
-
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v4
-      - name: Setup Xcode version
-        uses: maxim-lobanov/setup-xcode@v1.6.0
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
         with:
-          xcode-version: 16.2
-      - name: Build and test
-        run: xcodebuild build -project Coffe.xcodeproj -scheme Coffe -destination "platform=iOS Simulator,OS=18.1,name=iPhone 16"
+          ruby-version: 3.0.0
+
+      - name: Install Fastlane
+        run: gem install fastlane -NV
+
+      - name: Run Fastlane build_and_test
+        run: fastlane build_and_test
