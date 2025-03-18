@@ -1,7 +1,7 @@
 name: iOS Fastlane CI
 
 on:
-  pull_request:
+  push:
     branches: [ "feature/ui_kit", "main" ]
 jobs:
   build:
