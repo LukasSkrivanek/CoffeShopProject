@@ -20,4 +20,4 @@ jobs:
         run: gem install fastlane -NV
 
       - name: Run Fastlane build_and_test
-        run: fastlane build_and_test
+        run: fastlane ios build_and_test
