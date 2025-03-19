@@ -5,9 +5,8 @@ platform :ios do
     xcode_select("/Applications/Xcode_16.2.app")
     scan(
       project: "./Coffe.xcodeproj", 
-      scheme: "Coffe",              
-      device: "iPhone 16",          
-      os_version: "18.1",           
+      scheme: "Coffe",                      
+      destination: "platform=iOS Simulator,name=iPhone 16,OS=18.1"        
       clean: true                   
     )
   end
