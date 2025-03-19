@@ -6,7 +6,7 @@ platform :ios do
     scan(
       project: "./Coffe.xcodeproj", 
       scheme: "Coffe",                      
-      destination: "platform=iOS Simulator,name=iPhone 16,OS=18.1",        
+      destination: "platform=iOS Simulator,name=iPhone 16,OS=18.2",        
       clean: true                   
     )
   end
