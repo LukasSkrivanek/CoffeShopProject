@@ -8,7 +8,9 @@
 import Foundation
 import FirebaseAuth
 
-final class AuthenticationManager {
+final class AuthenticationManager: AuthServiceProtocol {
+   
+    
     private var authServiceProtocol: AuthServiceProtocol
 
     init(authServiceProtocol: AuthServiceProtocol) {
@@ -40,6 +42,9 @@ extension AuthenticationManager {
     func signOut() throws { 
            try authServiceProtocol.signOut()
        }
+    func getAuthenticatedUser() throws -> AuthDataResultModel {
+        try authServiceProtocol.getAuthenticatedUser()
+    }
 }
 
 extension AuthenticationManager {

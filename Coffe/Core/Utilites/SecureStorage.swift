@@ -10,8 +10,14 @@ import KeychainAccess
 
 let userKey = "userSecureKey"
 
+protocol SecureStorageProtocol {
+    func save(data: Data, with key: String) async
+    func get(with key: String)async -> Data?
+    func delete(with key: String) async
+}
+
 @Observable
-final class SecureStorage {
+final class SecureStorage: SecureStorageProtocol {
     private static let keychain = Keychain(service: "luky.skrivos-gmail.com.Coffe")
     func save(data: Data, with key: String) async {
         SecureStorage.keychain[data: key] = data

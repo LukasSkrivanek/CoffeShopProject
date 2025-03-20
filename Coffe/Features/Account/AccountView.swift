@@ -13,7 +13,6 @@ struct AccountView: View {
     @Environment(IsDarkMode.self) private var isDarkMode
     @Environment(AccountViewModel.self) private var accountViewModel
     @State var loginEventCancellable: AnyCancellable?
-    
     var body: some View {
         ScrollView {
             VStack(spacing: 15) {
@@ -40,7 +39,6 @@ struct AccountView: View {
         })
         .background(Color(UIColor.systemGroupedBackground))
     }
-    
     func createAuth() -> some View {
         let auth = AuthButtonsView(
             onRegister: { coordinator.presentSheet(.registration, detent: .medium) }
@@ -50,7 +48,6 @@ struct AccountView: View {
         }
         return auth
     }
-    
     private func logOut() {
         accountViewModel.logOut()
         appState.isSignedIn = false

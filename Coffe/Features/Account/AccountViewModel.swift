@@ -10,13 +10,13 @@ import Observation
 
 @Observable
 final class AccountViewModel {
-    var userRepository: UserRepository
-    var authenticationManager: AuthenticationManager
+    var userRepository: UserRepositoryProtocol
+    var authenticationManager: AuthServiceProtocol
     var name = ""
     var address = ""
     var mobile = ""
     var email = ""
-    init(userRepository: UserRepository, authenticationManager: AuthenticationManager) {
+    init(userRepository: UserRepositoryProtocol, authenticationManager: AuthServiceProtocol) {
         self.userRepository = userRepository
         self.authenticationManager = authenticationManager
     }

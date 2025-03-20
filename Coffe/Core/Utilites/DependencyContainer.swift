@@ -41,7 +41,7 @@ class DependencyContainer {
         .inObjectScope(.container)
         container.register(AccountViewModel.self) { resolve in
             AccountViewModel(userRepository: resolve.resolve(UserRepository.self)!,
-                             authenticationManager: resolve.resolve(AuthenticationManager.self)!) }
+                             authenticationManager: resolve.resolve(AuthServiceProtocol.self)!) }
         .inObjectScope(.container)
         container.register(LoginMethodSelectionViewModel.self) { resolve in
             LoginMethodSelectionViewModel(userRepository: resolve.resolve(UserRepository.self)!,

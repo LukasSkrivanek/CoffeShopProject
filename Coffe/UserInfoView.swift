@@ -56,7 +56,6 @@ struct AuthButtonsView: View {
     var loginEventPublisher: AnyPublisher<Void, Never> {
         loginEvent.eraseToAnyPublisher()
     }
-    
     var body: some View {
         VStack(spacing: 10) {
             Text("Please log in or register to continue.")

@@ -7,9 +7,21 @@
 import Foundation
 import Observation
 
+protocol UserRepositoryProtocol {
+    var secureStorage: SecureStorageProtocol { get }
+    var user: UserModel? { get set}
+    func loadUser() async -> UserModel?
+    func saveUser() async
+    func saveChanges(name: String, address: String, mobile: String, email: String)
+    func createUser(name: String, address: String, mobile: String, email: String)
+    func updateUser(name: String, address: String, mobile: String, email: String)
+    func fetchUser() async -> UserModel?
+    func removeUser()   
+}
+
 @Observable
-final class UserRepository {
-    var secureStorage: SecureStorage
+class UserRepository: UserRepositoryProtocol {
+    var secureStorage: SecureStorageProtocol
     var user: UserModel? {
             didSet {
                 Task {
@@ -24,10 +36,10 @@ final class UserRepository {
         }
     }
     @MainActor
-        private func loadUser() async -> UserModel? {
+    internal func loadUser() async -> UserModel? {
             return await fetchUser()
         }
-    private func saveUser() async {
+    internal func saveUser() async {
             guard let user = user else { return }
             do {
                 let userData = try JSONEncoder().encode(user)
@@ -54,7 +66,7 @@ final class UserRepository {
             print("Error, Couldn't create user!")
         }
     }
-    private func updateUser(name: String, address: String, mobile: String, email: String) {
+    internal func updateUser(name: String, address: String, mobile: String, email: String) {
         do {
             user?.name = name
             user?.mobile = mobile
