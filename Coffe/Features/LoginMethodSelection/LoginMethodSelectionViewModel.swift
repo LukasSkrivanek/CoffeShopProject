@@ -8,10 +8,10 @@ import SwiftUI
 
 @Observable
 class LoginMethodSelectionViewModel {
-    var userRepository: UserRepository
-    var authenticationManager: AuthenticationManager!
+    var userRepository: UserRepositoryProtocol
+    var authenticationManager: AuthServiceProtocol!
     var selectedMethod: LoginMethod?
-    init(userRepository: UserRepository, authenticationManager: AuthenticationManager!) {
+    init(userRepository: UserRepositoryProtocol, authenticationManager: AuthServiceProtocol) {
         self.userRepository = userRepository
         self.authenticationManager = authenticationManager
     }

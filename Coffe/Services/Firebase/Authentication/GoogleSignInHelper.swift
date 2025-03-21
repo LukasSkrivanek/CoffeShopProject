@@ -17,8 +17,8 @@ struct GoogleSignInResultModel {
 }
 
 final class SignInGoogleHelper {
-    var userRepository: UserRepository
-    init(userRepository: UserRepository) {
+    var userRepository: UserRepositoryProtocol
+    init(userRepository: UserRepositoryProtocol) {
         self.userRepository = userRepository
     }
     @MainActor

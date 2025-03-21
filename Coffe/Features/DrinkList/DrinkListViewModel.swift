@@ -8,11 +8,11 @@ import Foundation
 
 @Observable
 final class DrinkListViewModel {
-    var firebaseRepository: FirebaseRepository
-    private(set) var drinks: [Drink] = []
+    var firebaseRepository: FirebaseRepositoryProtocol
+    var drinks: [Drink] = []
     private(set) var selectedDrink: Drink?
     private(set)var filterCategories: [String: [Drink]] = [:]
-    init(firebaseRepository: FirebaseRepository) {
+    init(firebaseRepository: FirebaseRepositoryProtocol) {
         self.firebaseRepository = firebaseRepository
     }
     var isShowingDetail = false

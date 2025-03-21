@@ -11,13 +11,13 @@ import SwiftUI
 
 @Observable
 final class BasketViewModel: Sendable {
-    var firebaseRepository: FirebaseRepository
-    var userRepository: UserRepository
-    private(set) var items: [Drink] = []
+    var firebaseRepository: FirebaseRepositoryProtocol
+    var userRepository: UserRepositoryProtocol
+    var items: [Drink] = []
     var basketError: AppError?
     var showAlert: AnyAppAlert?
     var showError = false
-    init(userRepository: UserRepository, firebaseRepository: FirebaseRepository) {
+    init(userRepository: UserRepositoryProtocol, firebaseRepository: FirebaseRepositoryProtocol) {
         self.firebaseRepository = firebaseRepository
         self.userRepository = userRepository
     }
