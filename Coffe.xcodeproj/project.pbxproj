@@ -65,7 +65,6 @@
 				Core/Utilites/DependencyContainer.swift,
 				Core/Utilites/SecureStorage.swift,
 				Core/Utilites/UserRepository.swift,
-				Core/Utilites/Utilities.swift,
 				DrinkDetailView.swift,
 				Features/Account/AccountView.swift,
 				Features/Account/AccountViewModel.swift,
