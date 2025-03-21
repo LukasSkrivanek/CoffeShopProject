@@ -6,7 +6,7 @@
 //
 import SwiftUI
 
-extension Binding where Value == Bool {
+public extension Binding where Value == Bool {
     init<T: Sendable>(ifNotNil value: Binding<T?>) {
         self.init {
             value.wrappedValue != nil
@@ -17,7 +17,8 @@ extension Binding where Value == Bool {
         }
     }
 }
-extension Binding {
+
+public extension Binding {
     static func twoWay<T>(
         _ keyPath: ReferenceWritableKeyPath<T, Value>,
         on object: T

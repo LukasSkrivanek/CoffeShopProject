@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		305664752D8DF9A6009AE35A /* SuperExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = 305664742D8DF9A6009AE35A /* SuperExtensions */; };
 		FA1E15B12BA203820013E0CF /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FA1E15B02BA203820013E0CF /* FirebaseAuth */; };
 		FA1E15B32BA203820013E0CF /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FA1E15B22BA203820013E0CF /* FirebaseFirestore */; };
 		FA1E15B52BA203820013E0CF /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FA1E15B42BA203820013E0CF /* FirebaseFirestoreSwift */; };
@@ -62,10 +63,6 @@
 				Core/Models/Order.swift,
 				Core/Models/UserModel.swift,
 				Core/Utilites/DependencyContainer.swift,
-				"Core/Utilites/Extensions/Binding + EXT.swift",
-				"Core/Utilites/Extensions/Color + EXT.swift",
-				Core/Utilites/Extensions/TextFieldStyleModifier.swift,
-				"Core/Utilites/Extensions/View + EXT.swift",
 				Core/Utilites/SecureStorage.swift,
 				Core/Utilites/UserRepository.swift,
 				Core/Utilites/Utilities.swift,
@@ -127,6 +124,7 @@
 				FA1E15B12BA203820013E0CF /* FirebaseAuth in Frameworks */,
 				FADA61F32B9C680400FDD9AF /* Kingfisher in Frameworks */,
 				FA1E15B52BA203820013E0CF /* FirebaseFirestoreSwift in Frameworks */,
+				305664752D8DF9A6009AE35A /* SuperExtensions in Frameworks */,
 				FAA1D20D2B8E02D800EE7364 /* KeychainAccess in Frameworks */,
 				FA3317742B9DC5E900248936 /* GoogleSignInSwift in Frameworks */,
 				FA1E15B32BA203820013E0CF /* FirebaseFirestore in Frameworks */,
@@ -229,6 +227,7 @@
 				FA1E15B22BA203820013E0CF /* FirebaseFirestore */,
 				FA1E15B42BA203820013E0CF /* FirebaseFirestoreSwift */,
 				FAFF03492D4B773200BCA8CE /* Swinject */,
+				305664742D8DF9A6009AE35A /* SuperExtensions */,
 			);
 			productName = Coffe;
 			productReference = FAA1D1B32B8C80F400EE7364 /* Coffe.app */;
@@ -272,6 +271,7 @@
 				FA3317702B9DC5E900248936 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				FA1E15AF2BA203820013E0CF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				FAFF03482D4B773200BCA8CE /* XCRemoteSwiftPackageReference "Swinject" */,
+				305664732D8DF9A6009AE35A /* XCLocalSwiftPackageReference "SuperExtensions" */,
 			);
 			productRefGroup = FAA1D1B42B8C80F400EE7364 /* Products */;
 			projectDirPath = "";
@@ -668,6 +668,13 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCLocalSwiftPackageReference section */
+		305664732D8DF9A6009AE35A /* XCLocalSwiftPackageReference "SuperExtensions" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = SuperExtensions;
+		};
+/* End XCLocalSwiftPackageReference section */
+
 /* Begin XCRemoteSwiftPackageReference section */
 		FA1E15AF2BA203820013E0CF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
@@ -712,6 +719,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		305664742D8DF9A6009AE35A /* SuperExtensions */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SuperExtensions;
+		};
 		FA1E15B02BA203820013E0CF /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FA1E15AF2BA203820013E0CF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

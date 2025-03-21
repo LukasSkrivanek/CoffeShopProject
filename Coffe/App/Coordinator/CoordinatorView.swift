@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SuperExtensions
 
 struct CoordinatorView: View {
     @Environment(Coordinator.self) private var coordinator
