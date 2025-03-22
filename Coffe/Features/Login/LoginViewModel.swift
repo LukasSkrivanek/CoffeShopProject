@@ -8,12 +8,12 @@ import SwiftUI
 
 @Observable
 class LoginViewModel {
-    var userRepository: UserRepository
-    var authenticationManager: AuthenticationManager
+    var userRepository: UserRepositoryProtocol
+    var authenticationManager: AuthServiceProtocol
     var email: String = ""
     var password: String = ""
     var alert: AnyAppAlert?
-    init(userRepository: UserRepository, authenticationManager: AuthenticationManager ) {
+    init(userRepository: UserRepositoryProtocol, authenticationManager: AuthServiceProtocol ) {
         self.userRepository = userRepository
         self.authenticationManager = authenticationManager
     }

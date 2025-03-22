@@ -6,7 +6,13 @@
 //
 import Foundation
 
-actor FirebaseRepository {}
+protocol FirebaseRepositoryProtocol {
+    func fetchDrinks() async throws -> [Drink]
+    func saveDrinks()
+    func placeOrder(order: Order)
+}
+
+class FirebaseRepository: FirebaseRepositoryProtocol {}
 
 // MARK: - Fetching Drinks
 extension FirebaseRepository {
