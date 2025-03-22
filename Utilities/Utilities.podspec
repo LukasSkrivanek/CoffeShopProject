@@ -4,6 +4,7 @@ Pod::Spec.new do |s|
   s.license = 'MIT'
   s.summary = 'Some summary'
   s.homepage = 'https://github.com/later'
+  s.authors = 'Some people'
   s.source = { :git => 'https://github.com/LukasSkrivanek/CoffeShopProject.git', :tag => '1.0.0' }
 
   s.ios.deployment_target = '17.0'
