@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E8492D0767BF54811E49906 /* libPods-CoffeUnitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EFEF173EADB0D8761B0E5D71 /* libPods-CoffeUnitTests.a */; };
 		305664752D8DF9A6009AE35A /* SuperExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = 305664742D8DF9A6009AE35A /* SuperExtensions */; };
 		6BD3840312BE56DEB5C5F983 /* libPods-Coffe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 225208FCBDE99554CA3067F5 /* libPods-Coffe.a */; };
+		907F46128A6D5DDAB540C77D /* libPods-CoffeUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C20E7AD3ADE897A97DE7371 /* libPods-CoffeUITests.a */; };
 		FA1E15B12BA203820013E0CF /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FA1E15B02BA203820013E0CF /* FirebaseAuth */; };
 		FA1E15B32BA203820013E0CF /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FA1E15B22BA203820013E0CF /* FirebaseFirestore */; };
 		FA1E15B52BA203820013E0CF /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FA1E15B42BA203820013E0CF /* FirebaseFirestoreSwift */; };
@@ -38,10 +40,16 @@
 
 /* Begin PBXFileReference section */
 		225208FCBDE99554CA3067F5 /* libPods-Coffe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Coffe.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C20E7AD3ADE897A97DE7371 /* libPods-CoffeUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CoffeUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		32744429DD9450A51EEE3E99 /* Pods-Coffe-CoffeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coffe-CoffeUITests.release.xcconfig"; path = "Target Support Files/Pods-Coffe-CoffeUITests/Pods-Coffe-CoffeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		43E9C6C1AAAE9547C2D5CE3A /* Pods-Coffe-CoffeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coffe-CoffeUITests.debug.xcconfig"; path = "Target Support Files/Pods-Coffe-CoffeUITests/Pods-Coffe-CoffeUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		525636DCEEFB87CDFFB4F305 /* Pods-CoffeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoffeUITests.debug.xcconfig"; path = "Target Support Files/Pods-CoffeUITests/Pods-CoffeUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		89D82F1A743B9496171BB975 /* Pods-CoffeUnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoffeUnitTests.debug.xcconfig"; path = "Target Support Files/Pods-CoffeUnitTests/Pods-CoffeUnitTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A56E4F3BCAE97F04D5ED129E /* Pods-CoffeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoffeUITests.release.xcconfig"; path = "Target Support Files/Pods-CoffeUITests/Pods-CoffeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B449FE2B9EA4BADEC5AA2422 /* Pods-Coffe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coffe.debug.xcconfig"; path = "Target Support Files/Pods-Coffe/Pods-Coffe.debug.xcconfig"; sourceTree = "<group>"; };
+		C1F5628E72A5A24A29348404 /* Pods-CoffeUnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoffeUnitTests.release.xcconfig"; path = "Target Support Files/Pods-CoffeUnitTests/Pods-CoffeUnitTests.release.xcconfig"; sourceTree = "<group>"; };
 		E6005A1A1892C78B9681430E /* Pods-Coffe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coffe.release.xcconfig"; path = "Target Support Files/Pods-Coffe/Pods-Coffe.release.xcconfig"; sourceTree = "<group>"; };
+		EFEF173EADB0D8761B0E5D71 /* libPods-CoffeUnitTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CoffeUnitTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA2559CC2D8B203600F91607 /* CoffeUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoffeUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA255A772D8C47B200F91607 /* CoffeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoffeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA1D1B32B8C80F400EE7364 /* Coffe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Coffe.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,6 +138,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E8492D0767BF54811E49906 /* libPods-CoffeUnitTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,6 +146,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				907F46128A6D5DDAB540C77D /* libPods-CoffeUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,6 +177,10 @@
 				E6005A1A1892C78B9681430E /* Pods-Coffe.release.xcconfig */,
 				43E9C6C1AAAE9547C2D5CE3A /* Pods-Coffe-CoffeUITests.debug.xcconfig */,
 				32744429DD9450A51EEE3E99 /* Pods-Coffe-CoffeUITests.release.xcconfig */,
+				525636DCEEFB87CDFFB4F305 /* Pods-CoffeUITests.debug.xcconfig */,
+				A56E4F3BCAE97F04D5ED129E /* Pods-CoffeUITests.release.xcconfig */,
+				89D82F1A743B9496171BB975 /* Pods-CoffeUnitTests.debug.xcconfig */,
+				C1F5628E72A5A24A29348404 /* Pods-CoffeUnitTests.release.xcconfig */,
 			);
 			name = Pods;
 			path = Pods;
@@ -176,6 +190,8 @@
 			isa = PBXGroup;
 			children = (
 				225208FCBDE99554CA3067F5 /* libPods-Coffe.a */,
+				2C20E7AD3ADE897A97DE7371 /* libPods-CoffeUITests.a */,
+				EFEF173EADB0D8761B0E5D71 /* libPods-CoffeUnitTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -209,6 +225,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FA2559D42D8B203600F91607 /* Build configuration list for PBXNativeTarget "CoffeUnitTests" */;
 			buildPhases = (
+				E10A20EE24CB2D7B3EE637AA /* [CP] Check Pods Manifest.lock */,
 				FA2559C82D8B203600F91607 /* Sources */,
 				FA2559C92D8B203600F91607 /* Frameworks */,
 				FA2559CA2D8B203600F91607 /* Resources */,
@@ -230,6 +247,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FA255A7F2D8C47B200F91607 /* Build configuration list for PBXNativeTarget "CoffeUITests" */;
 			buildPhases = (
+				0F5E8C39A2B008F6F7E3D65E /* [CP] Check Pods Manifest.lock */,
 				FA255A732D8C47B200F91607 /* Sources */,
 				FA255A742D8C47B200F91607 /* Frameworks */,
 				FA255A752D8C47B200F91607 /* Resources */,
@@ -353,6 +371,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0F5E8C39A2B008F6F7E3D65E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CoffeUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		D5C64EE5B9192B97DEF7F9B3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -369,6 +409,28 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-Coffe-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E10A20EE24CB2D7B3EE637AA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CoffeUnitTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -436,6 +498,7 @@
 /* Begin XCBuildConfiguration section */
 		FA2559D22D8B203600F91607 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 89D82F1A743B9496171BB975 /* Pods-CoffeUnitTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -456,6 +519,7 @@
 		};
 		FA2559D32D8B203600F91607 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C1F5628E72A5A24A29348404 /* Pods-CoffeUnitTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -476,6 +540,7 @@
 		};
 		FA255A802D8C47B200F91607 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 525636DCEEFB87CDFFB4F305 /* Pods-CoffeUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -495,6 +560,7 @@
 		};
 		FA255A812D8C47B200F91607 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A56E4F3BCAE97F04D5ED129E /* Pods-CoffeUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;

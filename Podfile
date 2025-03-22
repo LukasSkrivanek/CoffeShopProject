@@ -2,8 +2,13 @@
 platform :ios, '17.0'
 
 target 'Coffe' do
-
-  # Pods for Coffe
   pod 'Utilities', :path => 'Utilities/'
+end
 
+target 'CoffeUITests' do
+  pod 'Utilities', :path => 'Utilities/'
+end
+
+target 'CoffeUnitTests' do
+  pod 'Utilities', :path => 'Utilities/'
 end
