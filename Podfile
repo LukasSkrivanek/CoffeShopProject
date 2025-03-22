@@ -9,6 +9,7 @@ target 'Coffe' do
   pod 'Utilities', :path => 'Utilities/'
 
   target 'CoffeUITests' do
+    inherit! :search_paths
     # Pods for testing
   end
 

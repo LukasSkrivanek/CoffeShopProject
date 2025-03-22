@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02539E0795915EBDF9F659ED /* Pods_CoffeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E59962B77046E44C37959AE /* Pods_CoffeUITests.framework */; };
 		305664752D8DF9A6009AE35A /* SuperExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = 305664742D8DF9A6009AE35A /* SuperExtensions */; };
 		55D10330BE10BAA499AD0172 /* Pods_CoffeUnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E20F66EAFCD8C22C8FA8E384 /* Pods_CoffeUnitTests.framework */; };
-		724541068C0A6BC86B6546B6 /* Pods_Coffe_CoffeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE512F75F549E40E366980A8 /* Pods_Coffe_CoffeUITests.framework */; };
 		C5B3B0CDFB7FD376FB026477 /* Pods_Coffe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7558771EE9AA35ED39179C4 /* Pods_Coffe.framework */; };
 		FA1E15B12BA203820013E0CF /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FA1E15B02BA203820013E0CF /* FirebaseAuth */; };
 		FA1E15B32BA203820013E0CF /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FA1E15B22BA203820013E0CF /* FirebaseFirestore */; };
@@ -39,12 +39,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0E59962B77046E44C37959AE /* Pods_CoffeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoffeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		32744429DD9450A51EEE3E99 /* Pods-Coffe-CoffeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coffe-CoffeUITests.release.xcconfig"; path = "Target Support Files/Pods-Coffe-CoffeUITests/Pods-Coffe-CoffeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		43E9C6C1AAAE9547C2D5CE3A /* Pods-Coffe-CoffeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coffe-CoffeUITests.debug.xcconfig"; path = "Target Support Files/Pods-Coffe-CoffeUITests/Pods-Coffe-CoffeUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		5FA41FB12EF556D7F69EAEFF /* Pods-CoffeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoffeUITests.release.xcconfig"; path = "Target Support Files/Pods-CoffeUITests/Pods-CoffeUITests.release.xcconfig"; sourceTree = "<group>"; };
+		66F752A2187832142DF3642D /* Pods-CoffeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoffeUITests.debug.xcconfig"; path = "Target Support Files/Pods-CoffeUITests/Pods-CoffeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8D9BD1B865FEEAD639CA5E36 /* Pods-CoffeUnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoffeUnitTests.debug.xcconfig"; path = "Target Support Files/Pods-CoffeUnitTests/Pods-CoffeUnitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B449FE2B9EA4BADEC5AA2422 /* Pods-Coffe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coffe.debug.xcconfig"; path = "Target Support Files/Pods-Coffe/Pods-Coffe.debug.xcconfig"; sourceTree = "<group>"; };
 		C70F2A0BCF63D8D5A0475742 /* Pods-CoffeUnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoffeUnitTests.release.xcconfig"; path = "Target Support Files/Pods-CoffeUnitTests/Pods-CoffeUnitTests.release.xcconfig"; sourceTree = "<group>"; };
-		CE512F75F549E40E366980A8 /* Pods_Coffe_CoffeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Coffe_CoffeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7558771EE9AA35ED39179C4 /* Pods_Coffe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Coffe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E20F66EAFCD8C22C8FA8E384 /* Pods_CoffeUnitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoffeUnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6005A1A1892C78B9681430E /* Pods-Coffe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coffe.release.xcconfig"; path = "Target Support Files/Pods-Coffe/Pods-Coffe.release.xcconfig"; sourceTree = "<group>"; };
@@ -144,7 +146,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				724541068C0A6BC86B6546B6 /* Pods_Coffe_CoffeUITests.framework in Frameworks */,
+				02539E0795915EBDF9F659ED /* Pods_CoffeUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +179,8 @@
 				32744429DD9450A51EEE3E99 /* Pods-Coffe-CoffeUITests.release.xcconfig */,
 				8D9BD1B865FEEAD639CA5E36 /* Pods-CoffeUnitTests.debug.xcconfig */,
 				C70F2A0BCF63D8D5A0475742 /* Pods-CoffeUnitTests.release.xcconfig */,
+				66F752A2187832142DF3642D /* Pods-CoffeUITests.debug.xcconfig */,
+				5FA41FB12EF556D7F69EAEFF /* Pods-CoffeUITests.release.xcconfig */,
 			);
 			name = Pods;
 			path = Pods;
@@ -186,8 +190,8 @@
 			isa = PBXGroup;
 			children = (
 				D7558771EE9AA35ED39179C4 /* Pods_Coffe.framework */,
-				CE512F75F549E40E366980A8 /* Pods_Coffe_CoffeUITests.framework */,
 				E20F66EAFCD8C22C8FA8E384 /* Pods_CoffeUnitTests.framework */,
+				0E59962B77046E44C37959AE /* Pods_CoffeUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -247,7 +251,6 @@
 				FA255A732D8C47B200F91607 /* Sources */,
 				FA255A742D8C47B200F91607 /* Frameworks */,
 				FA255A752D8C47B200F91607 /* Resources */,
-				28573478434BCA1C91012A60 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -369,23 +372,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		28573478434BCA1C91012A60 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Coffe-CoffeUITests/Pods-Coffe-CoffeUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Coffe-CoffeUITests/Pods-Coffe-CoffeUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Coffe-CoffeUITests/Pods-Coffe-CoffeUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		93A5FD042C549A578F1652EC /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -462,7 +448,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Coffe-CoffeUITests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-CoffeUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -572,7 +558,7 @@
 		};
 		FA255A802D8C47B200F91607 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 43E9C6C1AAAE9547C2D5CE3A /* Pods-Coffe-CoffeUITests.debug.xcconfig */;
+			baseConfigurationReference = 66F752A2187832142DF3642D /* Pods-CoffeUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -592,7 +578,7 @@
 		};
 		FA255A812D8C47B200F91607 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 32744429DD9450A51EEE3E99 /* Pods-Coffe-CoffeUITests.release.xcconfig */;
+			baseConfigurationReference = 5FA41FB12EF556D7F69EAEFF /* Pods-CoffeUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
