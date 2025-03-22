@@ -8,6 +8,7 @@
 import Foundation
 import GoogleSignIn
 import GoogleSignInSwift
+import Utilities
 
 struct GoogleSignInResultModel {
     let idToken: String
@@ -23,7 +24,7 @@ final class SignInGoogleHelper {
     }
     @MainActor
     func signIn() async throws -> GoogleSignInResultModel {
-        guard let topVC = Utilities.shared.topViewController()else {
+        guard let topVC = ControllerUtilities.shared.topViewController()else {
             throw URLError(.cannotFindHost)
         }
         let gidSignInResult = try await GIDSignIn.sharedInstance.signIn(withPresenting: topVC)

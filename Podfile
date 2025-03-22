@@ -6,6 +6,15 @@ target 'Coffe' do
   use_frameworks!
 
   # Pods for Coffe
-  # pod 'Utilities', :path => 'Utilities/'
+  pod 'Utilities', :path => 'Utilities/'
+
+  target 'CoffeUITests' do
+    # Pods for testing
+  end
+
+  target 'CoffeUnitTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
 
 end
