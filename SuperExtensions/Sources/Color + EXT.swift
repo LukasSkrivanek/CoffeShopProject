@@ -7,6 +7,6 @@
 
 import SwiftUI
 
-extension Color {
+public extension Color {
     static let oliveGreen = Color(red: 47.8 / 255, green: 62.4 / 255, blue: 20.8 / 255)
 }

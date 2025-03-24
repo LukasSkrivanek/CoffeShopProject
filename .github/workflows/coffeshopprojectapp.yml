@@ -11,14 +11,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 3.0.0
-          bundler-cache: true
-
-      - name: Install Fastlane
-        run: gem install fastlane -NV
+      - name: Install Bundler
+        run: gem install bundler:2.2.16
+      
+      - name: Bundle Install
+        run: bundle install
+      
+      - name: CocoaPods
+        run: bundle exec pod install
 
       - name: Run Fastlane build_and_test
-        run: fastlane ios build_and_test
+        run: bundle exec fastlane ios build_and_test

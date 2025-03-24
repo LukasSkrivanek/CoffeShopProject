@@ -6,7 +6,7 @@
 //
 import SwiftUI
 
-extension View {
+public extension View {
     func styledButton(usedColor: Color = .blue) -> some View {
         self
             .frame(maxWidth: .infinity)
