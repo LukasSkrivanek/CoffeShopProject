@@ -52,6 +52,7 @@ final class DrinkListViewController: UIViewController {
     private func loadData() {
         Task {
             await viewModel.fetchDrinks()
+            tableView.reloadData()
             print("\(viewModel.filterCategories.count) count viewcontroller")
         }
     }
