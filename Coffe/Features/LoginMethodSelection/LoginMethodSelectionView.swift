@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct LoginMethodSelectionView: View {
-    @Environment(Coordinator.self) private var coordinator
+    //@Environment(Coordinator.self) private var coordinator
     @Environment(AppState.self) private var appState
     @Environment(LoginMethodSelectionViewModel.self) private var loginMethodViewModel
     var body: some View {
@@ -16,7 +16,7 @@ struct LoginMethodSelectionView: View {
                 .font(.title2)
                 .bold()
             Button(action: {
-                coordinator.presentSheet(.login)
+             //   coordinator.presentSheet(.login)
 
             }, label: {
                 Text("Login with Email")
@@ -41,7 +41,7 @@ struct LoginMethodSelectionView: View {
                     try await loginMethodViewModel.signInGoogle()
                     appState.isSignedIn = true
                 }
-                coordinator.dismissSheet()
+                //coordinator.dismissSheet()
             } catch {
                 print(error)
             }

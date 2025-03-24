@@ -8,7 +8,6 @@ import SwiftUI
 import Combine
 
 struct AccountView: View {
-    @Environment(Coordinator.self) private var coordinator
     @Environment(AppState.self) private var appState
     @Environment(IsDarkMode.self) private var isDarkMode
     @Environment(AccountViewModel.self) private var accountViewModel
@@ -41,10 +40,10 @@ struct AccountView: View {
     }
     func createAuth() -> some View {
         let auth = AuthButtonsView(
-            onRegister: { coordinator.presentSheet(.registration, detent: .medium) }
+            onRegister: { /*coordinator.presentSheet(.registration, detent: .medium)*/ }
         )
         loginEventCancellable = auth.loginEventPublisher.sink {
-            coordinator.presentSheet(.loginMethod, detent: .fraction(0.35))
+           // coordinator.presentSheet(.loginMethod, detent: .fraction(0.35))
         }
         return auth
     }

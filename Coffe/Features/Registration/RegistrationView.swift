@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct RegistrationView: View {
-    @Environment(Coordinator.self) private var coordinator
+   // @Environment(Coordinator.self) private var coordinator
     @Environment(\.colorScheme) private var colorScheme
     @Environment(RegistrationViewModel.self) private var registrationViewModel
     var body: some View {
@@ -30,7 +30,7 @@ struct RegistrationView: View {
                         await registrationViewModel.registerUser()
                         await MainActor.run {
                             if registrationViewModel.alert == nil {
-                                coordinator.dismissSheet()
+                              //  coordinator.dismissSheet()
                                 registrationViewModel.email = ""
                                 registrationViewModel.password = ""
                                 registrationViewModel.confirmPassword = ""
@@ -43,7 +43,7 @@ struct RegistrationView: View {
             }
 
             Button {
-                coordinator.dismissSheet()
+               // coordinator.dismissSheet()
             } label: {
                 Text("Cancel")
                     .styledButton(usedColor: .red)

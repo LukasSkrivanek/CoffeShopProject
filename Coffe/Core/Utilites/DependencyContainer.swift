@@ -63,9 +63,9 @@ class DependencyContainer {
                 IsDarkMode()
             }}.inObjectScope(.container)        
         // Coordinator
-        container.register(Coordinator.self) { _ in
-            Coordinator()
-        }.inObjectScope(.container)
+       // container.register(Coordinator.self) { _ in
+           // Coordinator()
+       // }.inObjectScope(.container)
     }
 
     static func resolve<T>(_ type: T.Type) -> T {

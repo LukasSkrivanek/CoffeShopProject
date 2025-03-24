@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct LoginSheetView: View {
-    @Environment(Coordinator.self) private var coordinator
+    //@Environment(Coordinator.self) private var coordinator
     @Environment(AppState.self) private var appState
     @Environment(\.colorScheme) private var colorScheme
     @Environment(LoginViewModel.self) private var loginViewModel
@@ -28,7 +28,7 @@ struct LoginSheetView: View {
                         loginViewModel.email = ""
                         loginViewModel.password = ""
                         appState.isSignedIn = true
-                        coordinator.dismissSheet()
+                        //coordinator.dismissSheet()
                     }
                 }
             } label: {
@@ -36,7 +36,7 @@ struct LoginSheetView: View {
                     .styledButton(usedColor: .brown)
             }
             Button {
-                coordinator.dismissSheet()
+               // coordinator.dismissSheet()
             } label: {
                 Text("Cancel")
                     .styledButton(usedColor: .red)

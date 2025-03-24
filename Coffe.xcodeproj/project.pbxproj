@@ -45,9 +45,7 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				App/AppTabView.swift,
-				App/Coordinator/AppPages.swift,
-				App/Coordinator/Coordinator.swift,
-				App/Coordinator/CoordinatorView.swift,
+				App/Coordinator/AppCoordinator.swift,
 				App/GlobalStates/AppState.swift,
 				App/GlobalStates/IsDarkMode.swift,
 				Assets.xcassets,
@@ -72,6 +70,7 @@
 				DrinkDetailView.swift,
 				Features/Account/AccountView.swift,
 				Features/Account/AccountViewModel.swift,
+				Features/AppTab/AppTabBarController.swift,
 				Features/Basket/BasketView.swift,
 				Features/Basket/BasketViewModel.swift,
 				Features/DrinkList/DrinkListView.swift,

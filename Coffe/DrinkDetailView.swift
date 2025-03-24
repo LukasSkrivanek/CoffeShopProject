@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DrinkDetailView: View {
-    @Environment(Coordinator.self) private var coordinator
+    //@Environment(Coordinator.self) private var coordinator
     @Environment(BasketViewModel.self) private var basketViewModel
     let drink: Drink
     var body: some View {
@@ -51,7 +51,7 @@ struct DrinkDetailView: View {
     private func addToBasketButton() -> some View {
         Button(action: {
             basketViewModel.add(drink: drink)
-            coordinator.pop()
+          //  coordinator.pop()
         }) {
             Text("Add to Basket")
                 .frame(maxWidth: .infinity)
@@ -67,7 +67,7 @@ struct DrinkDetailView: View {
     }
     private func dismissButton() -> some View {
         Button(action: {
-            coordinator.pop()
+          //  coordinator.pop()
         }) {
             Image(systemName: "xmark.circle.fill")
                 .scaleEffect(1.5)

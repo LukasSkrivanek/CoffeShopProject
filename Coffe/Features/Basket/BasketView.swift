@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BasketView: View {
-    @Environment(Coordinator.self) private var  coordinator
+    //@Environment(Coordinator.self) private var  coordinator
     @Environment(\.colorScheme) private var colorScheme
     @Environment(BasketViewModel.self) private var basketViewModel
     var body: some View {
