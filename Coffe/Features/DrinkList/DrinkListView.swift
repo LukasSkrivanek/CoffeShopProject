@@ -46,5 +46,5 @@ struct DrinkListView: View {
 
 #Preview {
     DrinkListView()
-        .environment(DrinkListViewModel(firebaseRepository: FirebaseRepository()))
+      
 }

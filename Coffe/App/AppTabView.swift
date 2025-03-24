@@ -32,7 +32,7 @@ struct AppTabView: View {
                 )
             )
         )
-        .environment(DrinkListViewModel(firebaseRepository: FirebaseRepository()))
+       
         .environment(
             BasketViewModel(
                 userRepository: UserRepository(

@@ -24,9 +24,11 @@ extension FirebaseRepository {
                     return
                 }
                 guard let documents = querySnapshot?.documents else {
+                    print("⚠️ Dokumenty nebyly nalezeny, vracím prázdné pole")
                     continuation.resume(returning: [])
                     return
                 }
+                print("✅ Načteno \(documents.count) dokumentů")
                 let result = documents.compactMap { queryDocumentSnapshot -> Drink? in
                     return try? queryDocumentSnapshot.data(as: Drink.self)
                 }

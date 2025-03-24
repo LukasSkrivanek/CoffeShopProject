@@ -12,7 +12,11 @@ class DependencyContainer {
     let container: Container
 
     private init() {
-        container = Container()
+            container = Container()
+            registerDependencies()
+        }
+    
+    private func registerDependencies() {
         // 🔹 Repositories
         container.register(SecureStorage.self) { _ in SecureStorage() }.inObjectScope(.container)
         container.register(FirebaseRepository.self) { _ in FirebaseRepository() }.inObjectScope(.container)

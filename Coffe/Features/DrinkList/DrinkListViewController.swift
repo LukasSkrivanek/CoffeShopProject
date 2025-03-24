@@ -12,19 +12,14 @@ final class DrinkListViewController: UIViewController {
     // MARK: - Properties
     private let tableView = UITableView()
     private let searchController = UISearchController(searchResultsController: nil)
-    private var viewModel: DrinkListViewModel!
+    private var viewModel = DependencyContainer.resolve(DrinkListViewModel.self)
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupViewModel()
-        setupView()
-        setupTableView()
-        setupSearchController()
         loadData()
-    }
-    // MARK: - Dependency Injection
-    private func setupViewModel() {
-        viewModel = DependencyContainer.resolve(DrinkListViewModel.self)
+        setupView()
+        setupSearchController()
+        setupTableView()
     }
     // MARK: - Setup
     private func setupView() {
@@ -57,13 +52,15 @@ final class DrinkListViewController: UIViewController {
     private func loadData() {
         Task {
             await viewModel.fetchDrinks()
+            print("\(viewModel.filterCategories.count) count viewcontroller")
         }
     }
 }
 // MARK: - UITableViewDataSource
 extension DrinkListViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel.drinks.count
+        return viewModel.filterCategories.keys.count
+
     }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return viewModel.filterCategories.keys.sorted()[section]
@@ -92,8 +89,7 @@ extension DrinkListViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         let key = viewModel.filterCategories.keys.sorted()[indexPath.section]
         if let drink = viewModel.filterCategories[key]?[indexPath.row] {
-            // Navigate to detail
-            // coordinator.push(page: .drinkDetail(drink))
+            
         }
     }
 }

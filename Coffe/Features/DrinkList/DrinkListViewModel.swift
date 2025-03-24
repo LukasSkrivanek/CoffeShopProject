@@ -13,7 +13,7 @@ final class DrinkListViewModel {
     private(set) var selectedDrink: Drink?
     private(set)var filterCategories: [String: [Drink]] = [:]
     init(firebaseRepository: FirebaseRepositoryProtocol) {
-        self.firebaseRepository = firebaseRepository
+        self.firebaseRepository = FirebaseRepository()
     }
     var isShowingDetail = false
     var searchText: String = "" {
@@ -42,6 +42,7 @@ final class DrinkListViewModel {
         do {
             drinks = try await firebaseRepository.fetchDrinks()
             filterCategoriesFunc()
+            print("Count of drinks: \(drinks.count) in viewModel")
         } catch {
             print("Error fetching drinks", error.localizedDescription)
         }
