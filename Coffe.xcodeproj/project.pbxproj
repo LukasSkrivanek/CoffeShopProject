@@ -75,6 +75,7 @@
 				Features/Basket/BasketView.swift,
 				Features/Basket/BasketViewModel.swift,
 				Features/DrinkList/DrinkListView.swift,
+				Features/DrinkList/DrinkListViewController.swift,
 				Features/DrinkList/DrinkListViewModel.swift,
 				Features/Login/LoginSheetView.swift,
 				Features/Login/LoginViewModel.swift,
