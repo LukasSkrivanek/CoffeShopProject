@@ -4,8 +4,8 @@ platform :ios do
   lane :build_and_test do
     xcode_select("/Applications/Xcode_16.2.app")
     scan(
-      project: "./Coffe.xcodeproj", 
-      scheme: "Coffe",                      
+      workspace: "Coffe.xcworkspace",
+      scheme: "Coffe",                    
       destination: "platform=iOS Simulator,name=iPhone 16,OS=18.2",        
       clean: true                   
     )

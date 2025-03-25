@@ -8,12 +8,12 @@
 import Foundation
 import UIKit
 
-final class Utilities {
-    static let shared = Utilities()
+public final class ControllerUtilities {
+    public static let shared = ControllerUtilities()
     private init() {
     }
     @MainActor
-    func topViewController(controller: UIViewController? = nil) -> UIViewController? {
+    public func topViewController(controller: UIViewController? = nil) -> UIViewController? {
         let controller = controller ?? UIApplication.shared.keyWindow?.rootViewController
         if let navigationController = controller as? UINavigationController {
             return topViewController(controller: navigationController.visibleViewController)

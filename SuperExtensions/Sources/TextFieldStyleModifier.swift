@@ -22,7 +22,7 @@ struct TextFieldStyleModifier: ViewModifier {
     }
 }
 
-extension View {
+public extension View {
     func textFieldStyle(paddingAmount: CGFloat = 15, borderColor: Color = .gray) -> some View {
         self.modifier(TextFieldStyleModifier(paddingAmount: paddingAmount, borderColor: borderColor))
     }
