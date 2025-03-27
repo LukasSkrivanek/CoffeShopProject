@@ -111,15 +111,11 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		FA2559CD2D8B203600F91607 /* CoffeUnitTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-			);
 			path = CoffeUnitTests;
 			sourceTree = "<group>";
 		};
 		FA255A782D8C47B200F91607 /* CoffeUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-			);
 			path = CoffeUITests;
 			sourceTree = "<group>";
 		};
@@ -182,7 +178,6 @@
 				89D82F1A743B9496171BB975 /* Pods-CoffeUnitTests.debug.xcconfig */,
 				C1F5628E72A5A24A29348404 /* Pods-CoffeUnitTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -706,7 +701,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Coffe/Preview Content\"";
-				DEVELOPMENT_TEAM = 57FHRQVBLR;
+				DEVELOPMENT_TEAM = 96D9Q2BEQH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Coffe/Info.plist;
@@ -737,7 +732,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Coffe/Preview Content\"";
-				DEVELOPMENT_TEAM = 57FHRQVBLR;
+				DEVELOPMENT_TEAM = 96D9Q2BEQH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Coffe/Info.plist;
