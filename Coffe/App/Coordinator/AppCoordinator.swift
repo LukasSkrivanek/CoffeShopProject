@@ -17,7 +17,7 @@ class AppCoordinator: Coordinator {
         self.window = window
     }
     func start() {
-        window.rootViewController =  AppTabBarController()
+        window.rootViewController = AppTabBarController()
         window.makeKeyAndVisible()
     }
 }

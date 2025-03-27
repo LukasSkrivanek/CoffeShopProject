@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1620"
+   LastUpgradeVersion = "1530"
    version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -35,7 +35,6 @@
             parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-<<<<<<< HEAD
                BlueprintIdentifier = "FAA1D1C22B8C80F600EE7364"
                BuildableName = "CoffeTests.xctest"
                BlueprintName = "CoffeTests"
@@ -58,22 +57,9 @@
             parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-=======
->>>>>>> 811a7e594f8734e5386239b803ab405bc046df4a
                BlueprintIdentifier = "FA2559CB2D8B203600F91607"
                BuildableName = "CoffeUnitTests.xctest"
                BlueprintName = "CoffeUnitTests"
-               ReferencedContainer = "container:Coffe.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO"
-            parallelizable = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FA255A762D8C47B200F91607"
-               BuildableName = "CoffeUITests.xctest"
-               BlueprintName = "CoffeUITests"
                ReferencedContainer = "container:Coffe.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -99,6 +85,18 @@
             ReferencedContainer = "container:Coffe.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "IDEPreferLogStreaming"
+            value = "YES"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "MallocNanoZone"
+            value = "0"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
