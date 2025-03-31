@@ -8,31 +8,20 @@ import UIKit
 import SwiftUI
 import FirebaseCore
 
-@UIApplicationMain
+@main
 final class AppDelegate: UIResponder, UIApplicationDelegate {
+    var window: UIWindow?
+    var appCoordinator: AppCoordinator?
+
     func application(
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
         FirebaseApp.configure()
+        window = UIWindow(frame: UIScreen.main.bounds)
+        let appCoordinator = AppCoordinator(window: window)
+        appCoordinator.start()
+        self.appCoordinator = appCoordinator
         return true
-    }
-}
-
-final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-    var appCoordinator: AppCoordinator?
-    func scene(
-        _ scene: UIScene,
-        willConnectTo session: UISceneSession,
-        options connectionOptions: UIScene.ConnectionOptions
-    ) {
-
-        if let windowScene = scene as? UIWindowScene {
-            let window = UIWindow(windowScene: windowScene)
-            let appCoordinator = AppCoordinator(window: window)
-            appCoordinator.start()
-            self.appCoordinator = appCoordinator
-            window.makeKeyAndVisible()
-        }
     }
 }

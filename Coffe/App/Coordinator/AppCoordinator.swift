@@ -12,12 +12,14 @@ protocol Coordinator {
 }
 
 class AppCoordinator: Coordinator {
-    let window: UIWindow
-    init(window: UIWindow) {
+    weak var window: UIWindow?
+    
+    init(window: UIWindow?) {
         self.window = window
     }
+    
     func start() {
-        window.rootViewController = AppTabBarController()
-        window.makeKeyAndVisible()
+        window?.makeKeyAndVisible()
+        window?.rootViewController = DrinkListViewController() //AppTabBarController()
     }
 }
