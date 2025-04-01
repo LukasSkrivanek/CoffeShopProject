@@ -20,6 +20,6 @@ class AppCoordinator: Coordinator {
     
     func start() {
         window?.makeKeyAndVisible()
-        window?.rootViewController = DrinkListViewController() //AppTabBarController()
+        window?.rootViewController = AppTabBarController()
     }
 }
