@@ -7,6 +7,7 @@
 import UIKit
 import SwiftUI
 import FirebaseCore
+import SwifterSwift
 
 @main
 final class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,7 +19,11 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
         FirebaseApp.configure()
-        window = UIWindow(frame: UIScreen.main.bounds)
+        window ?= {
+            let result = UIWindow(frame: UIScreen.main.bounds)
+            result.makeKeyAndVisible()
+            return result
+        }()
         let appCoordinator = AppCoordinator(window: window)
         appCoordinator.start()
         self.appCoordinator = appCoordinator
