@@ -7,11 +7,12 @@
 
 import SwiftUI
 import SuperExtensions
-
+// TODO: uncomment
+/*
 struct CoordinatorView: View {
     @Environment(Coordinator.self) private var coordinator
     @Environment(\.colorScheme) private var colorScheme
-    @Environment(IsDarkMode.self) private var isDarkMode
+    @Environment(IsDarAppPageskMode.self) private var isDarkMode
     var body: some View {
         NavigationStack(path: .twoWay(\.path, on: coordinator)) {
             coordinator.build(page: .appTabBar)
@@ -26,3 +27,4 @@ struct CoordinatorView: View {
         }
     }
 }
+*/

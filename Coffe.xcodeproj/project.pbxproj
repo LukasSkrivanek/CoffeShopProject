@@ -61,6 +61,7 @@
 			membershipExceptions = (
 				App/AppTabView.swift,
 				App/Coordinator/AppCoordinator.swift,
+				App/Coordinator/CoordinatorView.swift,
 				App/GlobalStates/AppState.swift,
 				App/GlobalStates/IsDarkMode.swift,
 				Assets.xcassets,
@@ -111,15 +112,11 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		FA2559CD2D8B203600F91607 /* CoffeUnitTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-			);
 			path = CoffeUnitTests;
 			sourceTree = "<group>";
 		};
 		FA255A782D8C47B200F91607 /* CoffeUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-			);
 			path = CoffeUITests;
 			sourceTree = "<group>";
 		};
@@ -182,7 +179,6 @@
 				89D82F1A743B9496171BB975 /* Pods-CoffeUnitTests.debug.xcconfig */,
 				C1F5628E72A5A24A29348404 /* Pods-CoffeUnitTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -303,7 +299,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1620;
-				LastUpgradeCheck = 1520;
+				LastUpgradeCheck = 1620;
 				TargetAttributes = {
 					FA2559CB2D8B203600F91607 = {
 						CreatedOnToolsVersion = 16.2;
@@ -710,6 +706,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Coffe/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -741,6 +738,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Coffe/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
