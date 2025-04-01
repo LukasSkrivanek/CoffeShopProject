@@ -6,6 +6,7 @@
 //
 import UIKit
 import SwiftUI
+import SwifterSwift
 
 enum Tab: Int, CaseIterable {
     case drinks = 0
@@ -79,6 +80,10 @@ final class AppTabBarController: UITabBarController {
     
     func open(tab: Tab) {
         selectedIndex = tab.rawValue
+    }
+    
+    func screen(for tab: Tab) -> UIViewController? {
+        viewControllers?[safe: tab.rawValue]
     }
 }
 // MARK: - UITabBarControllerDelegate

@@ -12,6 +12,7 @@ protocol Coordinator {
     func openDrinksList()
     func openBasketList()
     func openAccountScreen()
+    func open(drink: Drink)
 }
 
 extension Coordinator {
@@ -53,5 +54,13 @@ class AppCoordinator: Coordinator {
     func openAccountScreen() {
         setupRootController()
         (window?.rootViewController as? AppTabBarController)?.open(tab: .account)
+    }
+    
+    func open(drink: Drink) {
+        openDrinksList()
+        let navigation = (window?.rootViewController as? AppTabBarController)?.screen(for: .drinks) as? UINavigationController
+        // let drinkScreen = DrinkViewController()
+        // drinkScreen.drink = drink
+        // navigation?.pushViewController(drinkScreen, animated: true)
     }
 }

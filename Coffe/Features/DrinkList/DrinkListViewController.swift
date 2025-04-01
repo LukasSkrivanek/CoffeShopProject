@@ -90,7 +90,7 @@ extension DrinkListViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         let key = viewModel.filterCategories.keys.sorted()[indexPath.section]
         if let drink = viewModel.filterCategories[key]?[indexPath.row] {
-            
+            (UIApplication.shared.delegate as? AppDelegate)?.appCoordinator?.openBasketList()
         }
     }
 }
