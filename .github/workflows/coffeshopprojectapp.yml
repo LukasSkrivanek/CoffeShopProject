@@ -26,4 +26,4 @@ jobs:
         run: bundle exec pod install
 
       - name: Build and test
-        run: xcodebuild test -workspace Coffe.xcworkspace -scheme Coffe -destination "platform=iOS Simulator,OS=17.0.1,name=iPhone 15"
+        run: xcodebuild test -workspace Coffe.xcworkspace -scheme Coffe -destination "platform=iOS Simulator,OS=18.1,name=iPhone 16"
