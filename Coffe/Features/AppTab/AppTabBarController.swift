@@ -6,11 +6,18 @@
 //
 import UIKit
 import SwiftUI
+import SwifterSwift
+
+enum Tab: Int, CaseIterable {
+    case drinks = 0
+    case basket = 1
+    case account = 2
+}
 
 final class AppTabBarController: UITabBarController {
 
     // MARK: - Properties
-    var childCoordinators = [Coordinator]()
+
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,11 +28,19 @@ final class AppTabBarController: UITabBarController {
         let drinkListVC = makeDrinkListViewController()
         let basketVC = makeBasketViewController()
         let accountVC = makeAccountViewController()
+
+        // TODO: make this work
+        /*viewControllers = []
+        viewControllers?.insert(wrapInNavigationController(drinkListVC), at: Tab.drinks.rawValue)
+        viewControllers?.insert(wrapInNavigationController(basketVC), at: Tab.basket.rawValue)
+        viewControllers?.insert(wrapInNavigationController(accountVC), at: Tab.account.rawValue)*/
+        
         viewControllers = [
             wrapInNavigationController(drinkListVC),
             wrapInNavigationController(basketVC),
             wrapInNavigationController(accountVC)
         ]
+
         tabBar.tintColor = .brown
         delegate = self
     }
@@ -35,7 +50,7 @@ final class AppTabBarController: UITabBarController {
         vc.tabBarItem = UITabBarItem(
             title: "Home",
             image: UIImage(systemName: "house"),
-            tag: 0
+            tag: Tab.drinks.rawValue
         )
         return vc
     }
@@ -44,7 +59,7 @@ final class AppTabBarController: UITabBarController {
         vc.tabBarItem = UITabBarItem(
             title: "Basket",
             image: UIImage(systemName: "bag"),
-            tag: 1
+            tag: Tab.basket.rawValue
         )
         return vc
     }
@@ -53,7 +68,7 @@ final class AppTabBarController: UITabBarController {
         vc.tabBarItem = UITabBarItem(
             title: "Settings",
             image: UIImage(systemName: "person"),
-            tag: 2
+            tag: Tab.account.rawValue
         )
         return vc
     }
@@ -61,6 +76,14 @@ final class AppTabBarController: UITabBarController {
         let nav = UINavigationController(rootViewController: vc)
         nav.navigationBar.prefersLargeTitles = true
         return nav
+    }
+    
+    func open(tab: Tab) {
+        selectedIndex = tab.rawValue
+    }
+    
+    func screen(for tab: Tab) -> UIViewController? {
+        viewControllers?[safe: tab.rawValue]
     }
 }
 // MARK: - UITabBarControllerDelegate

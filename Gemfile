@@ -1,8 +1,5 @@
 source "https://rubygems.org"
 
-gem 'abbrev'
-gem 'logger'
-gem 'mutex_m'
-gem 'csv'
+ruby '2.6.0'
 gem 'fastlane'
 gem 'cocoapods'
