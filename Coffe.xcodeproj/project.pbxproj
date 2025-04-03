@@ -118,11 +118,15 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		FA2559CD2D8B203600F91607 /* CoffeUnitTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
 			path = CoffeUnitTests;
 			sourceTree = "<group>";
 		};
 		FA255A782D8C47B200F91607 /* CoffeUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
 			path = CoffeUITests;
 			sourceTree = "<group>";
 		};
@@ -412,13 +416,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-BasicCoffe-CoffeUnitTests/Pods-BasicCoffe-CoffeUnitTests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-BasicCoffe-CoffeUnitTests/Pods-BasicCoffe-CoffeUnitTests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -433,13 +433,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-BasicCoffe-Coffe/Pods-BasicCoffe-Coffe-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-BasicCoffe-Coffe/Pods-BasicCoffe-Coffe-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -476,13 +472,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-BasicCoffe-CoffeUITests/Pods-BasicCoffe-CoffeUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-BasicCoffe-CoffeUITests/Pods-BasicCoffe-CoffeUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
