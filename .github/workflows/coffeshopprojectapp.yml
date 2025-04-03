@@ -22,7 +22,12 @@ jobs:
       
       - name: Bundle Install
         run: bundle install
-      
+
+      - name: Set Xcode version
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
+
       - name: CocoaPods
         run: bundle exec pod install
 
