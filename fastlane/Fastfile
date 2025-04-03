@@ -3,8 +3,7 @@ platform :ios do
   desc "Build and test the iOS project"
   lane :build_and_test do
     scan(
-      workspace: "Coffe.xcworkspace",
-      scheme: "Coffe",                    
+      workspace: "Coffe.xcworkspace",                  
       destination: "platform=iOS Simulator,name=iPhone 16,OS=18.2",        
       clean: true                   
     )
