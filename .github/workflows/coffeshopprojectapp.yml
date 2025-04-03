@@ -17,9 +17,6 @@ jobs:
           ruby-version: '2.6.0'
           bundler-cache: true
       
-      - name: Bundle Install
-        run: bundle install
-
       - name: Set Xcode version
         uses: maxim-lobanov/setup-xcode@v1
         with:
@@ -28,5 +25,5 @@ jobs:
       - name: CocoaPods
         run: bundle exec pod install
 
-      - name: Run Fastlane build_and_test
-        run: bundle exec fastlane ios build_and_test
+      - name: Build and test
+        run: xcodebuild test -workspace Coffe.xcworkspace -scheme Coffe -destination "platform=iOS Simulator,OS=17.0.1,name=iPhone 15"
