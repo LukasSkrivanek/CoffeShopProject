@@ -25,5 +25,5 @@ jobs:
       - name: CocoaPods
         run: bundle exec pod install
 
-      - name: Build and test
-        run: xcodebuild test -workspace Coffe.xcworkspace -scheme Coffe -destination "platform=iOS Simulator,OS=18.1,name=iPhone 16"
+      - name: Run Fastlane build_and_test
+        run: bundle exec fastlane ios build_and_test
