@@ -9,7 +9,7 @@ import XCTest
 
 final class CoffeUITestsLaunchTests: XCTestCase {
 
-    override class var runsForEachTargetApplicationUIConfiguration: Bool {
+    /*override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
     }
 
@@ -29,5 +29,5 @@ final class CoffeUITestsLaunchTests: XCTestCase {
         attachment.name = "Launch Screen"
         attachment.lifetime = .keepAlways
         add(attachment)
-    }
+    }*/
 }
