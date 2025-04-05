@@ -2,7 +2,6 @@
 platform :ios do
   desc "Build and test the iOS project"
   lane :build_and_test do
-    xcode_select("/Applications/Xcode_16.2.app")
     scan(
       workspace: "Coffe.xcworkspace",
       scheme: "Coffe",                    
