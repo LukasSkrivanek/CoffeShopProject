@@ -39,23 +39,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0F6F36C7D7419B75BB671AD4 /* Pods-BasicCoffe-CoffeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasicCoffe-CoffeUITests.release.xcconfig"; path = "Target Support Files/Pods-BasicCoffe-CoffeUITests/Pods-BasicCoffe-CoffeUITests.release.xcconfig"; sourceTree = "<group>"; };
-		32744429DD9450A51EEE3E99 /* Pods-Coffe-CoffeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coffe-CoffeUITests.release.xcconfig"; path = "Target Support Files/Pods-Coffe-CoffeUITests/Pods-Coffe-CoffeUITests.release.xcconfig"; sourceTree = "<group>"; };
-		43E9C6C1AAAE9547C2D5CE3A /* Pods-Coffe-CoffeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coffe-CoffeUITests.debug.xcconfig"; path = "Target Support Files/Pods-Coffe-CoffeUITests/Pods-Coffe-CoffeUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		4428C7CFB57095EA57FCB2DF /* Pods-BasicCoffe-Coffe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasicCoffe-Coffe.release.xcconfig"; path = "Target Support Files/Pods-BasicCoffe-Coffe/Pods-BasicCoffe-Coffe.release.xcconfig"; sourceTree = "<group>"; };
+		0F6F36C7D7419B75BB671AD4 /* Pods-CoffeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoffeUITests.release.xcconfig"; path = "Target Support Files/Pods-BasicCoffe-CoffeUITests/Pods-CoffeUITests.release.xcconfig"; sourceTree = "<group>"; };
+		36C48B9B36B54FCF6B269FE1 /* Pods-BasicCoffe-CoffeUnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasicCoffe-CoffeUnitTests.debug.xcconfig"; path = "Target Support Files/Pods-BasicCoffe-CoffeUnitTests/Pods-BasicCoffe-CoffeUnitTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4428C7CFB57095EA57FCB2DF /* Pods-Coffe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coffe.release.xcconfig"; path = "Target Support Files/Pods-BasicCoffe-Coffe/Pods-Coffe.release.xcconfig"; sourceTree = "<group>"; };
 		509A176D1C7CC4752D31F37B /* libPods-BasicCoffe-Coffe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BasicCoffe-Coffe.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		525636DCEEFB87CDFFB4F305 /* Pods-CoffeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoffeUITests.debug.xcconfig"; path = "Target Support Files/Pods-CoffeUITests/Pods-CoffeUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		5532037BEA0B074A2AD4B4FF /* Pods-BasicCoffe-CoffeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasicCoffe-CoffeUITests.debug.xcconfig"; path = "Target Support Files/Pods-BasicCoffe-CoffeUITests/Pods-BasicCoffe-CoffeUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		89D82F1A743B9496171BB975 /* Pods-CoffeUnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoffeUnitTests.debug.xcconfig"; path = "Target Support Files/Pods-CoffeUnitTests/Pods-CoffeUnitTests.debug.xcconfig"; sourceTree = "<group>"; };
-		9E2D9A2537171F679F34E78C /* Pods-BasicCoffe-Coffe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasicCoffe-Coffe.debug.xcconfig"; path = "Target Support Files/Pods-BasicCoffe-Coffe/Pods-BasicCoffe-Coffe.debug.xcconfig"; sourceTree = "<group>"; };
-		A56E4F3BCAE97F04D5ED129E /* Pods-CoffeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoffeUITests.release.xcconfig"; path = "Target Support Files/Pods-CoffeUITests/Pods-CoffeUITests.release.xcconfig"; sourceTree = "<group>"; };
-		B449FE2B9EA4BADEC5AA2422 /* Pods-Coffe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coffe.debug.xcconfig"; path = "Target Support Files/Pods-Coffe/Pods-Coffe.debug.xcconfig"; sourceTree = "<group>"; };
+		5532037BEA0B074A2AD4B4FF /* Pods-CoffeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoffeUITests.debug.xcconfig"; path = "Target Support Files/Pods-BasicCoffe-CoffeUITests/Pods-CoffeUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		6583DCFB520FCC14EFE56FB2 /* Pods-BasicCoffe-CoffeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasicCoffe-CoffeUITests.debug.xcconfig"; path = "Target Support Files/Pods-BasicCoffe-CoffeUITests/Pods-BasicCoffe-CoffeUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		9E2D9A2537171F679F34E78C /* Pods-Coffe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coffe.debug.xcconfig"; path = "Target Support Files/Pods-BasicCoffe-Coffe/Pods-Coffe.debug.xcconfig"; sourceTree = "<group>"; };
+		B557DECD08FAFAC78DF0AC6C /* Pods-BasicCoffe-CoffeUnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasicCoffe-CoffeUnitTests.release.xcconfig"; path = "Target Support Files/Pods-BasicCoffe-CoffeUnitTests/Pods-BasicCoffe-CoffeUnitTests.release.xcconfig"; sourceTree = "<group>"; };
 		B74B9169AF7BD04C294451ED /* libPods-BasicCoffe-CoffeUnitTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BasicCoffe-CoffeUnitTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C1F5628E72A5A24A29348404 /* Pods-CoffeUnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoffeUnitTests.release.xcconfig"; path = "Target Support Files/Pods-CoffeUnitTests/Pods-CoffeUnitTests.release.xcconfig"; sourceTree = "<group>"; };
-		E4D676F0D2322EB92E5961B9 /* Pods-BasicCoffe-CoffeUnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasicCoffe-CoffeUnitTests.debug.xcconfig"; path = "Target Support Files/Pods-BasicCoffe-CoffeUnitTests/Pods-BasicCoffe-CoffeUnitTests.debug.xcconfig"; sourceTree = "<group>"; };
-		E6005A1A1892C78B9681430E /* Pods-Coffe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coffe.release.xcconfig"; path = "Target Support Files/Pods-Coffe/Pods-Coffe.release.xcconfig"; sourceTree = "<group>"; };
-		E69BE84F864076B56C64D896 /* Pods-BasicCoffe-CoffeUnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasicCoffe-CoffeUnitTests.release.xcconfig"; path = "Target Support Files/Pods-BasicCoffe-CoffeUnitTests/Pods-BasicCoffe-CoffeUnitTests.release.xcconfig"; sourceTree = "<group>"; };
+		E4D676F0D2322EB92E5961B9 /* Pods-CoffeUnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoffeUnitTests.debug.xcconfig"; path = "Target Support Files/Pods-BasicCoffe-CoffeUnitTests/Pods-CoffeUnitTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E69BE84F864076B56C64D896 /* Pods-CoffeUnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoffeUnitTests.release.xcconfig"; path = "Target Support Files/Pods-BasicCoffe-CoffeUnitTests/Pods-CoffeUnitTests.release.xcconfig"; sourceTree = "<group>"; };
 		EA2C2D4B79642485CCA1BF41 /* libPods-BasicCoffe-CoffeUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BasicCoffe-CoffeUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC9171387FFB9471503BB3C3 /* Pods-BasicCoffe-Coffe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasicCoffe-Coffe.debug.xcconfig"; path = "Target Support Files/Pods-BasicCoffe-Coffe/Pods-BasicCoffe-Coffe.debug.xcconfig"; sourceTree = "<group>"; };
+		EE502C738465F4575FD36C5B /* Pods-BasicCoffe-CoffeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasicCoffe-CoffeUITests.release.xcconfig"; path = "Target Support Files/Pods-BasicCoffe-CoffeUITests/Pods-BasicCoffe-CoffeUITests.release.xcconfig"; sourceTree = "<group>"; };
+		F5C9086C6ACBD1E29E1984D0 /* Pods-BasicCoffe-Coffe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasicCoffe-Coffe.release.xcconfig"; path = "Target Support Files/Pods-BasicCoffe-Coffe/Pods-BasicCoffe-Coffe.release.xcconfig"; sourceTree = "<group>"; };
 		FA2559CC2D8B203600F91607 /* CoffeUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoffeUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA255A772D8C47B200F91607 /* CoffeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoffeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA1D1B32B8C80F400EE7364 /* Coffe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Coffe.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,11 +116,15 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		FA2559CD2D8B203600F91607 /* CoffeUnitTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
 			path = CoffeUnitTests;
 			sourceTree = "<group>";
 		};
 		FA255A782D8C47B200F91607 /* CoffeUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
 			path = CoffeUITests;
 			sourceTree = "<group>";
 		};
@@ -176,20 +178,18 @@
 		1682CA56EDA748912992A891 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				B449FE2B9EA4BADEC5AA2422 /* Pods-Coffe.debug.xcconfig */,
-				E6005A1A1892C78B9681430E /* Pods-Coffe.release.xcconfig */,
-				43E9C6C1AAAE9547C2D5CE3A /* Pods-Coffe-CoffeUITests.debug.xcconfig */,
-				32744429DD9450A51EEE3E99 /* Pods-Coffe-CoffeUITests.release.xcconfig */,
-				525636DCEEFB87CDFFB4F305 /* Pods-CoffeUITests.debug.xcconfig */,
-				A56E4F3BCAE97F04D5ED129E /* Pods-CoffeUITests.release.xcconfig */,
-				89D82F1A743B9496171BB975 /* Pods-CoffeUnitTests.debug.xcconfig */,
-				C1F5628E72A5A24A29348404 /* Pods-CoffeUnitTests.release.xcconfig */,
-				9E2D9A2537171F679F34E78C /* Pods-BasicCoffe-Coffe.debug.xcconfig */,
-				4428C7CFB57095EA57FCB2DF /* Pods-BasicCoffe-Coffe.release.xcconfig */,
-				5532037BEA0B074A2AD4B4FF /* Pods-BasicCoffe-CoffeUITests.debug.xcconfig */,
-				0F6F36C7D7419B75BB671AD4 /* Pods-BasicCoffe-CoffeUITests.release.xcconfig */,
-				E4D676F0D2322EB92E5961B9 /* Pods-BasicCoffe-CoffeUnitTests.debug.xcconfig */,
-				E69BE84F864076B56C64D896 /* Pods-BasicCoffe-CoffeUnitTests.release.xcconfig */,
+				9E2D9A2537171F679F34E78C /* Pods-Coffe.debug.xcconfig */,
+				4428C7CFB57095EA57FCB2DF /* Pods-Coffe.release.xcconfig */,
+				5532037BEA0B074A2AD4B4FF /* Pods-CoffeUITests.debug.xcconfig */,
+				0F6F36C7D7419B75BB671AD4 /* Pods-CoffeUITests.release.xcconfig */,
+				E4D676F0D2322EB92E5961B9 /* Pods-CoffeUnitTests.debug.xcconfig */,
+				E69BE84F864076B56C64D896 /* Pods-CoffeUnitTests.release.xcconfig */,
+				EC9171387FFB9471503BB3C3 /* Pods-BasicCoffe-Coffe.debug.xcconfig */,
+				F5C9086C6ACBD1E29E1984D0 /* Pods-BasicCoffe-Coffe.release.xcconfig */,
+				6583DCFB520FCC14EFE56FB2 /* Pods-BasicCoffe-CoffeUITests.debug.xcconfig */,
+				EE502C738465F4575FD36C5B /* Pods-BasicCoffe-CoffeUITests.release.xcconfig */,
+				36C48B9B36B54FCF6B269FE1 /* Pods-BasicCoffe-CoffeUnitTests.debug.xcconfig */,
+				B557DECD08FAFAC78DF0AC6C /* Pods-BasicCoffe-CoffeUnitTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -412,13 +412,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-BasicCoffe-CoffeUnitTests/Pods-BasicCoffe-CoffeUnitTests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-BasicCoffe-CoffeUnitTests/Pods-BasicCoffe-CoffeUnitTests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -433,13 +429,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-BasicCoffe-Coffe/Pods-BasicCoffe-Coffe-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-BasicCoffe-Coffe/Pods-BasicCoffe-Coffe-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -476,13 +468,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-BasicCoffe-CoffeUITests/Pods-BasicCoffe-CoffeUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-BasicCoffe-CoffeUITests/Pods-BasicCoffe-CoffeUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -572,7 +560,7 @@
 /* Begin XCBuildConfiguration section */
 		FA2559D22D8B203600F91607 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E4D676F0D2322EB92E5961B9 /* Pods-BasicCoffe-CoffeUnitTests.debug.xcconfig */;
+			baseConfigurationReference = 36C48B9B36B54FCF6B269FE1 /* Pods-BasicCoffe-CoffeUnitTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -593,7 +581,7 @@
 		};
 		FA2559D32D8B203600F91607 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E69BE84F864076B56C64D896 /* Pods-BasicCoffe-CoffeUnitTests.release.xcconfig */;
+			baseConfigurationReference = B557DECD08FAFAC78DF0AC6C /* Pods-BasicCoffe-CoffeUnitTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -614,7 +602,7 @@
 		};
 		FA255A802D8C47B200F91607 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5532037BEA0B074A2AD4B4FF /* Pods-BasicCoffe-CoffeUITests.debug.xcconfig */;
+			baseConfigurationReference = 6583DCFB520FCC14EFE56FB2 /* Pods-BasicCoffe-CoffeUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -634,7 +622,7 @@
 		};
 		FA255A812D8C47B200F91607 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0F6F36C7D7419B75BB671AD4 /* Pods-BasicCoffe-CoffeUITests.release.xcconfig */;
+			baseConfigurationReference = EE502C738465F4575FD36C5B /* Pods-BasicCoffe-CoffeUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -773,7 +761,7 @@
 		};
 		FAA1D1D82B8C80F600EE7364 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9E2D9A2537171F679F34E78C /* Pods-BasicCoffe-Coffe.debug.xcconfig */;
+			baseConfigurationReference = EC9171387FFB9471503BB3C3 /* Pods-BasicCoffe-Coffe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -802,7 +790,7 @@
 		};
 		FAA1D1D92B8C80F600EE7364 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4428C7CFB57095EA57FCB2DF /* Pods-BasicCoffe-Coffe.release.xcconfig */;
+			baseConfigurationReference = F5C9086C6ACBD1E29E1984D0 /* Pods-BasicCoffe-Coffe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
