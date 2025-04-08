@@ -1,0 +1,6 @@
+included:
+  - Coffe/
+  - CoffeUITests/
+  - CoffeUnitTests/
+  - SuperExtensions/
+  - Utilities/
