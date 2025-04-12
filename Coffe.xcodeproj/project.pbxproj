@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		305664752D8DF9A6009AE35A /* SuperExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = 305664742D8DF9A6009AE35A /* SuperExtensions */; };
+		30689B522DAA505F0021DACE /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 30689B512DAA505F0021DACE /* ComposableArchitecture */; };
 		3BBC1771F3C5B2FE898619A5 /* libPods-BasicCoffe-Coffe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 509A176D1C7CC4752D31F37B /* libPods-BasicCoffe-Coffe.a */; };
 		CB6F3EC55EB8942E6AFBEB91 /* libPods-BasicCoffe-CoffeUnitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B74B9169AF7BD04C294451ED /* libPods-BasicCoffe-CoffeUnitTests.a */; };
 		E7716EA01ACF5587EF0FC8F7 /* libPods-BasicCoffe-CoffeUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EA2C2D4B79642485CCA1BF41 /* libPods-BasicCoffe-CoffeUITests.a */; };
@@ -157,6 +158,7 @@
 			files = (
 				FA3317722B9DC5E900248936 /* GoogleSignIn in Frameworks */,
 				FA1E15B12BA203820013E0CF /* FirebaseAuth in Frameworks */,
+				30689B522DAA505F0021DACE /* ComposableArchitecture in Frameworks */,
 				FADA61F32B9C680400FDD9AF /* Kingfisher in Frameworks */,
 				FA1E15B52BA203820013E0CF /* FirebaseFirestoreSwift in Frameworks */,
 				305664752D8DF9A6009AE35A /* SuperExtensions in Frameworks */,
@@ -297,6 +299,7 @@
 				FA1E15B42BA203820013E0CF /* FirebaseFirestoreSwift */,
 				FAFF03492D4B773200BCA8CE /* Swinject */,
 				305664742D8DF9A6009AE35A /* SuperExtensions */,
+				30689B512DAA505F0021DACE /* ComposableArchitecture */,
 			);
 			productName = Coffe;
 			productReference = FAA1D1B32B8C80F400EE7364 /* Coffe.app */;
@@ -340,6 +343,7 @@
 				FA1E15AF2BA203820013E0CF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				FAFF03482D4B773200BCA8CE /* XCRemoteSwiftPackageReference "Swinject" */,
 				305664732D8DF9A6009AE35A /* XCLocalSwiftPackageReference "SuperExtensions" */,
+				30689B502DAA505F0021DACE /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = FAA1D1B42B8C80F400EE7364 /* Products */;
@@ -875,6 +879,14 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		30689B502DAA505F0021DACE /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.19.0;
+			};
+		};
 		FA1E15AF2BA203820013E0CF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -921,6 +933,11 @@
 		305664742D8DF9A6009AE35A /* SuperExtensions */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SuperExtensions;
+		};
+		30689B512DAA505F0021DACE /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30689B502DAA505F0021DACE /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
 		};
 		FA1E15B02BA203820013E0CF /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
