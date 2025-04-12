@@ -32,31 +32,56 @@ struct DrinkListItem {
   }
 }
 
+extension DependencyValues {
+    var dataSource: any DataSource {
+        get { self[DataSourceKey.self] }
+        set { self[DataSourceKey.self] = newValue }
+    }
+    
+    private enum DataSourceKey: DependencyKey {
+      static let liveValue: any DataSource = FirebaseRepository()
+      static let testValue: any DataSource = FirebaseRepository()
+    }
+}
+
+protocol DataSource {
+    func fetchDrinks() async throws -> [Drink]
+}
+
 @Reducer
 struct DrinkList {
   @ObservableState
   struct State: Equatable {
     var drinks: [Drink] = []
-    var filterCategories: [String: [DrinkListItem.State]] = [:]
+    var filterCategories: [String: [Drink]] = [:]
   }
 
   enum Action {
     case loadDrinks
+    case renderDrinks([Drink])
   }
 
+  @Dependency(\.dataSource) var dataSource
+    
   var body: some Reducer<State, Action> {
       Reduce { state, action in
           switch action {
             case .loadDrinks:
-              state.filterCategories = [
-                "Key": [
-                    .init(drink: .init(name: "name", description: "description", imageLink: "imageLink", price: 100, category: .cold))
-                ]
-              ]
+              return .run { send in
+                  let drinks = try await dataSource.fetchDrinks()
+                  await send(.renderDrinks(drinks))
+              }
+          case .renderDrinks(let drinks):
+              state.drinks = drinks
+              state.filterCategories = categories(drinks: drinks)
               return .none
           }
       }
   }
+    
+    func categories(drinks: [Drink]) -> [String: [Drink]] {
+        .init(grouping: drinks) { $0.category.rawValue }
+    }
 }
 
 final class DrinkListViewController: UIViewController {
@@ -138,7 +163,7 @@ extension DrinkListViewController: UITableViewDataSource {
         let key = store.filterCategories.keys.sorted()[indexPath.section]
         observations[indexPath]?.cancel()
         observations[indexPath] = observe { [weak self] in
-            guard let self, let drink = store.filterCategories[key]?[indexPath.row].drink else { return }
+            guard let self, let drink = store.filterCategories[key]?[indexPath.row] else { return }
 
             cell.contentConfiguration = UIHostingConfiguration {
                 DrinkRow(drink: drink) {

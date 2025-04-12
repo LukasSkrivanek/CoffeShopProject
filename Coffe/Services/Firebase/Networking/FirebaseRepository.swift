@@ -6,7 +6,7 @@
 //
 import Foundation
 
-protocol FirebaseRepositoryProtocol {
+protocol FirebaseRepositoryProtocol: DataSource {
     func fetchDrinks() async throws -> [Drink]
     func saveDrinks()
     func placeOrder(order: Order)
