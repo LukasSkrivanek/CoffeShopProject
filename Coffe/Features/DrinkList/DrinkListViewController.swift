@@ -5,15 +5,104 @@
 //  Created by macbook on 22.03.2025.
 //
 
-import UIKit
 import SwiftUI
+import UIKit
+import ComposableArchitecture
+import SnapKit
+
+@Reducer
+struct DrinkListItem {
+  @ObservableState
+  struct State: Equatable, Identifiable {
+    let id = UUID()
+    var drink: Drink
+  }
+
+  enum Action {
+    case some
+  }
+
+  var body: some Reducer<State, Action> {
+    Reduce { state, action in
+      switch action {
+      case .some:
+        return .none
+      }
+    }
+  }
+}
+
+extension DependencyValues {
+    var dataSource: any DataSource {
+        get { self[DataSourceKey.self] }
+        set { self[DataSourceKey.self] = newValue }
+    }
+    
+    private enum DataSourceKey: DependencyKey {
+      static let liveValue: any DataSource = FirebaseRepository()
+      static let testValue: any DataSource = FirebaseRepository()
+    }
+}
+
+protocol DataSource {
+    func fetchDrinks() async throws -> [Drink]
+}
+
+@Reducer
+struct DrinkList {
+  @ObservableState
+  struct State: Equatable {
+    var drinks: [Drink] = []
+    var filterCategories: [String: [Drink]] = [:]
+  }
+
+  enum Action {
+    case loadDrinks
+    case renderDrinks([Drink])
+  }
+
+  @Dependency(\.dataSource) var dataSource
+    
+  var body: some Reducer<State, Action> {
+      Reduce { state, action in
+          switch action {
+            case .loadDrinks:
+              return .run { send in
+                  let drinks = try await dataSource.fetchDrinks()
+                  await send(.renderDrinks(drinks))
+              }
+          case .renderDrinks(let drinks):
+              state.drinks = drinks
+              state.filterCategories = categories(drinks: drinks)
+              return .none
+          }
+      }
+  }
+    
+    func categories(drinks: [Drink]) -> [String: [Drink]] {
+        .init(grouping: drinks) { $0.category.rawValue }
+    }
+}
 
 final class DrinkListViewController: UIViewController {
     // MARK: - Properties
     private let tableView = UITableView()
     private let searchController = UISearchController(searchResultsController: nil)
-    private var viewModel = DependencyContainer.resolve(DrinkListViewModel.self)
+    
+    // Mark: - CTA
+    private let store: StoreOf<DrinkList>
+    var observations: [IndexPath: ObserveToken] = [:]
+    
     // MARK: - Lifecycle
+    init(store: StoreOf<DrinkList>) {
+        self.store = store
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        nil
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
@@ -33,13 +122,14 @@ final class DrinkListViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 80
         view.addSubview(tableView)
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-        ])
+
+        tableView.snp.makeConstraints { make in
+            make.top.bottom.equalTo(view.safeAreaLayoutGuide)
+            make.leading.trailing.equalToSuperview()
+        }
+        observe { [weak self] in
+            self?.tableView.reloadData()
+        }
     }
     private func setupSearchController() {
         searchController.searchResultsUpdater = self
@@ -51,35 +141,37 @@ final class DrinkListViewController: UIViewController {
     // MARK: - Data Loading
     private func loadData() {
         Task {
-            await viewModel.fetchDrinks()
-            tableView.reloadData()
-            print("\(viewModel.filterCategories.count) count viewcontroller")
+            store.send(.loadDrinks)
         }
     }
 }
 // MARK: - UITableViewDataSource
 extension DrinkListViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel.filterCategories.keys.count
+        return store.filterCategories.keys.count
 
     }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return viewModel.filterCategories.keys.sorted()[section]
+        return store.filterCategories.keys.sorted()[section]
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let key = viewModel.filterCategories.keys.sorted()[section]
-        return viewModel.filterCategories[key]?.count ?? 0
+        let key = store.filterCategories.keys.sorted()[section]
+        return store.filterCategories[key]?.count ?? 0
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DrinkTableViewCell", for: indexPath)
-        let key = viewModel.filterCategories.keys.sorted()[indexPath.section]
-        if let drink = viewModel.filterCategories[key]?[indexPath.row] {
+        let key = store.filterCategories.keys.sorted()[indexPath.section]
+        observations[indexPath]?.cancel()
+        observations[indexPath] = observe { [weak self] in
+            guard let self, let drink = store.filterCategories[key]?[indexPath.row] else { return }
+
             cell.contentConfiguration = UIHostingConfiguration {
                 DrinkRow(drink: drink) {
                     print("Selected drink: \(drink.name)")
                 }
             }
         }
+        
         return cell
     }
 }
@@ -88,16 +180,16 @@ extension DrinkListViewController: UITableViewDataSource {
 extension DrinkListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let key = viewModel.filterCategories.keys.sorted()[indexPath.section]
+        /*let key = viewModel.filterCategories.keys.sorted()[indexPath.section]
         if let drink = viewModel.filterCategories[key]?[indexPath.row] {
             (UIApplication.shared.delegate as? AppDelegate)?.appCoordinator?.open(drink: drink)
-        }
+        }*/
     }
 }
 
 // MARK: - UISearchResultsUpdating
 extension DrinkListViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        viewModel.searchText = searchController.searchBar.text ?? ""
+        // viewModel.searchText = searchController.searchBar.text ?? ""
     }
 }

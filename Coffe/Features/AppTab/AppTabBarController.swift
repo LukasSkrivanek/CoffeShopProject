@@ -46,7 +46,9 @@ final class AppTabBarController: UITabBarController {
     }
     // MARK: - View Controller Factories
     private func makeDrinkListViewController() -> UIViewController {
-        let vc = DrinkListViewController()
+        let vc = DrinkListViewController(store: .init(initialState: .init(), reducer: {
+            DrinkList()
+        }))
         vc.tabBarItem = UITabBarItem(
             title: "Home",
             image: UIImage(systemName: "house"),
