@@ -8,6 +8,7 @@
 import Foundation
 import GoogleSignIn
 import GoogleSignInSwift
+import Dependencies
 
 struct GoogleSignInResultModel {
     let idToken: String
@@ -17,10 +18,10 @@ struct GoogleSignInResultModel {
 }
 
 final class SignInGoogleHelper {
-    var userRepository: UserRepository
-    init(userRepository: UserRepository) {
-        self.userRepository = userRepository
-    }
+
+    @Dependency(\.userRepository)
+    var userRepository
+
     @MainActor
     func signIn() async throws -> GoogleSignInResultModel {
         guard let topVC = Utilities.shared.topViewController()else {

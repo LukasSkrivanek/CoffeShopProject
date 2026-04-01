@@ -9,9 +9,9 @@ import SwiftUI
 struct RegistrationView: View {
     @Environment(Coordinator.self) private var coordinator
     @Environment(\.colorScheme) private var colorScheme
-    @Environment(RegistrationViewModel.self) private var registrationViewModel
+    @State private var viewModel = RegistrationViewModel()
     var body: some View {
-        @Bindable var registrationViewModel = registrationViewModel
+        @Bindable var registrationViewModel = viewModel
         VStack(spacing: 20) {
             Text("Create an Account")
                 .font(.title2)

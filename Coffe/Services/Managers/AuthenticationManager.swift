@@ -9,11 +9,7 @@ import Foundation
 import Dependencies
 
 final class AuthenticationManager {
-    private var authServiceProtocol: AuthServiceProtocol
-
-    init(authServiceProtocol: AuthServiceProtocol) {
-        self.authServiceProtocol = authServiceProtocol
-    }
+    @Dependency(\.firebaseAuthServiceAdapter) private var authServiceProtocol 
 }
 
 extension AuthenticationManager {
@@ -40,11 +36,7 @@ extension AuthenticationManager {
        }
 }
 
-extension AuthenticationManager: ComposableDependency {
-    convenience init() {
-        self.init(authServiceProtocol: FirebaseAuthServiceAdapter())
-    }
-}
+extension AuthenticationManager: ComposableDependency {}
 
 extension AuthenticationManager {
     @discardableResult

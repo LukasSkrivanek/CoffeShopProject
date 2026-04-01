@@ -20,10 +20,9 @@ class LoginMethodSelectionViewModel {
         selectedMethod = method
     }
     func signInGoogle() async throws {
-        let helper = SignInGoogleHelper(userRepository: userRepository)
-            let tokens = try await helper.signIn()
+        let tokens = try await SignInGoogleHelper().signIn()
         try await authenticationManager.signInWithGoogle(tokens: tokens)
-        }
+    }
 }
 
 extension LoginMethodSelectionViewModel: ComposableDependency {

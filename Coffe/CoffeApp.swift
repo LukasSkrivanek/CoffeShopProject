@@ -14,12 +14,6 @@ struct CoffeApp: App {
     @State private var isDarkMode = IsDarkMode()
     @State private var coordinator = Coordinator()
     @State private var appState = AppState()
-    @State private var basketViewModel = BasketViewModel()
-    @State private var drinkListViewModel = DrinkListViewModel()
-    @State private var accountViewModel = AccountViewModel()
-    @State private var registrationViewModel = RegistrationViewModel()
-    @State private var loginViewModel = LoginViewModel()
-    @State private var loginMethodSelectionViewModel = LoginMethodSelectionViewModel()
 
     var body: some Scene {
         WindowGroup {
@@ -27,12 +21,6 @@ struct CoffeApp: App {
                 .environment(isDarkMode)
                 .environment(coordinator)
                 .environment(appState)
-                .environment(basketViewModel)
-                .environment(drinkListViewModel)
-                .environment(accountViewModel)
-                .environment(registrationViewModel)
-                .environment(loginViewModel)
-                .environment(loginMethodSelectionViewModel)
         }
     }
 }

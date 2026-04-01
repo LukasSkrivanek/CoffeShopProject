@@ -7,26 +7,33 @@
 import SwiftUI
 
 struct LoginSheetView: View {
-    @Environment(Coordinator.self) private var coordinator
-    @Environment(AppState.self) private var appState
-    @Environment(\.colorScheme) private var colorScheme
-    @Environment(LoginViewModel.self) private var loginViewModel
+    
+    @Environment(Coordinator.self)
+    private var coordinator
+    @Environment(AppState.self)
+    private var appState
+    @Environment(\.colorScheme)
+    private var colorScheme
+
+    @State
+    private var viewModel = LoginViewModel()
+
     var body: some View {
         VStack(spacing: 20) {
             Text("Login")
                 .font(.title2)
                 .bold()
-            TextField("Email", text: .twoWay(\.email, on: loginViewModel))
+            TextField("Email", text: .twoWay(\.email, on: viewModel))
                 .textFieldStyle()
                 .autocapitalization(.none)
                 .keyboardType(.emailAddress)
-            SecureField("Password", text: .twoWay(\.password, on: loginViewModel))
+            SecureField("Password", text: .twoWay(\.password, on: viewModel))
                 .textFieldStyle()
             Button {
                 Task {
-                    if await loginViewModel.loginUser() {
-                        loginViewModel.email = ""
-                        loginViewModel.password = ""
+                    if await viewModel.loginUser() {
+                        viewModel.email = ""
+                        viewModel.password = ""
                         appState.isSignedIn = true
                         coordinator.dismissSheet()
                     }
@@ -42,7 +49,7 @@ struct LoginSheetView: View {
                     .styledButton(usedColor: .red)
             }
         }
-        .showCustomAlert(alert: .twoWay(\.alert, on: loginViewModel), colorScheme: .dark)
+        .showCustomAlert(alert: .twoWay(\.alert, on: viewModel), colorScheme: .dark)
         .padding()
     }
 }
