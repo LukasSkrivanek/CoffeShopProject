@@ -4,14 +4,14 @@ import Dependencies
 {% for type in types.implementing.ComposableDependency %}
 // MARK: - {{ type.name }}
 
-extension {{ type.name }}: DependencyKey {
-    static var liveValue: {{ type.name }} { {{ type.name }}() }
+private enum {{ type.name }}Key: DependencyKey {
+    static let liveValue: {{ type.name }} = {{ type.name }}()
 }
 
 extension DependencyValues {
     var {{ type.name | lowerFirstLetter }}: {{ type.name }} {
-        get { self[{{ type.name }}.self] }
-        set { self[{{ type.name }}.self] = newValue }
+        get { self[{{ type.name }}Key.self] }
+        set { self[{{ type.name }}Key.self] = newValue }
     }
 }
 {% endfor %}

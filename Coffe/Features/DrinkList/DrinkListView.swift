@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct DrinkListView: View {
-
-    @Environment(Coordinator.self) private var coordinator
+    @Environment(Coordinator.self)
+    private var coordinator
 
     @State
     private var viewModel = DrinkListViewModel()
-    
+
     var body: some View {
         NavigationStack {
             List(viewModel.filterCategories.keys.sorted(), id: \String.self) { key in

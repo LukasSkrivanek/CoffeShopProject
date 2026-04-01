@@ -9,26 +9,22 @@ import Dependencies
 
 @Observable
 class LoginMethodSelectionViewModel {
-    var userRepository: UserRepository
-    var authenticationManager: AuthenticationManager!
+    @ObservationIgnored
+    @Dependency(\.userRepository)
+    private var userRepository
+
+    @ObservationIgnored
+    @Dependency(\.authenticationManager)
+    private var authenticationManager
+
     var selectedMethod: LoginMethod?
-    init(userRepository: UserRepository, authenticationManager: AuthenticationManager!) {
-        self.userRepository = userRepository
-        self.authenticationManager = authenticationManager
-    }
+
     func selectMethod(_ method: LoginMethod) {
         selectedMethod = method
     }
+
     func signInGoogle() async throws {
         let tokens = try await SignInGoogleHelper().signIn()
         try await authenticationManager.signInWithGoogle(tokens: tokens)
-    }
-}
-
-extension LoginMethodSelectionViewModel: ComposableDependency {
-    convenience init() {
-        @Dependency(\.userRepository) var userRepository
-        @Dependency(\.authenticationManager) var authenticationManager
-        self.init(userRepository: userRepository, authenticationManager: authenticationManager)
     }
 }

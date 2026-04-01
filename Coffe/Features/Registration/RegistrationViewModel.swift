@@ -9,16 +9,19 @@ import Dependencies
 
 @Observable
 class RegistrationViewModel {
-    private var userRepository: UserRepository
-    var authenticationManager: AuthenticationManager
+    @ObservationIgnored
+    @Dependency(\.userRepository)
+    private var userRepository
+
+    @ObservationIgnored
+    @Dependency(\.authenticationManager)
+    private var authenticationManager
+
     var email: String = ""
     var password: String = ""
     var confirmPassword: String = ""
     var alert: AnyAppAlert?
-    init(userRepository: UserRepository, authenticationManager: AuthenticationManager) {
-        self.userRepository = userRepository
-        self.authenticationManager = authenticationManager
-    }
+
     func registerUser() async {
         guard !email.isEmpty, !password.isEmpty, !confirmPassword.isEmpty else {
             await MainActor.run {
@@ -40,13 +43,5 @@ class RegistrationViewModel {
                 alert = AnyAppAlert(error: error)
             }
         }
-    }
-}
-
-extension RegistrationViewModel: ComposableDependency {
-    convenience init() {
-        @Dependency(\.userRepository) var userRepository
-        @Dependency(\.authenticationManager) var authenticationManager
-        self.init(userRepository: userRepository, authenticationManager: authenticationManager)
     }
 }

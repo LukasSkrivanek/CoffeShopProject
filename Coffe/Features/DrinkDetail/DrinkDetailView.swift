@@ -2,16 +2,20 @@
 //  DrinkDetailView.swift
 //  Coffe
 //
-//  Created by macbook on 26.02.2024.
+//  Created by Skrivanek, Lukas on 01.04.2026.
 //
 
 import SwiftUI
-import Dependencies
 
 struct DrinkDetailView: View {
-    @Environment(Coordinator.self) private var coordinator
-    @Dependency(\.basketStore) private var basketStore
+    @Environment(Coordinator.self)
+    private var coordinator
+
+    @Environment(BasketState.self)
+    private var basketState
+
     let drink: Drink
+
     var body: some View {
         VStack(spacing: 20) {
             RemoteImageView(url: drink.imageURL)
@@ -51,7 +55,7 @@ struct DrinkDetailView: View {
     @ViewBuilder
     private func addToBasketButton() -> some View {
         Button(action: {
-            basketStore.add(drink)
+            basketState.add(drink)
             coordinator.pop()
         }, label: {
             Text("Add to Basket")
@@ -66,6 +70,7 @@ struct DrinkDetailView: View {
         .padding(.bottom, 20)
         .buttonStyle(PlainButtonStyle())
     }
+
     private func dismissButton() -> some View {
         Button(action: {
             coordinator.pop()

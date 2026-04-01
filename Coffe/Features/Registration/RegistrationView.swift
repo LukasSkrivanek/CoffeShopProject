@@ -7,9 +7,15 @@
 import SwiftUI
 
 struct RegistrationView: View {
-    @Environment(Coordinator.self) private var coordinator
-    @Environment(\.colorScheme) private var colorScheme
-    @State private var viewModel = RegistrationViewModel()
+    @Environment(Coordinator.self)
+    private var coordinator
+
+    @Environment(\.colorScheme)
+    private var colorScheme
+
+    @State
+    private var viewModel = RegistrationViewModel()
+
     var body: some View {
         @Bindable var registrationViewModel = viewModel
         VStack(spacing: 20) {
@@ -22,26 +28,24 @@ struct RegistrationView: View {
                 .keyboardType(.emailAddress)
             SecureField("Password", text: $registrationViewModel.password)
                 .textFieldStyle()
-
             SecureField("Confirm Password", text: $registrationViewModel.confirmPassword)
                 .textFieldStyle()
             Button {
                 Task {
-                        await registrationViewModel.registerUser()
-                        await MainActor.run {
-                            if registrationViewModel.alert == nil {
-                                coordinator.dismissSheet()
-                                registrationViewModel.email = ""
-                                registrationViewModel.password = ""
-                                registrationViewModel.confirmPassword = ""
-                            }
+                    await registrationViewModel.registerUser()
+                    await MainActor.run {
+                        if registrationViewModel.alert == nil {
+                            coordinator.dismissSheet()
+                            registrationViewModel.email = ""
+                            registrationViewModel.password = ""
+                            registrationViewModel.confirmPassword = ""
                         }
                     }
+                }
             } label: {
                 Text("Register")
                     .styledButton(usedColor: .brown)
             }
-
             Button {
                 coordinator.dismissSheet()
             } label: {

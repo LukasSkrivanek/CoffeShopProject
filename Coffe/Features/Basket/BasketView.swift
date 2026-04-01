@@ -9,8 +9,14 @@ import SwiftUI
 
 struct BasketView: View {
 
-    @Environment(Coordinator.self) private var coordinator
-    @Environment(\.colorScheme) private var colorScheme
+    @Environment(Coordinator.self)
+    private var coordinator
+
+    @Environment(\.colorScheme)
+    private var colorScheme
+
+    @Environment(BasketState.self)
+    private var basketState
 
     @State
     private var viewModel = BasketViewModel()
@@ -18,7 +24,7 @@ struct BasketView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                if viewModel.items.isEmpty {
+                if basketState.items.isEmpty {
                     ContentUnavailableView {
                         Image(systemName: "list.bullet.clipboard")
                             .symbolRenderingMode(.palette)
@@ -34,11 +40,13 @@ struct BasketView: View {
                     }
                 } else {
                     List {
-                        ForEach(viewModel.items, id: \.hashValue) { drink in
+                        ForEach(basketState.items, id: \.hashValue) { drink in
                             DrinkRow(drink: drink, didClickRow: {})
                                 .allowsHitTesting(false)
                         }
-                        .onDelete(perform: viewModel.deleteItems)
+                        .onDelete { offsets in
+                            basketState.remove(at: offsets)
+                        }
                     }
                     .listStyle(.grouped)
                     .safeAreaInset(edge: .bottom) {
@@ -48,19 +56,6 @@ struct BasketView: View {
             }
             .navigationTitle("🛒 Basket")
             .showCustomAlert(alert: .twoWay(\.showAlert, on: viewModel), colorScheme: colorScheme)
-            .onChange(of: viewModel.showError) { _, showError in
-                if showError {
-                    viewModel.showAlert = AnyAppAlert(
-                        title: "Error",
-                        subtitle: viewModel.basketError?.description ?? "Unknown error",
-                        buttons: {
-                            AnyView(Button("OK") {
-                                viewModel.showError = false
-                            })
-                        }
-                    )
-                }
-            }
         }
     }
 
@@ -72,14 +67,14 @@ struct BasketView: View {
                 buttons: {
                     AnyView(
                         Button("Create") {
-                            viewModel.createOrder()
+                            viewModel.createOrder(from: basketState)
                         }
-                            .background(.brown)
+                        .background(.brown)
                     )
                 }
             )
         }, label: {
-            Text("\(viewModel.totalPrice, format: .currency(code: "EUR")) - Place Order")
+            Text("\(basketState.totalPrice, format: .currency(code: "EUR")) - Place Order")
         })
         .buttonStyle(.borderedProminent)
         .padding(.bottom, 30)
@@ -88,4 +83,5 @@ struct BasketView: View {
 
 #Preview {
     BasketView()
+        .environment(BasketState())
 }

@@ -14,6 +14,7 @@ struct CoffeApp: App {
     @State private var isDarkMode = IsDarkMode()
     @State private var coordinator = Coordinator()
     @State private var appState = AppState()
+    @State private var basketState = BasketState()
 
     var body: some Scene {
         WindowGroup {
@@ -21,6 +22,7 @@ struct CoffeApp: App {
                 .environment(isDarkMode)
                 .environment(coordinator)
                 .environment(appState)
+                .environment(basketState)
         }
     }
 }

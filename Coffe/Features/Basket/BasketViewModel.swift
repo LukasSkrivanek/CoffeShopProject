@@ -12,28 +12,21 @@ import Dependencies
 
 @Observable
 final class BasketViewModel {
+
+    @ObservationIgnored
+    @Dependency(\.userRepository)
+    private var userRepository
+
+    @ObservationIgnored
+    @Dependency(\.firebaseRepository)
+    private var firebaseRepository
+
     var basketError: AppError?
     var showAlert: AnyAppAlert?
     var showError = false
 
-    private let store: BasketStore
-
-    init(store: BasketStore) {
-        self.store = store
-    }
-
-    var items: [Drink] { store.items }
-    var totalPrice: Double { store.totalPrice }
-
-    func deleteItems(at offsets: IndexSet) {
-        store.remove(at: offsets)
-    }
-
-    func createOrder() {
-        @Dependency(\.userRepository) var userRepository
-        @Dependency(\.firebaseRepository) var firebaseRepository
-
-        guard !store.items.isEmpty else {
+    func createOrder(from basketState: BasketState) {
+        guard !basketState.items.isEmpty else {
             handleError(.emptyBasketError)
             return
         }
@@ -50,20 +43,13 @@ final class BasketViewModel {
             customerName: user.name,
             customerAdress: user.address,
             customerMobile: user.mobile,
-            items: store.items,
-            orderTotal: store.totalPrice
+            items: basketState.items,
+            orderTotal: basketState.totalPrice
         )
         Task {
             await firebaseRepository.placeOrder(order: order)
         }
-        store.remove(at: IndexSet(store.items.indices))
-    }
-}
-
-extension BasketViewModel: ComposableDependency {
-    convenience init() {
-        @Dependency(\.basketStore) var store
-        self.init(store: store)
+        basketState.items = []
     }
 }
 

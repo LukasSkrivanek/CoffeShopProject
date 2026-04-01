@@ -5,13 +5,15 @@
 //  Created by macbook on 26.02.2024.
 //
 import SwiftUI
+import Dependencies
 
 struct AccountView: View {
-
     @Environment(Coordinator.self)
     private var coordinator
+
     @Environment(AppState.self)
     private var appState
+
     @Environment(IsDarkMode.self)
     private var isDarkMode
 
@@ -25,20 +27,19 @@ struct AccountView: View {
                     UserInfoView(user: user, logOutAction: logOut)
                 } else {
                     AuthButtonsView(
-                        onLogin: { coordinator.presentSheet(.loginMethod, detent: .fraction(0.35))},
+                        onLogin: { coordinator.presentSheet(.loginMethod, detent: .fraction(0.35)) },
                         onRegister: { coordinator.presentSheet(.registration, detent: .medium) }
                     )
                 }
                 Button(
                     action: {
                         isDarkMode.isDarkMode.toggle()
-                        isDarkMode
-                            .updateUserInterfaceStyle()
+                        isDarkMode.updateUserInterfaceStyle()
                     }, label: {
-                    Text("Switch to \(isDarkMode.isDarkMode ? "Light" : "Dark") Mode")
-                        .styledButton(usedColor: .gray.opacity(0.4))
-                })
-                }
+                        Text("Switch to \(isDarkMode.isDarkMode ? "Light" : "Dark") Mode")
+                            .styledButton(usedColor: .gray.opacity(0.4))
+                    })
+            }
             .padding(.bottom, 30)
         }
         .onChange(of: viewModel.userRepository.user, { _, newValue in
@@ -47,6 +48,7 @@ struct AccountView: View {
         })
         .background(Color(UIColor.systemGroupedBackground))
     }
+
     private func logOut() {
         viewModel.logOut()
         appState.isSignedIn = false
