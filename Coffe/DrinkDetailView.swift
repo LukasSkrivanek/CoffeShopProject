@@ -6,10 +6,11 @@
 //
 
 import SwiftUI
+import Dependencies
 
 struct DrinkDetailView: View {
     @Environment(Coordinator.self) private var coordinator
-    @Environment(BasketViewModel.self) private var basketViewModel
+    @Dependency(\.basketStore) private var basketStore
     let drink: Drink
     var body: some View {
         VStack(spacing: 20) {
@@ -50,7 +51,7 @@ struct DrinkDetailView: View {
     @ViewBuilder
     private func addToBasketButton() -> some View {
         Button(action: {
-            basketViewModel.add(drink: drink)
+            basketStore.add(drink)
             coordinator.pop()
         }, label: {
             Text("Add to Basket")

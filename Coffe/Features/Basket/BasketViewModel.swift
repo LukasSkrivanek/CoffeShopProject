@@ -11,29 +11,29 @@ import SwiftUI
 import Dependencies
 
 @Observable
-final class BasketViewModel: Sendable {
-    var firebaseRepository: FirebaseRepository
-    var userRepository: UserRepository
-    private(set) var items: [Drink] = []
+final class BasketViewModel {
     var basketError: AppError?
     var showAlert: AnyAppAlert?
     var showError = false
-    init(userRepository: UserRepository, firebaseRepository: FirebaseRepository) {
-        self.firebaseRepository = firebaseRepository
-        self.userRepository = userRepository
+
+    private let store: BasketStore
+
+    init(store: BasketStore) {
+        self.store = store
     }
-    func add(drink: Drink) {
-        items.append(drink)
-        print("\(items.count)")
-    }
+
+    var items: [Drink] { store.items }
+    var totalPrice: Double { store.totalPrice }
+
     func deleteItems(at offsets: IndexSet) {
-        items.remove(atOffsets: offsets)
+        store.remove(at: offsets)
     }
-    var totalPrice: Double {
-        items.reduce(0) { $0 + $1.price }
-    }
+
     func createOrder() {
-        guard !items.isEmpty else {
+        @Dependency(\.userRepository) var userRepository
+        @Dependency(\.firebaseRepository) var firebaseRepository
+
+        guard !store.items.isEmpty else {
             handleError(.emptyBasketError)
             return
         }
@@ -50,32 +50,20 @@ final class BasketViewModel: Sendable {
             customerName: user.name,
             customerAdress: user.address,
             customerMobile: user.mobile,
-            items: items,
-            orderTotal: totalPrice
+            items: store.items,
+            orderTotal: store.totalPrice
         )
         Task {
             await firebaseRepository.placeOrder(order: order)
         }
-        items = []
-    }
-    func showPlaceOrderAlert() {
-        showAlert = AnyAppAlert(
-            title: "Create Order?",
-            subtitle: "Do you want to create an order for this basket?",
-            buttons: {
-                AnyView(Button("Create") {
-                    self.createOrder()
-                })
-            }
-        )
+        store.remove(at: IndexSet(store.items.indices))
     }
 }
 
 extension BasketViewModel: ComposableDependency {
     convenience init() {
-        @Dependency(\.userRepository) var userRepository
-        @Dependency(\.firebaseRepository) var firebaseRepository
-        self.init(userRepository: userRepository, firebaseRepository: firebaseRepository)
+        @Dependency(\.basketStore) var store
+        self.init(store: store)
     }
 }
 
@@ -85,9 +73,7 @@ private extension BasketViewModel {
         showAlert = AnyAppAlert(
             title: "Error",
             subtitle: error.description,
-            buttons: {
-                AnyView(Button("OK") { self.showError = false })
-            }
+            buttons: { AnyView(Button("OK") { self.showError = false }) }
         )
         showError = true
     }
