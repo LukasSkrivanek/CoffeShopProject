@@ -13,7 +13,7 @@ import Foundation
 ///     // Conform to the protocol
 ///     extension Networking: ComposableDependency {}
 ///
-/// After a build the extensions is going to be generated in the File.generated.
+/// After a build the extension is going to be generated in the File.generated.
 /// For example:
 ///
 ///     extension Networking: DependencyKey {
