@@ -5,6 +5,7 @@
 //  Created by macbook on 26.02.2024.
 //
 import Foundation
+import Dependencies
 
 @Observable
 final class DrinkListViewModel {
@@ -48,5 +49,12 @@ final class DrinkListViewModel {
     }
     func selectDrink(drink: Drink) {
         selectedDrink = drink
+    }
+}
+
+extension DrinkListViewModel: ComposableDependency {
+    convenience init() {
+        @Dependency(\.firebaseRepository) var firebaseRepository
+        self.init(firebaseRepository: firebaseRepository)
     }
 }

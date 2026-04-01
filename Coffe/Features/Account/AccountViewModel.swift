@@ -7,6 +7,7 @@
 
 import Foundation
 import Observation
+import Dependencies
 
 @Observable
 final class AccountViewModel {
@@ -30,5 +31,13 @@ final class AccountViewModel {
         } catch {
             print("Error")
         }
+    }
+}
+
+extension AccountViewModel: ComposableDependency {
+    convenience init() {
+        @Dependency(\.userRepository) var userRepository
+        @Dependency(\.authenticationManager) var authenticationManager
+        self.init(userRepository: userRepository, authenticationManager: authenticationManager)
     }
 }

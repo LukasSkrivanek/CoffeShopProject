@@ -5,6 +5,7 @@
 //  Created by macbook on 13.02.2025.
 //
 import SwiftUI
+import Dependencies
 
 @Observable
 class LoginViewModel {
@@ -44,5 +45,13 @@ class LoginViewModel {
             }
             return false
         }
+    }
+}
+
+extension LoginViewModel: ComposableDependency {
+    convenience init() {
+        @Dependency(\.userRepository) var userRepository
+        @Dependency(\.authenticationManager) var authenticationManager
+        self.init(userRepository: userRepository, authenticationManager: authenticationManager)
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Dependencies
 
 final class AuthenticationManager {
     private var authServiceProtocol: AuthServiceProtocol
@@ -34,9 +35,15 @@ extension AuthenticationManager {
     func updateEmail(email: String) async throws {
         try await authServiceProtocol.updateEmail(email: email)
     }
-    func signOut() throws { 
+    func signOut() throws {
            try authServiceProtocol.signOut()
        }
+}
+
+extension AuthenticationManager: ComposableDependency {
+    convenience init() {
+        self.init(authServiceProtocol: FirebaseAuthServiceAdapter())
+    }
 }
 
 extension AuthenticationManager {

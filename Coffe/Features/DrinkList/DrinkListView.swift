@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Dependencies
 
 struct DrinkListView: View {
     @Environment(Coordinator.self) private var coordinator
@@ -45,6 +46,7 @@ struct DrinkListView: View {
 }
 
 #Preview {
+    @Dependency(\.firebaseRepository) var firebaseRepository
     DrinkListView()
-        .environment(DrinkListViewModel(firebaseRepository: FirebaseRepository()))
+        .environment(DrinkListViewModel(firebaseRepository: firebaseRepository))
 }

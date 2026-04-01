@@ -8,6 +8,7 @@
 import Foundation
 import Firebase
 import SwiftUI
+import Dependencies
 
 @Observable
 final class BasketViewModel: Sendable {
@@ -68,7 +69,18 @@ final class BasketViewModel: Sendable {
             }
         )
     }
-    private func handleError(_ error: AppError) {
+}
+
+extension BasketViewModel: ComposableDependency {
+    convenience init() {
+        @Dependency(\.userRepository) var userRepository
+        @Dependency(\.firebaseRepository) var firebaseRepository
+        self.init(userRepository: userRepository, firebaseRepository: firebaseRepository)
+    }
+}
+
+private extension BasketViewModel {
+    func handleError(_ error: AppError) {
         basketError = error
         showAlert = AnyAppAlert(
             title: "Error",

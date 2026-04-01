@@ -34,22 +34,23 @@ struct AppTabView: View {
 }
 
 #Preview {
-    @Dependency(\.secureStorage) var secureStorage
+    @Dependency(\.userRepository) var userRepository
+    @Dependency(\.firebaseRepository) var firebaseRepository
     AppTabView()
         .environment(Coordinator())
         .environment(
             AccountViewModel(
-                userRepository: UserRepository(secureStorage: secureStorage),
+                userRepository: userRepository,
                 authenticationManager: AuthenticationManager(
                     authServiceProtocol: FirebaseAuthServiceAdapter()
                 )
             )
         )
-        .environment(DrinkListViewModel(firebaseRepository: FirebaseRepository()))
+        .environment(DrinkListViewModel(firebaseRepository: firebaseRepository))
         .environment(
             BasketViewModel(
-                userRepository: UserRepository(secureStorage: secureStorage),
-                firebaseRepository: FirebaseRepository()
+                userRepository: userRepository,
+                firebaseRepository: firebaseRepository
             )
         )
 }

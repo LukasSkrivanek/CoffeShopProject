@@ -5,6 +5,7 @@
 //  Created by macbook on 08.02.2025.
 //
 import Foundation
+import Dependencies
 
 @Observable
 class RegistrationViewModel {
@@ -39,5 +40,13 @@ class RegistrationViewModel {
                 alert = AnyAppAlert(error: error)
             }
         }
+    }
+}
+
+extension RegistrationViewModel: ComposableDependency {
+    convenience init() {
+        @Dependency(\.userRepository) var userRepository
+        @Dependency(\.authenticationManager) var authenticationManager
+        self.init(userRepository: userRepository, authenticationManager: authenticationManager)
     }
 }

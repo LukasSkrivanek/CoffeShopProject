@@ -5,6 +5,7 @@
 //  Created by macbook on 07.02.2025.
 //
 import SwiftUI
+import Dependencies
 
 @Observable
 class LoginMethodSelectionViewModel {
@@ -23,4 +24,12 @@ class LoginMethodSelectionViewModel {
             let tokens = try await helper.signIn()
         try await authenticationManager.signInWithGoogle(tokens: tokens)
         }
+}
+
+extension LoginMethodSelectionViewModel: ComposableDependency {
+    convenience init() {
+        @Dependency(\.userRepository) var userRepository
+        @Dependency(\.authenticationManager) var authenticationManager
+        self.init(userRepository: userRepository, authenticationManager: authenticationManager)
+    }
 }

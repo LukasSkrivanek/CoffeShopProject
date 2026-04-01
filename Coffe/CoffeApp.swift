@@ -10,19 +10,29 @@ import FirebaseCore
 @main
 struct CoffeApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+
+    @State private var isDarkMode = IsDarkMode()
+    @State private var coordinator = Coordinator()
+    @State private var appState = AppState()
+    @State private var basketViewModel = BasketViewModel()
+    @State private var drinkListViewModel = DrinkListViewModel()
+    @State private var accountViewModel = AccountViewModel()
+    @State private var registrationViewModel = RegistrationViewModel()
+    @State private var loginViewModel = LoginViewModel()
+    @State private var loginMethodSelectionViewModel = LoginMethodSelectionViewModel()
+
     var body: some Scene {
         WindowGroup {
             CoordinatorView()
-                .environment(DependencyContainer.resolve(IsDarkMode.self))
-                .environment(DependencyContainer.resolve(Coordinator.self))
-                .environment(DependencyContainer.resolve(AppState.self))
-                .environment(DependencyContainer.resolve(BasketViewModel.self))
-                .environment(DependencyContainer.resolve(DrinkListViewModel.self))
-                .environment(DependencyContainer.resolve(AccountViewModel.self))
-                .environment(DependencyContainer.resolve(RegistrationViewModel.self))
-                .environment(DependencyContainer.resolve(LoginViewModel.self))
-                .environment(DependencyContainer.resolve(LoginMethodSelectionViewModel.self))
-                .environment(DependencyContainer.resolve(UserRepository.self))
+                .environment(isDarkMode)
+                .environment(coordinator)
+                .environment(appState)
+                .environment(basketViewModel)
+                .environment(drinkListViewModel)
+                .environment(accountViewModel)
+                .environment(registrationViewModel)
+                .environment(loginViewModel)
+                .environment(loginMethodSelectionViewModel)
         }
     }
 }
