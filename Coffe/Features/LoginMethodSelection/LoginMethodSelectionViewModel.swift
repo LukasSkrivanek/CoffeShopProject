@@ -10,10 +10,6 @@ import Dependencies
 @Observable
 class LoginMethodSelectionViewModel {
     @ObservationIgnored
-    @Dependency(\.userRepository)
-    private var userRepository
-
-    @ObservationIgnored
     @Dependency(\.authenticationManager)
     private var authenticationManager
 
