@@ -7,6 +7,7 @@
 
 import Foundation
 import KeychainAccess
+import Dependencies
 
 let userKey = "userSecureKey"
 
@@ -23,3 +24,5 @@ final class SecureStorage {
         SecureStorage.keychain[key] = nil
     }
 }
+
+extension SecureStorage: ComposableDependency {}

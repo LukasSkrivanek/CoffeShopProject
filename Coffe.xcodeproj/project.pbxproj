@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA0000012D4B000000000001 /* Dependencies in Frameworks */ = {isa = PBXBuildFile; productRef = FA0000002D4B000000000001 /* Dependencies */; };
 		FA1E15B12BA203820013E0CF /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FA1E15B02BA203820013E0CF /* FirebaseAuth */; };
 		FA1E15B32BA203820013E0CF /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FA1E15B22BA203820013E0CF /* FirebaseFirestore */; };
 		FA1E15B52BA203820013E0CF /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FA1E15B42BA203820013E0CF /* FirebaseFirestoreSwift */; };
@@ -42,6 +43,7 @@
 				Core/Models/DummyData.swift,
 				Core/Models/Order.swift,
 				Core/Models/UserModel.swift,
+				Core/Utilites/ComposableDependency.swift,
 				Core/Utilites/DependencyContainer.swift,
 				"Core/Utilites/Extensions/Binding + EXT.swift",
 				"Core/Utilites/Extensions/Color + EXT.swift",
@@ -72,7 +74,7 @@
 				Services/Firebase/Networking/FColletionReference.swift,
 				Services/Firebase/Networking/FirebaseRepository.swift,
 				Services/Managers/AuthenticationManager.swift,
-				swiftlint_yaml.txt,
+				Sourcery/Generated/ComposableDependency.generated.swift,
 				UserInfoView.swift,
 			);
 			target = FAA1D1B22B8C80F400EE7364 /* Coffe */;
@@ -96,6 +98,7 @@
 				FA3317742B9DC5E900248936 /* GoogleSignInSwift in Frameworks */,
 				FA1E15B32BA203820013E0CF /* FirebaseFirestore in Frameworks */,
 				FAFF034A2D4B773200BCA8CE /* Swinject in Frameworks */,
+				FA0000012D4B000000000001 /* Dependencies in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +128,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FAA1D1D72B8C80F600EE7364 /* Build configuration list for PBXNativeTarget "Coffe" */;
 			buildPhases = (
+				FA0000042D4B000000000002 /* Sourcery */,
 				FAA1D1AF2B8C80F400EE7364 /* Sources */,
 				FAA1D1B02B8C80F400EE7364 /* Frameworks */,
 				FAA1D1B12B8C80F400EE7364 /* Resources */,
@@ -144,6 +148,7 @@
 				FA1E15B22BA203820013E0CF /* FirebaseFirestore */,
 				FA1E15B42BA203820013E0CF /* FirebaseFirestoreSwift */,
 				FAFF03492D4B773200BCA8CE /* Swinject */,
+				FA0000002D4B000000000001 /* Dependencies */,
 			);
 			productName = Coffe;
 			productReference = FAA1D1B32B8C80F400EE7364 /* Coffe.app */;
@@ -179,6 +184,7 @@
 				FA3317702B9DC5E900248936 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				FA1E15AF2BA203820013E0CF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				FAFF03482D4B773200BCA8CE /* XCRemoteSwiftPackageReference "Swinject" */,
+				FA0000032D4B000000000001 /* XCRemoteSwiftPackageReference "swift-dependencies" */,
 			);
 			productRefGroup = FAA1D1B42B8C80F400EE7364 /* Products */;
 			projectDirPath = "";
@@ -200,6 +206,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		FA0000042D4B000000000002 /* Sourcery */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Sourcery;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif [ \"$XCODE_RUNNING_FOR_PREVIEWS\" == \"1\" ]; then\n    exit 0\nfi\n\nif which sourcery > /dev/null; then\n    sourcery --config \"$SRCROOT/.sourcery.yml\"\nelse\n    echo \"warning: Sourcery not installed, install via: brew install sourcery\"\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		FAE31C5C2D64EB940016FCEA /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
@@ -437,6 +463,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		FA0000032D4B000000000001 /* XCRemoteSwiftPackageReference "swift-dependencies" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-dependencies.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		FA1E15AF2BA203820013E0CF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -480,6 +514,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		FA0000002D4B000000000001 /* Dependencies */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA0000032D4B000000000001 /* XCRemoteSwiftPackageReference "swift-dependencies" */;
+			productName = Dependencies;
+		};
 		FA1E15B02BA203820013E0CF /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FA1E15AF2BA203820013E0CF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

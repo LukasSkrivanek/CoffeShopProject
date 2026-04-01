@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Dependencies
 
 struct AppTabView: View {
     @Environment(Coordinator.self) private var coordinator
@@ -33,14 +34,12 @@ struct AppTabView: View {
 }
 
 #Preview {
+    @Dependency(\.secureStorage) var secureStorage
     AppTabView()
         .environment(Coordinator())
-        .environment(UserRepository(secureStorage: SecureStorage()))
         .environment(
             AccountViewModel(
-                userRepository: UserRepository(
-                    secureStorage: SecureStorage()
-                ),
+                userRepository: UserRepository(secureStorage: secureStorage),
                 authenticationManager: AuthenticationManager(
                     authServiceProtocol: FirebaseAuthServiceAdapter()
                 )
@@ -49,9 +48,7 @@ struct AppTabView: View {
         .environment(DrinkListViewModel(firebaseRepository: FirebaseRepository()))
         .environment(
             BasketViewModel(
-                userRepository: UserRepository(
-                    secureStorage: SecureStorage()
-                ),
+                userRepository: UserRepository(secureStorage: secureStorage),
                 firebaseRepository: FirebaseRepository()
             )
         )

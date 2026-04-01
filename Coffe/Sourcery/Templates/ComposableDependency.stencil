@@ -1,0 +1,17 @@
+// Generated using Sourcery
+import Dependencies
+
+{% for type in types.implementing.ComposableDependency %}
+// MARK: - {{ type.name }}
+
+extension {{ type.name }}: DependencyKey {
+    static var liveValue: {{ type.name }} { {{ type.name }}() }
+}
+
+extension DependencyValues {
+    var {{ type.name | lowerFirstLetter }}: {{ type.name }} {
+        get { self[{{ type.name }}.self] }
+        set { self[{{ type.name }}.self] = newValue }
+    }
+}
+{% endfor %}

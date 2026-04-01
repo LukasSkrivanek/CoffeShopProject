@@ -6,6 +6,7 @@
 //
 import Swinject
 import SwiftUI
+import Dependencies
 
 class DependencyContainer {
     static let shared = DependencyContainer()
@@ -14,10 +15,11 @@ class DependencyContainer {
     private init() {
         container = Container()
         // 🔹 Repositories
-        container.register(SecureStorage.self) { _ in SecureStorage() }.inObjectScope(.container)
         container.register(FirebaseRepository.self) { _ in FirebaseRepository() }.inObjectScope(.container)
-        container.register(UserRepository.self) {resolve in
-            UserRepository(secureStorage: resolve.resolve(SecureStorage.self)!) }.inObjectScope(.container)
+        container.register(UserRepository.self) { _ in
+            @Dependency(\.secureStorage) var secureStorage
+            return UserRepository(secureStorage: secureStorage)
+        }.inObjectScope(.container)
         // 🔹 Managers
         container.register(AuthServiceProtocol.self) { _ in
             FirebaseAuthServiceAdapter()

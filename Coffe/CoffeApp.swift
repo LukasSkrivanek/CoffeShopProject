@@ -23,7 +23,6 @@ struct CoffeApp: App {
                 .environment(DependencyContainer.resolve(LoginViewModel.self))
                 .environment(DependencyContainer.resolve(LoginMethodSelectionViewModel.self))
                 .environment(DependencyContainer.resolve(UserRepository.self))
-                .environment(DependencyContainer.resolve(SecureStorage.self))
         }
     }
 }
