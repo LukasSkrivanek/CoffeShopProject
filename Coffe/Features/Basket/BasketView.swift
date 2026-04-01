@@ -83,5 +83,6 @@ struct BasketView: View {
 
 #Preview {
     BasketView()
+        .environment(Coordinator())
         .environment(BasketState())
 }
