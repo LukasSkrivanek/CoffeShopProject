@@ -14,8 +14,8 @@ struct AccountView: View {
     @Environment(AppState.self)
     private var appState
 
-    @Environment(IsDarkMode.self)
-    private var isDarkMode
+    @Environment(AppearanceState.self)
+    private var appearanceState
 
     @State
     private var viewModel = AccountViewModel()
@@ -23,6 +23,13 @@ struct AccountView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 15) {
+                Picker("Appearance", selection: Bindable(appearanceState).mode) {
+                    ForEach(AppearanceMode.allCases, id: \.self) { mode in
+                        Text(mode.label).tag(mode)
+                    }
+                }
+                .pickerStyle(.segmented)
+                .tint(.brown)
                 if let user = viewModel.userRepository.user, appState.isSignedIn {
                     UserInfoView(user: user, logOutAction: logOut)
                 } else {
@@ -31,21 +38,9 @@ struct AccountView: View {
                         onRegister: { coordinator.presentSheet(.registration, detent: .medium) }
                     )
                 }
-                Button(
-                    action: {
-                        isDarkMode.isDarkMode.toggle()
-                        isDarkMode.updateUserInterfaceStyle()
-                    }, label: {
-                        Text("Switch to \(isDarkMode.isDarkMode ? "Light" : "Dark") Mode")
-                            .styledButton(usedColor: .gray.opacity(0.4))
-                    })
             }
             .padding(.bottom, 30)
         }
-        .onChange(of: viewModel.userRepository.user, { _, newValue in
-            if newValue != nil {
-            }
-        })
         .background(Color(UIColor.systemGroupedBackground))
     }
 

@@ -14,9 +14,6 @@ struct CoordinatorView: View {
     @Environment(\.colorScheme)
     private var colorScheme
 
-    @Environment(IsDarkMode.self)
-    private var isDarkMode
-
     var body: some View {
         NavigationStack(path: .twoWay(\.path, on: coordinator)) {
             coordinator.build(page: .appTabBar)
