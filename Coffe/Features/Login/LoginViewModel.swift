@@ -5,18 +5,22 @@
 //  Created by macbook on 13.02.2025.
 //
 import SwiftUI
+import Dependencies
 
 @Observable
 class LoginViewModel {
-    var userRepository: UserRepository
-    var authenticationManager: AuthenticationManager
+    @ObservationIgnored
+    @Dependency(\.userRepository)
+    private var userRepository
+
+    @ObservationIgnored
+    @Dependency(\.authenticationManager)
+    private var authenticationManager
+
     var email: String = ""
     var password: String = ""
     var alert: AnyAppAlert?
-    init(userRepository: UserRepository, authenticationManager: AuthenticationManager ) {
-        self.userRepository = userRepository
-        self.authenticationManager = authenticationManager
-    }
+
     func loginUser() async -> Bool {
         guard !email.isEmpty, !password.isEmpty else {
             await MainActor.run {
@@ -33,7 +37,6 @@ class LoginViewModel {
                 address: "",
                 mobile: ""
             )
-
             await MainActor.run {
                 userRepository.user = userModel
             }

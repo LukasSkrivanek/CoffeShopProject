@@ -1,0 +1,7 @@
+sources:
+  - Coffe
+templates:
+  - Coffe/Sourcery/Templates
+output: Coffe/Sourcery/Generated
+args:
+  autoIndent: true

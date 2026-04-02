@@ -10,20 +10,19 @@ import FirebaseCore
 @main
 struct CoffeApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+
+    @State private var isDarkMode = IsDarkMode()
+    @State private var coordinator = Coordinator()
+    @State private var appState = AppState()
+    @State private var basketState = BasketState()
+
     var body: some Scene {
         WindowGroup {
             CoordinatorView()
-                .environment(DependencyContainer.resolve(IsDarkMode.self))
-                .environment(DependencyContainer.resolve(Coordinator.self))
-                .environment(DependencyContainer.resolve(AppState.self))
-                .environment(DependencyContainer.resolve(BasketViewModel.self))
-                .environment(DependencyContainer.resolve(DrinkListViewModel.self))
-                .environment(DependencyContainer.resolve(AccountViewModel.self))
-                .environment(DependencyContainer.resolve(RegistrationViewModel.self))
-                .environment(DependencyContainer.resolve(LoginViewModel.self))
-                .environment(DependencyContainer.resolve(LoginMethodSelectionViewModel.self))
-                .environment(DependencyContainer.resolve(UserRepository.self))
-                .environment(DependencyContainer.resolve(SecureStorage.self))
+                .environment(isDarkMode)
+                .environment(coordinator)
+                .environment(appState)
+                .environment(basketState)
         }
     }
 }

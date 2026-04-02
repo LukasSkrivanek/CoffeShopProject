@@ -8,6 +8,8 @@ import Foundation
 
 actor FirebaseRepository {}
 
+extension FirebaseRepository: ComposableDependency {}
+
 // MARK: - Fetching Drinks
 extension FirebaseRepository {
     func fetchDrinks() async throws -> [Drink] {

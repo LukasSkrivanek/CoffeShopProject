@@ -5,19 +5,23 @@
 //  Created by macbook on 08.02.2025.
 //
 import Foundation
+import Dependencies
 
 @Observable
 class RegistrationViewModel {
-    private var userRepository: UserRepository
-    var authenticationManager: AuthenticationManager
+    @ObservationIgnored
+    @Dependency(\.userRepository)
+    private var userRepository
+
+    @ObservationIgnored
+    @Dependency(\.authenticationManager)
+    private var authenticationManager
+
     var email: String = ""
     var password: String = ""
     var confirmPassword: String = ""
     var alert: AnyAppAlert?
-    init(userRepository: UserRepository, authenticationManager: AuthenticationManager) {
-        self.userRepository = userRepository
-        self.authenticationManager = authenticationManager
-    }
+
     func registerUser() async {
         guard !email.isEmpty, !password.isEmpty, !confirmPassword.isEmpty else {
             await MainActor.run {

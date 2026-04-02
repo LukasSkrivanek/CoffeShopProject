@@ -7,9 +7,15 @@
 import SwiftUI
 
 struct LoginMethodSelectionView: View {
-    @Environment(Coordinator.self) private var coordinator
-    @Environment(AppState.self) private var appState
-    @Environment(LoginMethodSelectionViewModel.self) private var loginMethodViewModel
+    
+    @Environment(Coordinator.self)
+    private var coordinator
+    @Environment(AppState.self)
+    private var appState
+
+    @State
+    private var viewModel = LoginMethodSelectionViewModel()
+
     var body: some View {
         VStack(spacing: 20) {
             Text("Select Login Method")
@@ -38,7 +44,7 @@ struct LoginMethodSelectionView: View {
                 case .email:
                     break
                 case .google:
-                    try await loginMethodViewModel.signInGoogle()
+                    try await viewModel.signInGoogle()
                     appState.isSignedIn = true
                 }
                 coordinator.dismissSheet()

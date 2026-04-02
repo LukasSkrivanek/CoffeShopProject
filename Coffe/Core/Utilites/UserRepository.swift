@@ -6,6 +6,7 @@
 //
 import Foundation
 import Observation
+import Dependencies
 
 @Observable
 final class UserRepository {
@@ -83,4 +84,11 @@ final class UserRepository {
             user = nil
         }
     }
+
+    convenience init() {
+        @Dependency(\.secureStorage) var secureStorage
+        self.init(secureStorage: secureStorage)
+    }
 }
+
+extension UserRepository: ComposableDependency {}

@@ -8,13 +8,23 @@
 import SwiftUI
 
 struct BasketView: View {
-    @Environment(Coordinator.self) private var  coordinator
-    @Environment(\.colorScheme) private var colorScheme
-    @Environment(BasketViewModel.self) private var basketViewModel
+
+    @Environment(Coordinator.self)
+    private var coordinator
+
+    @Environment(\.colorScheme)
+    private var colorScheme
+
+    @Environment(BasketState.self)
+    private var basketState
+
+    @State
+    private var viewModel = BasketViewModel()
+
     var body: some View {
         NavigationStack {
             VStack {
-                if basketViewModel.items.isEmpty {
+                if basketState.items.isEmpty {
                     ContentUnavailableView {
                         Image(systemName: "list.bullet.clipboard")
                             .symbolRenderingMode(.palette)
@@ -30,11 +40,13 @@ struct BasketView: View {
                     }
                 } else {
                     List {
-                        ForEach(basketViewModel.items, id: \.hashValue) { drink in
+                        ForEach(basketState.items, id: \.hashValue) { drink in
                             DrinkRow(drink: drink, didClickRow: {})
                                 .allowsHitTesting(false)
                         }
-                        .onDelete(perform: basketViewModel.deleteItems)
+                        .onDelete { offsets in
+                            basketState.remove(at: offsets)
+                        }
                     }
                     .listStyle(.grouped)
                     .safeAreaInset(edge: .bottom) {
@@ -43,39 +55,26 @@ struct BasketView: View {
                 }
             }
             .navigationTitle("🛒 Basket")
-            .showCustomAlert(alert: .twoWay(\.showAlert, on: basketViewModel), colorScheme: colorScheme)
-            .onChange(of: basketViewModel.showError) { _, showError in
-                if showError {
-                    basketViewModel.showAlert = AnyAppAlert(
-                        title: "Error",
-                        subtitle: basketViewModel.basketError?.description ?? "Unknown error",
-                        buttons: {
-                            AnyView(Button("OK") {
-                                basketViewModel.showError = false
-                            })
-                        }
-                    )
-                }
-            }
+            .showCustomAlert(alert: .twoWay(\.showAlert, on: viewModel), colorScheme: colorScheme)
         }
     }
 
     private func placeOrderButton() -> some View {
         Button(action: {
-            basketViewModel.showAlert = AnyAppAlert(
+            viewModel.showAlert = AnyAppAlert(
                 title: "Create Order?",
                 subtitle: "Do you want to create an order for this basket?",
                 buttons: {
                     AnyView(
                         Button("Create") {
-                            basketViewModel.createOrder()
+                            viewModel.createOrder(from: basketState)
                         }
-                            .background(.brown)
+                        .background(.brown)
                     )
                 }
             )
         }, label: {
-            Text("\(basketViewModel.totalPrice, format: .currency(code: "EUR")) - Place Order")
+            Text("\(basketState.totalPrice, format: .currency(code: "EUR")) - Place Order")
         })
         .buttonStyle(.borderedProminent)
         .padding(.bottom, 30)
@@ -84,4 +83,6 @@ struct BasketView: View {
 
 #Preview {
     BasketView()
+        .environment(Coordinator())
+        .environment(BasketState())
 }

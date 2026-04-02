@@ -23,3 +23,5 @@ final class SecureStorage {
         SecureStorage.keychain[key] = nil
     }
 }
+
+extension SecureStorage: ComposableDependency {}

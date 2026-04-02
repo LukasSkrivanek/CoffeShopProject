@@ -8,31 +8,25 @@
 import Foundation
 import Firebase
 import SwiftUI
+import Dependencies
 
 @Observable
-final class BasketViewModel: Sendable {
-    var firebaseRepository: FirebaseRepository
-    var userRepository: UserRepository
-    private(set) var items: [Drink] = []
+final class BasketViewModel {
+
+    @ObservationIgnored
+    @Dependency(\.userRepository)
+    private var userRepository
+
+    @ObservationIgnored
+    @Dependency(\.firebaseRepository)
+    private var firebaseRepository
+
     var basketError: AppError?
     var showAlert: AnyAppAlert?
     var showError = false
-    init(userRepository: UserRepository, firebaseRepository: FirebaseRepository) {
-        self.firebaseRepository = firebaseRepository
-        self.userRepository = userRepository
-    }
-    func add(drink: Drink) {
-        items.append(drink)
-        print("\(items.count)")
-    }
-    func deleteItems(at offsets: IndexSet) {
-        items.remove(atOffsets: offsets)
-    }
-    var totalPrice: Double {
-        items.reduce(0) { $0 + $1.price }
-    }
-    func createOrder() {
-        guard !items.isEmpty else {
+
+    func createOrder(from basketState: BasketState) {
+        guard !basketState.items.isEmpty else {
             handleError(.emptyBasketError)
             return
         }
@@ -49,33 +43,23 @@ final class BasketViewModel: Sendable {
             customerName: user.name,
             customerAdress: user.address,
             customerMobile: user.mobile,
-            items: items,
-            orderTotal: totalPrice
+            items: basketState.items,
+            orderTotal: basketState.totalPrice
         )
         Task {
             await firebaseRepository.placeOrder(order: order)
         }
-        items = []
+        basketState.items = []
     }
-    func showPlaceOrderAlert() {
-        showAlert = AnyAppAlert(
-            title: "Create Order?",
-            subtitle: "Do you want to create an order for this basket?",
-            buttons: {
-                AnyView(Button("Create") {
-                    self.createOrder()
-                })
-            }
-        )
-    }
-    private func handleError(_ error: AppError) {
+}
+
+private extension BasketViewModel {
+    func handleError(_ error: AppError) {
         basketError = error
         showAlert = AnyAppAlert(
             title: "Error",
             subtitle: error.description,
-            buttons: {
-                AnyView(Button("OK") { self.showError = false })
-            }
+            buttons: { AnyView(Button("OK") { self.showError = false }) }
         )
         showError = true
     }

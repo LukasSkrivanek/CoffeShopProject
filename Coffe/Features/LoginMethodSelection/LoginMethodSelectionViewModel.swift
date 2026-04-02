@@ -5,22 +5,22 @@
 //  Created by macbook on 07.02.2025.
 //
 import SwiftUI
+import Dependencies
 
 @Observable
 class LoginMethodSelectionViewModel {
-    var userRepository: UserRepository
-    var authenticationManager: AuthenticationManager!
+    @ObservationIgnored
+    @Dependency(\.authenticationManager)
+    private var authenticationManager
+
     var selectedMethod: LoginMethod?
-    init(userRepository: UserRepository, authenticationManager: AuthenticationManager!) {
-        self.userRepository = userRepository
-        self.authenticationManager = authenticationManager
-    }
+
     func selectMethod(_ method: LoginMethod) {
         selectedMethod = method
     }
+
     func signInGoogle() async throws {
-        let helper = SignInGoogleHelper(userRepository: userRepository)
-            let tokens = try await helper.signIn()
+        let tokens = try await SignInGoogleHelper().signIn()
         try await authenticationManager.signInWithGoogle(tokens: tokens)
-        }
+    }
 }

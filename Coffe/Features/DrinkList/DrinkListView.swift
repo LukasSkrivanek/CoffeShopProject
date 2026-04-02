@@ -8,14 +8,17 @@
 import SwiftUI
 
 struct DrinkListView: View {
-    @Environment(Coordinator.self) private var coordinator
-    @Environment(DrinkListViewModel.self) private var drinkListViewModel
-    @State private var searchText: String = ""
+    @Environment(Coordinator.self)
+    private var coordinator
+
+    @State
+    private var viewModel = DrinkListViewModel()
+
     var body: some View {
         NavigationStack {
-            List(drinkListViewModel.filterCategories.keys.sorted(), id: \String.self) { key in
+            List(viewModel.filterCategories.keys.sorted(), id: \String.self) { key in
                 Section {
-                    if let drinks = drinkListViewModel.categories[key] {
+                    if let drinks = viewModel.categories[key] {
                         ForEach(drinks, id: \.hashValue) { drink in
                             DrinkRow(drink: drink) {
                                 coordinator.push(page: .drinkDetail(drink))
@@ -29,22 +32,17 @@ struct DrinkListView: View {
             }
         }
         .searchable(
-            text: .twoWay(
-                \.searchText,
-                 on: drinkListViewModel
-            ),
+            text: .twoWay(\.searchText, on: viewModel),
             placement: .toolbar,
-            prompt: Text(
-                "Search for your drink"
-            )
+            prompt: Text("Search for your drink")
         )
-            .task {
-                await drinkListViewModel.fetchDrinks()
-            }
+        .task {
+            await viewModel.fetchDrinks()
+        }
     }
 }
 
 #Preview {
     DrinkListView()
-        .environment(DrinkListViewModel(firebaseRepository: FirebaseRepository()))
+        .environment(Coordinator())
 }
