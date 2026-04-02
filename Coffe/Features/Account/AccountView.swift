@@ -29,7 +29,6 @@ struct AccountView: View {
                     }
                 }
                 .pickerStyle(.segmented)
-                .tint(.brown)
                 if let user = viewModel.userRepository.user, appState.isSignedIn {
                     UserInfoView(user: user, logOutAction: logOut)
                 } else {
