@@ -47,7 +47,3 @@ final class FirebaseAuthServiceAdapter: AuthServiceProtocol {
         return AuthDataResultModel(user: FirebaseAuthUserAdapter(user: result.user))
     }
 }
-
-extension AuthServiceKey: DependencyKey {
-    public static var liveValue: any AuthServiceProtocol { FirebaseAuthServiceAdapter() }
-}

@@ -24,11 +24,3 @@ final class SecureStorage: SecureStorageProtocol {
         SecureStorage.keychain[key] = nil
     }
 }
-
-extension SecureStorageKey: DependencyKey {
-    public static var liveValue: any SecureStorageProtocol { SecureStorage() }
-}
-
-extension UserRepositoryKey: DependencyKey {
-    public static var liveValue: UserRepository { UserRepository(secureStorage: SecureStorage()) }
-}

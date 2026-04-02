@@ -1,7 +1,3 @@
-// This file is intentionally empty.
-// Live dependency values are defined alongside their implementations:
-//   DrinkRepositoryKey.liveValue  → FirebaseRepository.swift
-//   AuthServiceKey.liveValue      → FirebaseAuthServiceAdapter.swift
-//   SessionValidatorKey.liveValue → FirebaseSessionValidator.swift
-//   SecureStorageKey.liveValue    → SecureStorage.swift
-//   UserRepositoryKey.liveValue   → SecureStorage.swift
+// Dependency keys are declared in the CoffeCore module.
+// Live implementations are injected at the app boundary in CoffeApp.init()
+// via `prepareDependencies`, not via `*Key.liveValue` extensions in this target.

@@ -6,6 +6,7 @@
 //
 import SwiftUI
 import FirebaseCore
+import Dependencies
 import CoffeCore
 
 @main
@@ -13,6 +14,14 @@ struct CoffeApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
     init() {
+        prepareDependencies {
+            let secureStorage = SecureStorage()
+            $0.drinkRepository = FirebaseRepository()
+            $0.authService = FirebaseAuthServiceAdapter()
+            $0.sessionValidator = FirebaseSessionValidator()
+            $0.secureStorage = secureStorage
+            $0.userRepository = UserRepository(secureStorage: secureStorage)
+        }
         UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(.brown)
     }
 

@@ -37,7 +37,3 @@ actor FirebaseRepository: DrinkRepositoryProtocol {
         }
     }
 }
-
-extension DrinkRepositoryKey: DependencyKey {
-    public static var liveValue: any DrinkRepositoryProtocol { FirebaseRepository() }
-}
