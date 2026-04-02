@@ -6,9 +6,9 @@
 //
 
 import Foundation
+import CoffeCore
 
 struct DummyData {
-    static let basket = Basket(id: UUID().uuidString, items: [])
     static let user = UserModel(
         id: UUID().uuidString,
         name: "Lukas",

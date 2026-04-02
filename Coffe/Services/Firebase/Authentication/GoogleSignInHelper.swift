@@ -9,13 +9,7 @@ import Foundation
 import GoogleSignIn
 import GoogleSignInSwift
 import Dependencies
-
-struct GoogleSignInResultModel {
-    let idToken: String
-    let accessToken: String
-    let name: String?
-    let email: String?
-}
+import CoffeCore
 
 final class SignInGoogleHelper {
 

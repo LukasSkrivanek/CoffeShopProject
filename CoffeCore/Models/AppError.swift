@@ -1,14 +1,13 @@
 //
 //  AppError.swift
-//  Coffe
-//
-//  Created by macbook on 28.02.2024.
+//  CoffeCore
 //
 
 import Foundation
 
-enum AppError {
-    case emptyBasketError, noUserError
+public enum AppError: Equatable {
+    case emptyBasketError
+    case noUserError
 }
 
 extension AppError: CustomStringConvertible {

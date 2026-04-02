@@ -5,6 +5,7 @@
 //  Created by macbook on 26.02.2024.
 //
 import SwiftUI
+import CoffeCore
 import Dependencies
 
 struct AccountView: View {

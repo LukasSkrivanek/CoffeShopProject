@@ -5,6 +5,7 @@
 //  Created by macbook on 01.02.2025.
 //
 import SwiftUI
+import CoffeCore
 
 struct RegistrationView: View {
     @Environment(Coordinator.self)

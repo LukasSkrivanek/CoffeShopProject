@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoffeCore
 
 struct UserInfoView: View {
     let user: UserModel

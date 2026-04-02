@@ -5,6 +5,7 @@
 //  Created by macbook on 01.02.2025.
 //
 import SwiftUI
+import CoffeCore
 
 struct LoginMethodSelectionView: View {
     
@@ -44,7 +45,8 @@ struct LoginMethodSelectionView: View {
                 case .email:
                     break
                 case .google:
-                    try await viewModel.signInGoogle()
+                    let tokens = try await SignInGoogleHelper().signIn()
+                    try await viewModel.signInWithGoogle(tokens: tokens)
                     appState.isSignedIn = true
                 }
                 coordinator.dismissSheet()
@@ -53,7 +55,4 @@ struct LoginMethodSelectionView: View {
             }
         }
     }
-}
-enum LoginMethod {
-    case email, google
 }

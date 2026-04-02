@@ -6,6 +6,7 @@
 //
 import SwiftUI
 import FirebaseCore
+import CoffeCore
 
 @main
 struct CoffeApp: App {

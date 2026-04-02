@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoffeCore
 
 struct BasketView: View {
 
@@ -20,6 +21,9 @@ struct BasketView: View {
 
     @State
     private var viewModel = BasketViewModel()
+
+    @State
+    private var showConfirmOrder = false
 
     var body: some View {
         NavigationStack {
@@ -55,24 +59,19 @@ struct BasketView: View {
                 }
             }
             .navigationTitle("🛒 Basket")
-            .showCustomAlert(alert: .twoWay(\.showAlert, on: viewModel), colorScheme: colorScheme)
+            .alert("Create Order?", isPresented: $showConfirmOrder) {
+                Button("Create") { viewModel.createOrder(from: basketState) }
+                Button("Cancel", role: .cancel) {}
+            } message: {
+                Text("Do you want to create an order for this basket?")
+            }
+            .showCustomAlert(alert: .twoWay(\.alert, on: viewModel), colorScheme: colorScheme)
         }
     }
 
     private func placeOrderButton() -> some View {
         Button(action: {
-            viewModel.showAlert = AnyAppAlert(
-                title: "Create Order?",
-                subtitle: "Do you want to create an order for this basket?",
-                buttons: {
-                    AnyView(
-                        Button("Create") {
-                            viewModel.createOrder(from: basketState)
-                        }
-                        .background(.brown)
-                    )
-                }
-            )
+            showConfirmOrder = true
         }, label: {
             Text("\(basketState.totalPrice, format: .currency(code: "EUR")) - Place Order")
         })
