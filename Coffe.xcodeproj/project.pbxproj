@@ -92,7 +92,6 @@
 				Services/Firebase/Authentication/FirebaseAuthServiceAdapter.swift,
 				Services/Firebase/Authentication/FirebaseAuthUserAdapter.swift,
 				Services/Firebase/Authentication/GoogleSignInHelper.swift,
-				Services/Firebase/Authentication/Models/AuthDataResultModel.swift,
 				Services/Firebase/Networking/FColletionReference.swift,
 				Services/Firebase/Networking/FirebaseRepository.swift,
 				UserInfoView.swift,

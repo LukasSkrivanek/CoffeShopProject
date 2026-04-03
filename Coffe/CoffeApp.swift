@@ -6,11 +6,13 @@
 //
 import SwiftUI
 import FirebaseCore
+import FirebaseAuth
 import Dependencies
 import CoffeCore
 
 @main
 struct CoffeApp: App {
+
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
     init() {
@@ -18,7 +20,7 @@ struct CoffeApp: App {
             let secureStorage = SecureStorage()
             $0.drinkRepository = FirebaseRepository()
             $0.authService = FirebaseAuthServiceAdapter()
-            $0.sessionValidator = FirebaseSessionValidator()
+            $0.sessionValidator = AppSessionValidator()
             $0.secureStorage = secureStorage
             $0.userRepository = UserRepository(secureStorage: secureStorage)
         }
@@ -39,6 +41,12 @@ struct CoffeApp: App {
                 .environment(basketState)
                 .environment(appearanceState)
         }
+    }
+}
+
+struct AppSessionValidator: SessionValidating {
+    var isAuthenticated: Bool {
+        Auth.auth().currentUser != nil
     }
 }
 

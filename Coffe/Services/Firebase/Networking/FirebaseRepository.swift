@@ -4,7 +4,6 @@
 //
 
 import Foundation
-import Dependencies
 import CoffeCore
 
 actor FirebaseRepository: DrinkRepositoryProtocol {

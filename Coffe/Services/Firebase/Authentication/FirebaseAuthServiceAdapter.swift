@@ -4,7 +4,6 @@
 //
 
 import FirebaseAuth
-import Dependencies
 import CoffeCore
 
 final class FirebaseAuthServiceAdapter: AuthServiceProtocol {

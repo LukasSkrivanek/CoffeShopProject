@@ -5,7 +5,6 @@
 
 import Foundation
 import KeychainAccess
-import Dependencies
 import CoffeCore
 
 @Observable
