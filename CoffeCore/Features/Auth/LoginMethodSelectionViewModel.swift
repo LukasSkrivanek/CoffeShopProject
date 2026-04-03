@@ -28,8 +28,9 @@ public final class LoginMethodSelectionViewModel {
 
     // Google tokens are resolved in the iOS layer (SignInGoogleHelper)
     // and passed here — no GoogleSignIn SDK needed in CoffeCore
+    
     public func signInWithGoogle(tokens: GoogleSignInResultModel) async throws {
-        try await authService.signInWithGoogle(tokens: tokens)
+        _ = try await authService.signInWithGoogle(tokens: tokens)
         userRepository.saveChanges(
             name: tokens.name ?? "",
             address: "",

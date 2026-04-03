@@ -38,7 +38,7 @@ public final class RegistrationViewModel {
             return
         }
         do {
-            try await authService.createUser(email: email, password: password)
+            _ = try await authService.createUser(email: email, password: password)
             userRepository.user = await userRepository.fetchUser()
         } catch {
             await MainActor.run {

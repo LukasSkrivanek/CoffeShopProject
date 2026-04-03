@@ -48,6 +48,8 @@ struct LoginMethodSelectionView: View {
                     let tokens = try await SignInGoogleHelper().signIn()
                     try await viewModel.signInWithGoogle(tokens: tokens)
                     appState.isSignedIn = true
+                @unknown default:
+                    assertionFailure("Unhandled login method")
                 }
                 coordinator.dismissSheet()
             } catch {
