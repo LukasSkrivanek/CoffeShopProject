@@ -6,21 +6,12 @@
 import Foundation
 
 public struct CoreAlert: Sendable, Equatable {
-
-    public enum Action: String, Sendable, CaseIterable {
-        case ok
-        case confirm
-        case cancel
-    }
-
     public let title: String
     public let subtitle: String?
-    public let actions: [Action]
 
-    public init(title: String, subtitle: String? = nil, actions: [Action] = [.ok]) {
+    public init(title: String, subtitle: String? = nil) {
         self.title = title
         self.subtitle = subtitle
-        self.actions = actions
     }
 
     public static func error(_ error: AppError) -> CoreAlert {

@@ -39,7 +39,8 @@ public final class RegistrationViewModel {
         }
         do {
             _ = try await authService.createUser(email: email, password: password)
-            userRepository.user = await userRepository.fetchUser()
+            let fetched = await userRepository.fetchUser()
+            await MainActor.run { userRepository.user = fetched }
         } catch {
             await MainActor.run {
                 alert = CoreAlert(title: "Error", subtitle: error.localizedDescription)

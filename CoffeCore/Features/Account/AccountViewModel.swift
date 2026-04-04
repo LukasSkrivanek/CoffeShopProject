@@ -11,11 +11,13 @@ public final class AccountViewModel {
 
     @ObservationIgnored
     @Dependency(\.userRepository)
-    public var userRepository
+    private var userRepository
 
     @ObservationIgnored
     @Dependency(\.authService)
     private var authService
+
+    public var user: UserModel? { userRepository.user }
 
     public var name = ""
     public var address = ""
