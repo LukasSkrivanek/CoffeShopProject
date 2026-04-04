@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoffeCore
 
 struct DrinkRow: View {
     private let drink: Drink

@@ -5,8 +5,8 @@
 //  Created by macbook on 10.02.2025.
 //
 
-import Swift
 import FirebaseAuth
+import CoffeCore
 
 struct FirebaseAuthUserAdapter: AuthUserProtocol {
     let uid: String

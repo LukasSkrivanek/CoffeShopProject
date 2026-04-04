@@ -5,6 +5,7 @@
 //  Created by macbook on 30.01.2025.
 //
 import SwiftUI
+import CoffeCore
 
 struct AnyAppAlert: Sendable {
     var title: String
@@ -35,6 +36,29 @@ struct AnyAppAlert: Sendable {
 
 enum AlertType {
     case alert, confirmationDialog
+}
+
+extension View {
+    @ViewBuilder
+    func showCustomAlert(
+        type: AlertType = .alert,
+        alert coreAlert: Binding<CoreAlert?>,
+        colorScheme: ColorScheme? = nil
+    ) -> some View {
+        let isPresented = Binding(
+            get: { coreAlert.wrappedValue != nil },
+            set: { if !$0 { coreAlert.wrappedValue = nil } }
+        )
+        self
+            .alert(coreAlert.wrappedValue?.title ?? "", isPresented: isPresented) {
+                Button("OK") { coreAlert.wrappedValue = nil }
+            } message: {
+                if let subtitle = coreAlert.wrappedValue?.subtitle {
+                    Text(subtitle)
+                }
+            }
+            .preferredColorScheme(colorScheme)
+    }
 }
 
 extension View {

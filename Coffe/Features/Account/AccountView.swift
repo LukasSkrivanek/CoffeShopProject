@@ -5,6 +5,7 @@
 //  Created by macbook on 26.02.2024.
 //
 import SwiftUI
+import CoffeCore
 import Dependencies
 
 struct AccountView: View {
@@ -29,7 +30,7 @@ struct AccountView: View {
                     }
                 }
                 .pickerStyle(.segmented)
-                if let user = viewModel.userRepository.user, appState.isSignedIn {
+                if let user = viewModel.user, appState.isSignedIn {
                     UserInfoView(user: user, logOutAction: logOut)
                 } else {
                     AuthButtonsView(

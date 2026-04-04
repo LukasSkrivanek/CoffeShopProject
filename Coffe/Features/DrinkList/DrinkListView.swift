@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoffeCore
 
 struct DrinkListView: View {
     @Environment(Coordinator.self)

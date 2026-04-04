@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoffeCore
 
 enum AppPages: Hashable {
     case appTabBar
