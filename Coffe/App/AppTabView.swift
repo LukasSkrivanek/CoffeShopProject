@@ -37,5 +37,5 @@ struct AppTabView: View {
     AppTabView()
         .environment(Coordinator())
         .environment(AppState())
-        .environment(IsDarkMode())
+        .environment(AppearanceState())
 }

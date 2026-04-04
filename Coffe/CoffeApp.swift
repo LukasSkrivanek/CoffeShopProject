@@ -11,18 +11,23 @@ import FirebaseCore
 struct CoffeApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
-    @State private var isDarkMode = IsDarkMode()
+    init() {
+        UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(.brown)
+    }
+
     @State private var coordinator = Coordinator()
     @State private var appState = AppState()
     @State private var basketState = BasketState()
+    @State private var appearanceState = AppearanceState()
 
     var body: some Scene {
         WindowGroup {
             CoordinatorView()
-                .environment(isDarkMode)
+                .preferredColorScheme(appearanceState.mode.colorScheme)
                 .environment(coordinator)
                 .environment(appState)
                 .environment(basketState)
+                .environment(appearanceState)
         }
     }
 }

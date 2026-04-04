@@ -17,5 +17,7 @@
 	</array>
 	<key>GIDClientID</key>
 	<string>725914861876-li78tl9jvapvh1b5m8gbcqh7sm143hle.apps.googleusercontent.com</string>
+	<key>UIDesignRequiresCompatibility</key>
+	<true/>
 </dict>
 </plist>
