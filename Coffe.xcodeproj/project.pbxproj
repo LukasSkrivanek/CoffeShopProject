@@ -10,7 +10,6 @@
 		74C000132F7E584B00DF368A /* Dependencies in Frameworks */ = {isa = PBXBuildFile; productRef = 74C000122F7E584B00DF368A /* Dependencies */; };
 		74C0043B2F7E5F9D00DF368A /* CoffeCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74C0000A2F7E548C00DF368A /* CoffeCore.framework */; };
 		74C0043C2F7E5F9D00DF368A /* CoffeCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 74C0000A2F7E548C00DF368A /* CoffeCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		74C004412F81A92100DF368A /* Dependencies in Frameworks */ = {isa = PBXBuildFile; productRef = 74C004402F81A92100DF368A /* Dependencies */; };
 		74C004432F81A92800DF368A /* DependenciesTestSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 74C004422F81A92800DF368A /* DependenciesTestSupport */; };
 		FA0000012D4B000000000001 /* Dependencies in Frameworks */ = {isa = PBXBuildFile; productRef = FA0000002D4B000000000001 /* Dependencies */; };
 		FA1E15B12BA203820013E0CF /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FA1E15B02BA203820013E0CF /* FirebaseAuth */; };
@@ -114,7 +113,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				74C004412F81A92100DF368A /* Dependencies in Frameworks */,
 				74C004432F81A92800DF368A /* DependenciesTestSupport in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -221,7 +219,6 @@
 			);
 			name = CoffeUnitTests;
 			packageProductDependencies = (
-				74C004402F81A92100DF368A /* Dependencies */,
 				74C004422F81A92800DF368A /* DependenciesTestSupport */,
 			);
 			productName = CoffeUnitTests;
@@ -764,11 +761,6 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		74C000122F7E584B00DF368A /* Dependencies */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FA0000032D4B000000000001 /* XCRemoteSwiftPackageReference "swift-dependencies" */;
-			productName = Dependencies;
-		};
-		74C004402F81A92100DF368A /* Dependencies */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FA0000032D4B000000000001 /* XCRemoteSwiftPackageReference "swift-dependencies" */;
 			productName = Dependencies;

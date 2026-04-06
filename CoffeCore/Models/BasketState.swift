@@ -25,4 +25,8 @@ public final class BasketState {
             items.remove(at: index)
         }
     }
+
+    public func clear() {
+        items = []
+    }
 }

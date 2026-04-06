@@ -7,7 +7,7 @@
 
 import Testing
 import Foundation
-import Dependencies
+import DependenciesTestSupport
 @testable @preconcurrency import CoffeCore
 
 // MARK: - Helpers
@@ -28,95 +28,72 @@ struct StubSessionValidator: SessionValidating {
     var isAuthenticated: Bool
 }
 
-struct StubUserSecureStorage: SecureStorageProtocol {
-    private let userData: Data?
-    init(user: UserModel) { userData = try? JSONEncoder().encode(user) }
-    func save(data: Data, with key: String) async {}
-    func get(with key: String) async -> Data? { userData }
-    func delete(with key: String) async {}
-}
-
-struct StubDrinkRepository: DrinkRepositoryProtocol {
+final class StubDrinkRepository: DrinkRepositoryProtocol, @unchecked Sendable {
     var fetchDrinksResult: [Drink] = []
     var placeOrderCalled = false
 
     func fetchDrinks() async throws -> [Drink] { fetchDrinksResult }
-    func placeOrder(order: Order) async throws {}
+    func placeOrder(order: Order) async throws { placeOrderCalled = true }
 }
 
 // MARK: - BasketViewModel Tests
 
-@Suite("BasketViewModel")
+@Suite("BasketViewModel", .dependencies)
 struct BasketViewModelTests {
 
     @Test("createOrder with empty basket sets emptyBasketError alert")
     func createOrder_emptyBasket_setsAlert() {
-        withDependencies {
-            $0.userRepository = UserRepository(secureStorage: EmptySecureStorage())
-        } operation: {
-            let viewModel = BasketViewModel()
-            let basket = BasketState()
+        let viewModel = BasketViewModel()
+        let basket = BasketState()
 
-            viewModel.createOrder(from: basket)
+        viewModel.createOrder(from: basket)
 
-            #expect(viewModel.alert == .error(.emptyBasketError))
-        }
+        #expect(viewModel.alert == .error(.emptyBasketError))
     }
 
-    @Test("createOrder with no user sets noUserError alert")
+    @Test(
+        "createOrder with no user sets noUserError alert",
+        .dependency(\.sessionValidator, StubSessionValidator(isAuthenticated: true))
+    )
     func createOrder_noUser_setsAlert() {
-        withDependencies {
-            let repo = UserRepository(secureStorage: EmptySecureStorage())
-            repo.user = nil
-            $0.userRepository = repo
-            $0.sessionValidator = StubSessionValidator(isAuthenticated: true)
-        } operation: {
-            let viewModel = BasketViewModel()
-            let basket = BasketState()
-            basket.add(.stub())
+        let viewModel = BasketViewModel()
+        let basket = BasketState()
+        basket.add(.stub())
 
-            viewModel.createOrder(from: basket)
+        viewModel.createOrder(from: basket)
 
-            #expect(viewModel.alert == .error(.noUserError))
-        }
+        #expect(viewModel.alert == .error(.noUserError))
     }
 
-    @Test("createOrder when not authenticated sets noUserError alert")
+    @Test(
+        "createOrder when not authenticated sets noUserError alert",
+        .dependency(\.sessionValidator, StubSessionValidator(isAuthenticated: false))
+    )
     func createOrder_notAuthenticated_setsAlert() {
-        withDependencies {
-            let repo = UserRepository(secureStorage: EmptySecureStorage())
-            repo.user = .stub()
-            $0.userRepository = repo
-            $0.sessionValidator = StubSessionValidator(isAuthenticated: false)
-        } operation: {
-            let viewModel = BasketViewModel()
-            let basket = BasketState()
-            basket.add(.stub())
+        let viewModel = BasketViewModel()
+        let basket = BasketState()
+        basket.add(.stub())
 
-            viewModel.createOrder(from: basket)
+        viewModel.createOrder(from: basket)
 
-            #expect(viewModel.alert == .error(.noUserError))
-        }
+        #expect(viewModel.alert == .error(.noUserError))
     }
 
-    @Test("createOrder with valid state clears basket items")
-    func createOrder_validState_clearsBasket() async {
-        let repo = UserRepository(secureStorage: StubUserSecureStorage(user: .stub()))
-
-        withDependencies {
-            $0.userRepository = repo
+    @Test(
+        "createOrder with valid state clears basket items",
+        .dependencies {
+            $0.userRepository = UserRepository(user: .stub(), secureStorage: EmptySecureStorage())
             $0.sessionValidator = StubSessionValidator(isAuthenticated: true)
             $0.drinkRepository = StubDrinkRepository()
-        } operation: {
-            let viewModel = BasketViewModel()
-            let basket = BasketState()
-            basket.add(.stub())
-            basket.add(.stub(name: "Latte", price: 4.0))
-
-            viewModel.createOrder(from: basket)
-
-            #expect(basket.items.isEmpty)
-            #expect(viewModel.alert == nil)
         }
+    )
+    func createOrder_validState_clearsBasket() {
+        let viewModel = BasketViewModel()
+        let basket = BasketState()
+        basket.add(.stub(name: "Latte", price: 4.0))
+
+        viewModel.createOrder(from: basket)
+        #expect(basket.items.isEmpty)
+        #expect(viewModel.alert == nil)
     }
 }
