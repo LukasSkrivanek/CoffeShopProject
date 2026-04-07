@@ -28,7 +28,7 @@ struct StubSessionValidator: SessionValidating {
     var isAuthenticated: Bool
 }
 
-final class StubDrinkRepository: DrinkRepositoryProtocol, @unchecked Sendable {
+actor StubDrinkRepository: DrinkRepositoryProtocol {
     var fetchDrinksResult: [Drink] = []
     var placeOrderCalled = false
 
