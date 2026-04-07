@@ -26,6 +26,13 @@ public final class UserRepository {
         Task { user = await loadUser() }
     }
 
+    #if DEBUG
+    public init(user: UserModel?, secureStorage: any SecureStorageProtocol) {
+        self.secureStorage = secureStorage
+        self.user = user
+    }
+    #endif
+
     @MainActor
     private func loadUser() async -> UserModel? {
         await fetchUser()

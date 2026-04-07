@@ -67,7 +67,10 @@ struct BasketViewModelTests {
 
     @Test(
         "createOrder when not authenticated sets noUserError alert",
-        .dependency(\.sessionValidator, StubSessionValidator(isAuthenticated: false))
+        .dependencies {
+            $0.userRepository = UserRepository(user: .stub(), secureStorage: EmptySecureStorage())
+            $0.sessionValidator = StubSessionValidator(isAuthenticated: false)
+        }
     )
     func createOrder_notAuthenticated_setsAlert() {
         let viewModel = BasketViewModel()
