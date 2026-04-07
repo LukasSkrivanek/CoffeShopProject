@@ -46,9 +46,9 @@ public final class BasketViewModel {
             items: basketState.items,
             orderTotal: basketState.totalPrice
         )
+        basketState.clear()
         Task {
             try await drinkRepository.placeOrder(order: order)
         }
-        basketState.items = []
     }
 }

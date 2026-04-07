@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		74C000132F7E584B00DF368A /* Dependencies in Frameworks */ = {isa = PBXBuildFile; productRef = 74C000122F7E584B00DF368A /* Dependencies */; };
-		74C0043B2F7E5F9D00DF368A /* CoffeCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74C0000A2F7E548C00DF368A /* CoffeCore.framework */; };
-		74C0043C2F7E5F9D00DF368A /* CoffeCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 74C0000A2F7E548C00DF368A /* CoffeCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		74C000230000000000000001 /* CoffeCore in Frameworks */ = {isa = PBXBuildFile; productRef = 74C000210000000000000001 /* CoffeCore */; };
+		74C000240000000000000001 /* CoffeCore in Frameworks */ = {isa = PBXBuildFile; productRef = 74C000220000000000000001 /* CoffeCore */; };
+		74C004432F81A92800DF368A /* DependenciesTestSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 74C004422F81A92800DF368A /* DependenciesTestSupport */; };
 		FA0000012D4B000000000001 /* Dependencies in Frameworks */ = {isa = PBXBuildFile; productRef = FA0000002D4B000000000001 /* Dependencies */; };
 		FA1E15B12BA203820013E0CF /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FA1E15B02BA203820013E0CF /* FirebaseAuth */; };
 		FA1E15B32BA203820013E0CF /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FA1E15B22BA203820013E0CF /* FirebaseFirestore */; };
@@ -20,39 +20,7 @@
 		FADA61F32B9C680400FDD9AF /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = FADA61F22B9C680400FDD9AF /* Kingfisher */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		74C000002F7E504100DF368A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FAA1D1AB2B8C80F400EE7364 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FAA1D1B22B8C80F400EE7364;
-			remoteInfo = Coffe;
-		};
-		74C0043D2F7E5F9D00DF368A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FAA1D1AB2B8C80F400EE7364 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 74C000092F7E548C00DF368A;
-			remoteInfo = CoffeCore;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		74C0043F2F7E5F9D00DF368A /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				74C0043C2F7E5F9D00DF368A /* CoffeCore.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		74C0000A2F7E548C00DF368A /* CoffeCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CoffeCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		74C0FFFC2F7E504100DF368A /* CoffeUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoffeUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA1D1B32B8C80F400EE7364 /* Coffe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Coffe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -101,24 +69,17 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		74C0000B2F7E548C00DF368A /* CoffeCore */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = CoffeCore; sourceTree = "<group>"; };
 		74C0FFFD2F7E504100DF368A /* CoffeUnitTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = CoffeUnitTests; sourceTree = "<group>"; };
 		FA5DB7992D5F987A0064C4C4 /* Coffe */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (FA5DB79D2D5F98C50064C4C4 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Coffe; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		74C000072F7E548C00DF368A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				74C000132F7E584B00DF368A /* Dependencies in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		74C0FFF92F7E504100DF368A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74C000240000000000000001 /* CoffeCore in Frameworks */,
+				74C004432F81A92800DF368A /* DependenciesTestSupport in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,7 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				74C0043B2F7E5F9D00DF368A /* CoffeCore.framework in Frameworks */,
+				74C000230000000000000001 /* CoffeCore in Frameworks */,
 				FA3317722B9DC5E900248936 /* GoogleSignIn in Frameworks */,
 				FA1E15B12BA203820013E0CF /* FirebaseAuth in Frameworks */,
 				FADA61F32B9C680400FDD9AF /* Kingfisher in Frameworks */,
@@ -153,7 +114,6 @@
 			children = (
 				FA5DB7992D5F987A0064C4C4 /* Coffe */,
 				74C0FFFD2F7E504100DF368A /* CoffeUnitTests */,
-				74C0000B2F7E548C00DF368A /* CoffeCore */,
 				74C000112F7E584B00DF368A /* Frameworks */,
 				FAA1D1B42B8C80F400EE7364 /* Products */,
 			);
@@ -164,48 +124,13 @@
 			children = (
 				FAA1D1B32B8C80F400EE7364 /* Coffe.app */,
 				74C0FFFC2F7E504100DF368A /* CoffeUnitTests.xctest */,
-				74C0000A2F7E548C00DF368A /* CoffeCore.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		74C000052F7E548C00DF368A /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
 /* Begin PBXNativeTarget section */
-		74C000092F7E548C00DF368A /* CoffeCore */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 74C0000E2F7E548C00DF368A /* Build configuration list for PBXNativeTarget "CoffeCore" */;
-			buildPhases = (
-				74C000052F7E548C00DF368A /* Headers */,
-				74C000062F7E548C00DF368A /* Sources */,
-				74C000072F7E548C00DF368A /* Frameworks */,
-				74C000082F7E548C00DF368A /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				74C0000B2F7E548C00DF368A /* CoffeCore */,
-			);
-			name = CoffeCore;
-			packageProductDependencies = (
-				74C000122F7E584B00DF368A /* Dependencies */,
-			);
-			productName = CoffeCore;
-			productReference = 74C0000A2F7E548C00DF368A /* CoffeCore.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 		74C0FFFB2F7E504100DF368A /* CoffeUnitTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 74C000022F7E504100DF368A /* Build configuration list for PBXNativeTarget "CoffeUnitTests" */;
@@ -217,13 +142,14 @@
 			buildRules = (
 			);
 			dependencies = (
-				74C000012F7E504100DF368A /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				74C0FFFD2F7E504100DF368A /* CoffeUnitTests */,
 			);
 			name = CoffeUnitTests;
 			packageProductDependencies = (
+				74C000220000000000000001 /* CoffeCore */,
+				74C004422F81A92800DF368A /* DependenciesTestSupport */,
 			);
 			productName = CoffeUnitTests;
 			productReference = 74C0FFFC2F7E504100DF368A /* CoffeUnitTests.xctest */;
@@ -236,15 +162,14 @@
 				FAA1D1AF2B8C80F400EE7364 /* Sources */,
 				FAA1D1B02B8C80F400EE7364 /* Frameworks */,
 				FAA1D1B12B8C80F400EE7364 /* Resources */,
-				74C0043F2F7E5F9D00DF368A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				74C0043E2F7E5F9D00DF368A /* PBXTargetDependency */,
 			);
 			name = Coffe;
 			packageProductDependencies = (
+				74C000210000000000000001 /* CoffeCore */,
 				FAA1D20C2B8E02D800EE7364 /* KeychainAccess */,
 				FADA61F22B9C680400FDD9AF /* Kingfisher */,
 				FA3317712B9DC5E900248936 /* GoogleSignIn */,
@@ -268,9 +193,6 @@
 				LastSwiftUpdateCheck = 2630;
 				LastUpgradeCheck = 1520;
 				TargetAttributes = {
-					74C000092F7E548C00DF368A = {
-						CreatedOnToolsVersion = 26.3;
-					};
 					74C0FFFB2F7E504100DF368A = {
 						CreatedOnToolsVersion = 26.3;
 						TestTargetID = FAA1D1B22B8C80F400EE7364;
@@ -290,6 +212,7 @@
 			);
 			mainGroup = FAA1D1AA2B8C80F400EE7364;
 			packageReferences = (
+				74C000200000000000000001 /* XCLocalSwiftPackageReference "." */,
 				FAA1D20B2B8E02D800EE7364 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 				FADA61F12B9C680400FDD9AF /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				FA3317702B9DC5E900248936 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
@@ -302,19 +225,11 @@
 			targets = (
 				FAA1D1B22B8C80F400EE7364 /* Coffe */,
 				74C0FFFB2F7E504100DF368A /* CoffeUnitTests */,
-				74C000092F7E548C00DF368A /* CoffeCore */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		74C000082F7E548C00DF368A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		74C0FFFA2F7E504100DF368A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -332,13 +247,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		74C000062F7E548C00DF368A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		74C0FFF82F7E504100DF368A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -355,151 +263,48 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		74C000012F7E504100DF368A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FAA1D1B22B8C80F400EE7364 /* Coffe */;
-			targetProxy = 74C000002F7E504100DF368A /* PBXContainerItemProxy */;
-		};
-		74C0043E2F7E5F9D00DF368A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 74C000092F7E548C00DF368A /* CoffeCore */;
-			targetProxy = 74C0043D2F7E5F9D00DF368A /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin XCBuildConfiguration section */
 		74C000032F7E504100DF368A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 57FHRQVBLR;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				MACOSX_DEPLOYMENT_TARGET = 26.2;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "luky.skrivos-gmail.com.CoffeUnitTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SUPPORTED_PLATFORMS = macosx;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Coffe.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Coffe";
 			};
 			name = Debug;
 		};
 		74C000042F7E504100DF368A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 57FHRQVBLR;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				MACOSX_DEPLOYMENT_TARGET = 26.2;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "luky.skrivos-gmail.com.CoffeUnitTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SUPPORTED_PLATFORMS = macosx;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Coffe.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Coffe";
-			};
-			name = Release;
-		};
-		74C0000F2F7E548C00DF368A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 57FHRQVBLR;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 26.2;
-				MARKETING_VERSION = 1.0;
-				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
-				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = "luky.skrivos-gmail.com.CoffeCore";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
-				SUPPORTS_MACCATALYST = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_INSTALL_MODULE = YES;
-				SWIFT_INSTALL_OBJC_HEADER = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		74C000102F7E548C00DF368A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 57FHRQVBLR;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 26.2;
-				MARKETING_VERSION = 1.0;
-				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
-				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = "luky.skrivos-gmail.com.CoffeCore";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
-				SUPPORTS_MACCATALYST = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_INSTALL_MODULE = YES;
-				SWIFT_INSTALL_OBJC_HEADER = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -562,6 +367,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -618,6 +424,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -696,15 +503,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		74C0000E2F7E548C00DF368A /* Build configuration list for PBXNativeTarget "CoffeCore" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				74C0000F2F7E548C00DF368A /* Debug */,
-				74C000102F7E548C00DF368A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		FAA1D1AE2B8C80F400EE7364 /* Build configuration list for PBXProject "Coffe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -724,6 +522,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		74C000200000000000000001 /* XCLocalSwiftPackageReference "." */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = .;
+		};
+/* End XCLocalSwiftPackageReference section */
 
 /* Begin XCRemoteSwiftPackageReference section */
 		FA0000032D4B000000000001 /* XCRemoteSwiftPackageReference "swift-dependencies" */ = {
@@ -769,10 +574,20 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		74C000122F7E584B00DF368A /* Dependencies */ = {
+		74C000210000000000000001 /* CoffeCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 74C000200000000000000001 /* XCLocalSwiftPackageReference "." */;
+			productName = CoffeCore;
+		};
+		74C000220000000000000001 /* CoffeCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 74C000200000000000000001 /* XCLocalSwiftPackageReference "." */;
+			productName = CoffeCore;
+		};
+		74C004422F81A92800DF368A /* DependenciesTestSupport */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FA0000032D4B000000000001 /* XCRemoteSwiftPackageReference "swift-dependencies" */;
-			productName = Dependencies;
+			productName = DependenciesTestSupport;
 		};
 		FA0000002D4B000000000001 /* Dependencies */ = {
 			isa = XCSwiftPackageProductDependency;
